@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | OUTWERK SOLUTIONS</title>
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#118AB2',
+                        secondary: '#06D6A0',
+                    },
+                    opacity: {
+                        '5': '0.05',
+                        '10': '0.1',
+                        '20': '0.2',
+                        '30': '0.3',
+                        '40': '0.4',
+                        '50': '0.5',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0B0C16 !important;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: #118AB2;
+            color: #FFFFFF;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(17, 138, 178, 0.05);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #118AB2 !important;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06D6A0;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* New Text Reveal Animation */
+        @keyframes textReveal {
+            0% {
+                transform: translateX(-100%);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes textRevealReverse {
+            0% {
+                transform: translateX(100%);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes textRevealTop {
+            0% {
+                transform: translateY(-100%);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes textRevealBottom {
+            0% {
+                transform: translateY(100%);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .animate-rotate {
+            animation: rotate 20s linear infinite;
+        }
+
+        /* Text opacity utilities */
+        .text-primary { color: #118AB2 !important; }
+        .bg-primary { background: #118AB2 !important; }
+        .border-primary { border-color: #118AB2 !important; }
+
+        .text-secondary { color: #06D6A0 !important; }
+        .bg-secondary { background: #06D6A0 !important; }
+        .border-secondary { border-color: #06D6A0 !important; }
+        
+        /* Background colors */
+        .bg-dark { background: #0E1117; }
+        
+        /* Gradient backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, #118AB2 0%, #06D6A0 100%) !important;
+        }
+        
+        .gradient-dark {
+            background: linear-gradient(135deg, #0E1117 0%, #1A1F29 100%);
+        }
+
+        /* Glow effects */
+        .glow {
+            box-shadow: 0 0 20px rgba(17, 138, 178, 0.3) !important;
+        }
+
+        .glow-lg {
+            box-shadow: 0 0 40px rgba(17, 138, 178, 0.3) !important;
+        }
+
+        /* Enhanced Navbar Styles */
+        #navbar {
+            transform: translateY(0);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        backdrop-filter 0.5s ease,
+                        background-color 0.5s ease;
+        }
+        
+        #navbar.navbar-hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar-blur {
+            background-color: rgba(11, 12, 22, 0.95) !important;
+            border-bottom: 1px solid rgba(17, 138, 178, 0.3) !important;
+        }
+
+        #navbar.navbar-blur {
+            background-color: rgba(14, 17, 23, 0.95);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(17, 138, 178, 0.2);
+        }
+        
+        #navbar.navbar-blur::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                #118AB2 50%, 
+                transparent 100%);
+        }
+
+        /* Enhanced hover effects */
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(17, 138, 178, 0.2);
+        }
+        
+        /* Enhanced focus styles */
+        button:focus,
+        a:focus {
+            outline: 2px solid #118AB2;
+            outline-offset: 4px;
+        }
+        
+        /* Custom scrollbar for mobile menu */
+        #mobileMenu {
+            scrollbar-width: thin;
+            scrollbar-color: #118AB2 transparent;
+        }
+        
+        #mobileMenu::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        #mobileMenu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        #mobileMenu::-webkit-scrollbar-thumb {
+            background-color: #118AB2;
+            border-radius: 2px;
+        }
+
+        /* Text Reveal Effect - Disabled on mobile */
+        .text-reveal-wrapper {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .text-reveal-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #118AB2;
+            transform: translateX(-100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .text-reveal-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card Reveal Effect - Disabled on mobile */
+        .card-reveal-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-reveal-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #118AB2;
+            transform: translateX(-100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .card-reveal-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .text-reveal-mask,
+            .card-reveal-mask {
+                display: none !important;
+            }
+        }
+
+        /* Mobile menu open state */
+        .navbar-scrolled {
+            background: rgba(14, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(17, 138, 178, 0.2);
+        }
+
+        .active-nav-link {
+            color: #118AB2 !important;
+            background: rgba(17, 138, 178, 0.1) !important;
+        }
+
+        /* Scale utility for button click */
+        .scale-95 {
+            transform: scale(0.95);
+            transition: transform 0.2s ease;
+        }
+
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        
+        /* Opacity utilities for new color scheme */
+        .text-white\/90 { color: rgba(255, 255, 255, 0.9); }
+        .text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+        .text-white\/70 { color: rgba(255, 255, 255, 0.7); }
+        .text-white\/60 { color: rgba(255, 255, 255, 0.6); }
+        .text-white\/50 { color: rgba(255, 255, 255, 0.5); }
+        
+        .border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
+        .border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+        
+        .bg-white\/10 { background: rgba(255, 255, 255, 0.1); }
+        .bg-white\/05 { background: rgba(255, 255, 255, 0.05); }
+        .bg-primary\/10 { background: rgba(17, 138, 178, 0.1); }
+        .bg-primary\/20 { background: rgba(17, 138, 178, 0.2); }
+        .bg-secondary\/10 { background: rgba(6, 214, 160, 0.1); }
+
+        /* AOS custom styles */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        /* Fix form select text color */
+        select option {
+            background-color: #0B0C16;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- Navigation with Enhanced Dropdowns -->
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-0" role="banner">
+    <!-- Edge decorations -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <!-- Top border accents -->
+        <div class="absolute top-0 left-0 w-16 h-px" style="background: linear-gradient(to right, #118AB2, rgba(17, 138, 178, 0.5), transparent);"></div>
+        <div class="absolute top-0 right-0 w-16 h-px" style="background: linear-gradient(to left, #06D6A0, rgba(6, 214, 160, 0.5), transparent);"></div>
+        
+        <!-- Corner dots -->
+        <div class="absolute top-4 left-4 w-1 h-1 rotate-45" style="background-color: #118AB2;"></div>
+        <div class="absolute top-4 right-4 w-1 h-1 rotate-45" style="background-color: #06D6A0;"></div>
+        
+        <!-- Animated line -->
+        <div class="absolute top-full left-1/2 -translate-x-1/2 w-24 h-px" style="background: linear-gradient(to right, transparent, rgba(17, 138, 178, 0.3), transparent);"></div>
+    </div>
+
+    <nav class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between relative z-10">
+        <!-- Logo -->
+         <a href="home.html" class="flex items-center group">
+            <div class="relative flex items-center gap-3">
+                <div class="relative">
+                    <img 
+                        src="images/logo-main.png" 
+                        alt="OUTWERK SOLUTIONS Logo"
+                        class="h-20 w-auto object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;"
+                    >
+                </div>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center gap-1">
+            <!-- Home -->
+            <li>
+                <a href="home.html" 
+                   class="group relative px-4 py-3 text-white/80 hover:text-white transition-all duration-300 flex items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="relative w-5 h-5">
+                            <div class="absolute inset-0 w-2 h-2 border-2" style="border-color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.borderColor='#118AB2'; this.style.width='0.75rem'; this.style.height='0.75rem';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.7)'; this.style.width='0.5rem'; this.style.height='0.5rem';"></div>
+                        </div>
+                        <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">HOME</span>
+                    </div>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5" style="background-color: #118AB2;" onmouseover="this.style.width='2.5rem';" onmouseout="this.style.width='0';"></div>
+                </a>
+            </li>
+            
+            <!-- Services Dropdown -->
+            <li class="relative group">
+                <button class="group relative px-4 py-3 text-white/80 hover:text-white transition-all duration-300 flex items-center gap-3">
+                    <div class="relative w-5 h-5">
+                        <div class="absolute inset-0">
+                            <div class="w-2 h-2 border" style="border-color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.borderColor='#118AB2'; this.style.width='0.75rem'; this.style.height='0.75rem';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.7)'; this.style.width='0.5rem'; this.style.height='0.5rem';"></div>
+                            <div class="w-1 h-1 absolute -bottom-1 -right-1" style="background-color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.7)';"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">SERVICES</span>
+                    <i class="fas fa-chevron-down text-xs mt-0.5 opacity-70 group-hover:opacity-100 transition-all duration-300"></i>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5" style="background-color: #118AB2;" onmouseover="this.style.width='2.5rem';" onmouseout="this.style.width='0';"></div>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
+                    <div class="relative">
+                        <div class="absolute -top-2 left-6 w-4 h-4" style="background-color: rgba(11, 12, 22, 0.95); border-color: rgba(17, 138, 178, 0.2); transform: rotate(45deg); border-left: 1px solid; border-top: 1px solid;"></div>
+                        
+                        <div class="bg-black/95 backdrop-blur-sm border" style="border-color: rgba(17, 138, 178, 0.2);" class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]">
+                            <div class="flex items-center gap-2 mb-4 px-2">
+                                <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                                <div class="text-xs text-white/80 tracking-widest uppercase">OUR SERVICES</div>
+                            </div>
+                            
+                            <!-- Web Development -->
+                            <a href="services.html#web-dev" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                                            <i class="fas fa-code text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Web Development</div>
+                                        <div class="text-xs text-white/60 mt-1">Modern web solutions</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- UI/UX Design -->
+                            <a href="services.html#ui-ux" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                                            <i class="fas fa-paint-brush text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">UI/UX Design</div>
+                                        <div class="text-xs text-white/60 mt-1">User-centered design</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- IT Solutions -->
+                            <a href="services.html#it-solutions" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                                            <i class="fas fa-server text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">IT Solutions</div>
+                                        <div class="text-xs text-white/60 mt-1">Enterprise systems</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Consulting -->
+                            <a href="services.html#consulting" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                                            <i class="fas fa-chart-line text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Consulting</div>
+                                        <div class="text-xs text-white/60 mt-1">Strategic guidance</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- View All -->
+                            <div class="pt-4 mt-2 border-t" style="border-color: rgba(17, 138, 178, 0.2);">
+                                <a href="services.html" class="group/item block px-3 py-3 text-white hover:bg-white/10 transition-all duration-300 rounded">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm font-medium tracking-wide">VIEW ALL SERVICES</span>
+                                        <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.5)'; this.style.backgroundColor='transparent';">
+                                            <i class="fas fa-arrow-right text-xs"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Careers Dropdown -->
+            <li class="relative group">
+                <button class="group relative px-4 py-3 text-white/80 hover:text-white transition-all duration-300 flex items-center gap-3">
+                    <div class="relative w-5 h-5">
+                        <div class="absolute inset-0">
+                            <div class="w-2 h-2 border" style="border-color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.borderColor='#06D6A0'; this.style.width='0.75rem'; this.style.height='0.75rem';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.7)'; this.style.width='0.5rem'; this.style.height='0.5rem';"></div>
+                            <div class="w-1 h-1 absolute -bottom-1 -right-1" style="background-color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.backgroundColor='#06D6A0';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.7)';"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">CAREERS</span>
+                    <i class="fas fa-chevron-down text-xs mt-0.5 opacity-70 group-hover:opacity-100 transition-all duration-300"></i>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5" style="background-color: #06D6A0;" onmouseover="this.style.width='2.5rem';" onmouseout="this.style.width='0';"></div>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
+                    <div class="relative">
+                        <div class="absolute -top-2 left-6 w-4 h-4" style="background-color: rgba(11, 12, 22, 0.95); border-color: rgba(6, 214, 160, 0.2); transform: rotate(45deg); border-left: 1px solid; border-top: 1px solid;"></div>
+                        
+                        <div class="bg-black/95 backdrop-blur-sm border" style="border-color: rgba(6, 214, 160, 0.2);" class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]">
+                            <div class="flex items-center gap-2 mb-4 px-2">
+                                <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+                                <div class="text-xs text-white/80 tracking-widest uppercase">JOIN OUR TEAM</div>
+                            </div>
+                            
+                            <!-- Open Positions -->
+                            <a href="career.html#openings" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='rgba(6, 214, 160, 0.2)';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)';">
+                                            <i class="fas fa-briefcase text-sm" style="color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.color='#06D6A0';" onmouseout="this.style.color='rgba(6, 214, 160, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(6, 214, 160, 0.5);" onmouseover="this.style.backgroundColor='#06D6A0';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Open Positions</div>
+                                        <div class="text-xs text-white/60 mt-1">Current vacancies</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Benefits -->
+                            <a href="career.html#benefits" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='rgba(6, 214, 160, 0.2)';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)';">
+                                            <i class="fas fa-gift text-sm" style="color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.color='#06D6A0';" onmouseout="this.style.color='rgba(6, 214, 160, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(6, 214, 160, 0.5);" onmouseover="this.style.backgroundColor='#06D6A0';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Benefits & Culture</div>
+                                        <div class="text-xs text-white/60 mt-1">Work environment</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Internships -->
+                            <a href="career.html#internships" class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='rgba(6, 214, 160, 0.2)';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)';">
+                                            <i class="fas fa-graduation-cap text-sm" style="color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.color='#06D6A0';" onmouseout="this.style.color='rgba(6, 214, 160, 0.7)';"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(6, 214, 160, 0.5);" onmouseover="this.style.backgroundColor='#06D6A0';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.5)';"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Internships</div>
+                                        <div class="text-xs text-white/60 mt-1">Student opportunities</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Apply Now -->
+                            <div class="pt-4 mt-2 border-t" style="border-color: rgba(6, 214, 160, 0.2);">
+                                <a href="career.html#apply" class="group/item block px-3 py-3 transition-all duration-300 rounded" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='black';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)'; this.style.color='white';">
+                                    <div class="flex items-center justify-center gap-3">
+                                        <span class="text-sm font-medium tracking-wide">APPLY NOW</span>
+                                        <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: #06D6A0;" onmouseover="this.style.backgroundColor='black'; this.style.borderColor='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#06D6A0';">
+                                            <i class="fas fa-paper-plane text-xs"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Contact Button -->
+            <li class="ml-4">
+                <a href="contact.html" 
+                   class="group relative px-8 py-3 flex items-center gap-4 border transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.4);" onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='#118AB2'; this.style.color='white';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.4)'; this.style.backgroundColor='transparent'; this.style.color='white';">
+                    <div class="relative">
+                        <div class="w-4 h-4 border-2 transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.borderColor='white';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.7)';"></div>
+                        <div class="w-2 h-2 absolute -bottom-1 -right-1 transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.backgroundColor='white';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.7)';"></div>
+                    </div>
+                    <span class="text-sm tracking-wider font-medium text-white">CONTACT</span>
+                    <div class="w-4 h-4 flex items-center justify-center group-hover:rotate-45 transition-all duration-300">
+                        <i class="fas fa-arrow-right text-xs text-white"></i>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden group relative w-12 h-12 flex items-center justify-center">
+            <div class="relative w-8 h-8">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-6 h-0.5 transition-all duration-300 transform group-hover:rotate-45" style="background-color: rgba(17, 138, 178, 0.8);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.8)';"></div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-6 h-0.5 transition-all duration-300 transform group-hover:-rotate-45" style="background-color: rgba(17, 138, 178, 0.8);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.8)';"></div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div class="w-4 h-4 border-2 rotate-45" style="border-color: #118AB2;"></div>
+                </div>
+            </div>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-sm border-t" style="border-color: rgba(17, 138, 178, 0.2);">
+        <div class="px-6 py-8 space-y-1">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between mb-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rotate-45" style="background-color: #118AB2; box-shadow: 0 0 15px rgba(17, 138, 178, 0.5);"></div>
+                    <div>
+                        <div class="text-sm text-white/90 tracking-widest uppercase font-medium">MENU</div>
+                        <div class="text-xs text-white/60 mt-0.5">Navigation</div>
+                    </div>
+                </div>
+                <div class="text-xs text-white/60 px-3 py-1 rounded" style="background-color: rgba(17, 138, 178, 0.1);">02</div>
+            </div>
+            
+            <!-- Mobile Navigation Links -->
+            <a href="home.html" class="group block py-5 text-white/80 hover:text-white transition-all duration-300 border-b" style="border-color: rgba(17, 138, 178, 0.1);">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                        <i class="fas fa-home text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm tracking-wide font-medium">HOME</div>
+                        <div class="text-xs text-white/60 mt-0.5">Main page</div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xs ml-auto opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
+                </div>
+            </a>
+            
+            <!-- Mobile Services -->
+            <div class="border-b" style="border-color: rgba(17, 138, 178, 0.1);">
+                <button id="mobileServicesBtn" class="group w-full flex justify-between items-center py-5 text-white/80 hover:text-white transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                            <i class="fas fa-cogs text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm tracking-wide font-medium">SERVICES</div>
+                            <div class="text-xs text-white/60 mt-0.5">Our offerings</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                        <div class="w-2 h-2 rotate-45 transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.5)';"></div>
+                    </div>
+                </button>
+                <div id="mobileServicesMenu" class="hidden pl-12 pb-4 space-y-4">
+                    <!-- Web Dev -->
+                    <a href="services.html#web-dev" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
+                                <i class="fas fa-code text-xs"></i>
+                            </div>
+                            <span class="text-sm">Web Development</span>
+                        </div>
+                    </a>
+                    <!-- UI/UX -->
+                    <a href="services.html#ui-ux" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
+                                <i class="fas fa-paint-brush text-xs"></i>
+                            </div>
+                            <span class="text-sm">UI/UX Design</span>
+                        </div>
+                    </a>
+                    <!-- IT Solutions -->
+                    <a href="services.html#it-solutions" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
+                                <i class="fas fa-server text-xs"></i>
+                            </div>
+                            <span class="text-sm">IT Solutions</span>
+                        </div>
+                    </a>
+                    <!-- Consulting -->
+                    <a href="services.html#consulting" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
+                                <i class="fas fa-chart-line text-xs"></i>
+                            </div>
+                            <span class="text-sm">Consulting</span>
+                        </div>
+                    </a>
+                    <!-- View All -->
+                    <a href="services.html" class="group/item block pt-4 text-white font-medium">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='black';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)'; this.style.color='white';">
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </div>
+                            <span>View All Services</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Careers -->
+            <div class="border-b" style="border-color: rgba(6, 214, 160, 0.1);">
+                <button id="mobileCareersBtn" class="group w-full flex justify-between items-center py-5 text-white/80 hover:text-white transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='rgba(6, 214, 160, 0.2)';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)';">
+                            <i class="fas fa-users text-sm" style="color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.color='#06D6A0';" onmouseout="this.style.color='rgba(6, 214, 160, 0.7)';"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm tracking-wide font-medium">CAREERS</div>
+                            <div class="text-xs text-white/60 mt-0.5">Join our team</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                        <div class="w-2 h-2 rotate-45 transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.5);" onmouseover="this.style.backgroundColor='#06D6A0';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.5)';"></div>
+                    </div>
+                </button>
+                <div id="mobileCareersMenu" class="hidden pl-12 pb-4 space-y-4">
+                    <!-- Open Positions -->
+                    <a href="career.html#openings" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(6, 214, 160, 0.3);" onmouseover="this.style.borderColor='#06D6A0';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.3)';">
+                                <i class="fas fa-briefcase text-xs"></i>
+                            </div>
+                            <span class="text-sm">Open Positions</span>
+                        </div>
+                    </a>
+                    <!-- Benefits -->
+                    <a href="career.html#benefits" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(6, 214, 160, 0.3);" onmouseover="this.style.borderColor='#06D6A0';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.3)';">
+                                <i class="fas fa-gift text-xs"></i>
+                            </div>
+                            <span class="text-sm">Benefits & Culture</span>
+                        </div>
+                    </a>
+                    <!-- Internships -->
+                    <a href="career.html#internships" class="group/item block text-white/70 hover:text-white transition-all duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(6, 214, 160, 0.3);" onmouseover="this.style.borderColor='#06D6A0';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.3)';">
+                                <i class="fas fa-graduation-cap text-xs"></i>
+                            </div>
+                            <span class="text-sm">Internships</span>
+                        </div>
+                    </a>
+                    <!-- Apply Now -->
+                    <a href="career.html#apply" class="group/item block pt-4 text-white font-medium">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='black';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)'; this.style.color='white';">
+                                <i class="fas fa-paper-plane text-xs"></i>
+                            </div>
+                            <span>Apply Now</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Contact -->
+            <a href="contact.html" class="group block py-5 text-white transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.2);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';">
+                            <i class="fas fa-envelope text-white text-sm"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm tracking-wide font-medium">CONTACT</div>
+                            <div class="text-xs text-white/60 mt-0.5">Get in touch</div>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 border flex items-center justify-center transition-all duration-300" style="border-color: #118AB2;" onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Footer -->
+            <div class="pt-10 mt-8 border-t" style="border-color: rgba(17, 138, 178, 0.2);">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    <div class="text-xs text-white/80 tracking-widest uppercase">QUICK ACCESS</div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="tel:+923001234567" class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300">
+                        <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(17, 138, 178, 0.3);">
+                            <i class="fas fa-phone text-xs"></i>
+                        </div>
+                        <div class="text-xs">+92 300 1234567</div>
+                    </a>
+                    <a href="mailto:info@outwerksolutions.com" class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300">
+                        <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(17, 138, 178, 0.3);">
+                            <i class="fas fa-envelope text-xs"></i>
+                        </div>
+                        <div class="text-xs">info@outwerk.com</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Contact Hero Section - Fixed overlapping and symmetry -->
+<section id="contact-hero" class="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16 overflow-hidden">
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="video/video.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Technology background" class="w-full h-full object-cover">
+        </video>
+        
+        <!-- Edge decorations -->
+        <div class="absolute inset-0 border-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
+        <div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2" style="border-color: rgba(17, 138, 178, 0.4);"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2" style="border-color: rgba(6, 214, 160, 0.4);"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2" style="border-color: rgba(6, 214, 160, 0.4);"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2" style="border-color: rgba(17, 138, 178, 0.4);"></div>
+        
+        <!-- Animated lines -->
+        <div class="absolute top-1/4 right-16 w-px h-64 rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(17, 138, 178, 0.2) 50%, transparent 100%);"></div>
+        <div class="absolute bottom-1/4 left-16 w-px h-64 -rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(6, 214, 160, 0.2) 50%, transparent 100%);"></div>
+        
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(17, 138, 178, 0.1) 0%, transparent 50%, rgba(6, 214, 160, 0.1) 100%);"></div>
+    </div>
+
+    <div class="max-w-6xl relative z-20 text-center">
+        <!-- Badge -->
+        <div data-aos="fade-down" data-aos-duration="800" class="inline-flex items-center gap-2 mb-8">
+            <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+            <span class="text-xs font-medium text-white/90 tracking-widest uppercase">GET IN TOUCH</span>
+            <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+        </div>
+
+        <!-- Main Heading - Fixed spacing and overflow -->
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="mb-6">
+            <h1 class="font-montserrat text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight tracking-tight">
+                CONNECT
+                <span class="block mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl" style="background: linear-gradient(to right, #118AB2, #ffffff, #06D6A0); -webkit-background-clip: text; background-clip: text; color: transparent;">WITH US</span>
+            </h1>
+        </div>
+
+        <!-- Subheading - Fixed width and padding -->
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="mt-6 mb-10 px-4">
+            <p class="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed">
+                Let's build the future together. Reach out for innovative IT solutions that transform businesses.
+            </p>
+        </div>
+
+        <!-- CTA Button -->
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300" class="flex justify-center mb-16">
+            <a href="#contact-form" 
+               class="group px-8 sm:px-10 md:px-12 py-3 sm:py-4 text-white font-semibold text-sm sm:text-base border-2 border-transparent rounded-none flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-2xl"
+               style="background: linear-gradient(to right, #118AB2, #06D6A0);"
+               onmouseover="this.style.background='transparent'; this.style.borderColor='#118AB2'; this.querySelector('span').style.color='#118AB2'; this.querySelectorAll('i').forEach(icon => icon.style.color='#118AB2')"
+               onmouseout="this.style.background='linear-gradient(to right, #118AB2, #06D6A0)'; this.style.borderColor='transparent'; this.querySelector('span').style.color='white'; this.querySelectorAll('i').forEach(icon => icon.style.color='white')">
+                <i class="fas fa-paper-plane transition-all duration-300 group-hover:rotate-12" style="color: white;"></i>
+                <span class="transition-colors duration-300" style="color: white;">START PROJECT</span>
+                <i class="fas fa-arrow-right ml-2 transition-all duration-300 group-hover:translate-x-2" style="color: white;"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section - Fixed layout and spacing -->
+<section id="contact-form" class="py-20 sm:py-24 px-6 bg-black relative overflow-hidden">
+    <!-- Background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 border rotate-45 animate-rotate" style="border-color: rgba(17, 138, 178, 0.05);"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 border -rotate-45 animate-rotate" style="border-color: rgba(6, 214, 160, 0.05);"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
+            <!-- Form Column -->
+            <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    <div class="text-xs text-white/80 tracking-widest uppercase">CONTACT FORM</div>
+                </div>
+                
+                <div class="mb-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Start Your Project</h2>
+                </div>
+                
+                <div class="mb-8">
+                    <p class="text-white/70">Fill out the form and our team will contact you within 2 hours</p>
+                </div>
+                
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden p-4 rounded-lg mb-6" style="background-color: rgba(17, 138, 178, 0.1); border-left: 4px solid #118AB2;">
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background-color: #118AB2; color: white;">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white">Message sent successfully!</p>
+                            <p class="text-sm text-white/70">We'll respond within 2 hours.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form - Fixed input spacing -->
+                <form action="https://formsubmit.co/4889d69600897b9eaea26c11149ea1c4" method="POST" class="space-y-5 sm:space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-white/70 mb-2">First Name</label>
+                            <input type="text" 
+                                   class="w-full px-4 py-3 rounded-none focus:outline-none transition-all duration-300 text-white placeholder-white/30"
+                                   placeholder="John"
+                                   required
+                                   style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                                   onfocus="this.style.borderColor='#118AB2'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
+                                   onblur="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)';">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-white/70 mb-2">Last Name</label>
+                            <input type="text" 
+                                   class="w-full px-4 py-3 rounded-none focus:outline-none transition-all duration-300 text-white placeholder-white/30"
+                                   placeholder="Doe"
+                                   required
+                                   style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1);"
+                                   onfocus="this.style.borderColor='#06D6A0'; this.style.backgroundColor='rgba(6, 214, 160, 0.1)';"
+                                   onblur="this.style.borderColor='rgba(6, 214, 160, 0.1)'; this.style.backgroundColor='rgba(6, 214, 160, 0.05)';">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-white/70 mb-2">Email</label>
+                        <input type="email" 
+                               class="w-full px-4 py-3 rounded-none focus:outline-none transition-all duration-300 text-white placeholder-white/30"
+                               placeholder="john@company.com"
+                               required
+                               style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                               onfocus="this.style.borderColor='#118AB2'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
+                               onblur="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)';">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-white/70 mb-2">Company</label>
+                        <input type="text" 
+                               class="w-full px-4 py-3 rounded-none focus:outline-none transition-all duration-300 text-white placeholder-white/30"
+                               placeholder="Your company name"
+                               style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1);"
+                               onfocus="this.style.borderColor='#06D6A0'; this.style.backgroundColor='rgba(6, 214, 160, 0.1)';"
+                               onblur="this.style.borderColor='rgba(6, 214, 160, 0.1)'; this.style.backgroundColor='rgba(6, 214, 160, 0.05)';">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-white/70 mb-2">Service</label>
+                        <div class="relative">
+                            <select class="w-full px-4 py-3 rounded-none focus:outline-none transition-all duration-300 text-white appearance-none"
+                                    style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                                    onfocus="this.style.borderColor='#118AB2'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
+                                    onblur="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)';">
+                                <option value="" class="bg-black text-white">Select a service</option>
+                                <option value="web-dev" class="bg-black text-white">Web Development</option>
+                                <option value="ui-ux" class="bg-black text-white">UI/UX Design</option>
+                                <option value="it-solutions" class="bg-black text-white">IT Solutions</option>
+                                <option value="consulting" class="bg-black text-white">Consulting</option>
+                                <option value="other" class="bg-black text-white">Other</option>
+                            </select>
+                            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                <i class="fas fa-chevron-down" style="color: #118AB2;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-white/70 mb-2">Message</label>
+                        <textarea rows="4" 
+                                  class="w-full px-4 py-3 rounded-none focus:outline-none transition-all duration-300 text-white placeholder-white/30 resize-none"
+                                  placeholder="Tell us about your project..."
+                                  required
+                                  style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                                  onfocus="this.style.borderColor='#118AB2'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
+                                  onblur="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)';"></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" 
+                                class="w-full py-3 sm:py-4 px-8 font-semibold border-2 transition-all duration-300"
+                                style="background: linear-gradient(to right, #118AB2, #06D6A0); color: white; border-color: transparent;"
+                                onmouseover="this.style.background='transparent'; this.style.color='#118AB2'; this.style.borderColor='#118AB2';"
+                                onmouseout="this.style.background='linear-gradient(to right, #118AB2, #06D6A0)'; this.style.color='white'; this.style.borderColor='transparent';">
+                            <span class="text-sm sm:text-base">SEND MESSAGE</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Info Column - Fixed spacing -->
+            <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="300" class="mt-8 lg:mt-0 space-y-6 sm:space-y-8">
+                <div class="flex items-center gap-2 mb-4 sm:mb-6">
+                    <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+                    <div class="text-xs text-white/80 tracking-widest uppercase">CONTACT INFORMATION</div>
+                </div>
+                
+                <!-- Email -->
+                <div class="group p-5 sm:p-6 transition-all duration-300 hover-lift"
+                     style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                     onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
+                     onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)';">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300 flex-shrink-0"
+                             style="background-color: rgba(17, 138, 178, 0.1); color: #118AB2;"
+                             onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white';"
+                             onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)'; this.style.color='#118AB2';">
+                            <i class="fas fa-envelope text-base sm:text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-base sm:text-lg text-white mb-2">Email</h3>
+                            <a href="mailto:info@outwerksolutions.com" 
+                               class="text-white/70 hover:text-white transition-colors block mb-1 group/link truncate">
+                                info@outwerksolutions.com
+                                <i class="fas fa-arrow-right ml-2 opacity-0 group-hover/link:opacity-100 transition-all duration-300 inline-block"></i>
+                            </a>
+                            <a href="mailto:support@outwerksolutions.com" 
+                               class="text-white/70 hover:text-white transition-colors block group/link truncate">
+                                support@outwerksolutions.com
+                                <i class="fas fa-arrow-right ml-2 opacity-0 group-hover/link:opacity-100 transition-all duration-300 inline-block"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="group p-5 sm:p-6 transition-all duration-300 hover-lift"
+                     style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1);"
+                     onmouseover="this.style.borderColor='#06D6A0'; this.style.backgroundColor='rgba(6, 214, 160, 0.1)';"
+                     onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.1)'; this.style.backgroundColor='rgba(6, 214, 160, 0.05)';">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300 flex-shrink-0"
+                             style="background-color: rgba(6, 214, 160, 0.1); color: #06D6A0;"
+                             onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='white';"
+                             onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)'; this.style.color='#06D6A0';">
+                            <i class="fas fa-phone text-base sm:text-lg"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-base sm:text-lg text-white mb-2">Phone</h3>
+                            <p class="text-white/70 mb-1 text-sm sm:text-base">Pakistan: +92 300 1234567</p>
+                            <p class="text-white/70 mb-1 text-sm sm:text-base">USA: +1 (555) 123-4567</p>
+                            <p class="text-white/70 mb-3 text-sm sm:text-base">Canada: +1 (416) 123-4567</p>
+                            <p class="text-xs sm:text-sm text-white/50">Mon-Fri: 9 AM - 6 PM (GMT+5)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Locations -->
+                <div class="group p-5 sm:p-6 transition-all duration-300 hover-lift"
+                     style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                     onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
+                     onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)';">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300 flex-shrink-0"
+                             style="background-color: rgba(17, 138, 178, 0.1); color: #118AB2;"
+                             onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white';"
+                             onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)'; this.style.color='#118AB2';">
+                            <i class="fas fa-map-marker-alt text-base sm:text-lg"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-base sm:text-lg text-white mb-3">Locations</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rotate-45 flex-shrink-0" style="background-color: #118AB2;"></div>
+                                    <div>
+                                        <p class="font-medium text-white text-sm sm:text-base">Headquarters</p>
+                                        <p class="text-xs sm:text-sm text-white/70">Karachi, Pakistan</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rotate-45 flex-shrink-0" style="background-color: #06D6A0;"></div>
+                                    <div>
+                                        <p class="font-medium text-white text-sm sm:text-base">North America</p>
+                                        <p class="text-xs sm:text-sm text-white/70">New York, USA</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rotate-45 flex-shrink-0" style="background-color: #118AB2;"></div>
+                                    <div>
+                                        <p class="font-medium text-white text-sm sm:text-base">Canada</p>
+                                        <p class="text-xs sm:text-sm text-white/70">Toronto, Canada</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social - Fixed alignment -->
+                <div class="pt-4">
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-4">Connect with us</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" class="group/social w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300"
+                           style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1); color: #118AB2;"
+                           onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='#118AB2'; this.style.color='white';"
+                           onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)'; this.style.color='#118AB2';">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="group/social w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300"
+                           style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1); color: #118AB2;"
+                           onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='#118AB2'; this.style.color='white';"
+                           onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)'; this.style.backgroundColor='rgba(17, 138, 178, 0.05)'; this.style.color='#118AB2';">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="group/social w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300"
+                           style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1); color: #06D6A0;"
+                           onmouseover="this.style.borderColor='#06D6A0'; this.style.backgroundColor='#06D6A0'; this.style.color='white';"
+                           onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.1)'; this.style.backgroundColor='rgba(6, 214, 160, 0.05)'; this.style.color='#06D6A0';">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="group/social w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300"
+                           style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1); color: #06D6A0;"
+                           onmouseover="this.style.borderColor='#06D6A0'; this.style.backgroundColor='#06D6A0'; this.style.color='white';"
+                           onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.1)'; this.style.backgroundColor='rgba(6, 214, 160, 0.05)'; this.style.color='#06D6A0';">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs Section - Fixed spacing -->
+<section class="py-20 sm:py-24 px-6 bg-black relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0" style="background: linear-gradient(45deg, transparent 25%, rgba(17, 138, 178, 0.02) 50%, transparent 75%, transparent 100%); background-size: 10px 10px;"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
+        <div class="text-center mb-12 sm:mb-16">
+            <div data-aos="fade-down" data-aos-duration="800" class="inline-flex items-center gap-2 mb-6">
+                <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                <span class="text-xs font-medium text-white/70 tracking-widest uppercase">FAQ</span>
+                <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <p class="text-base sm:text-lg text-white/70">Find answers to common questions about our services</p>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" class="faq-item transition-all duration-300"
+                 style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                 onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.3)';"
+                 onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)';">
+                <button class="faq-question w-full p-5 sm:p-6 flex justify-between items-center text-left">
+                    <h3 class="text-base sm:text-lg font-semibold text-white pr-4">What services do you offer?</h3>
+                    <span class="faq-icon text-xl transform rotate-45 transition-transform duration-300 flex-shrink-0" style="color: #118AB2;">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-300">
+                    <div class="pb-5 sm:pb-6 text-white/70 text-sm sm:text-base">
+                        We offer a comprehensive range of IT solutions including web development, mobile app development, UI/UX design, IT consulting, cloud solutions, and digital transformation services. Our team works with the latest technologies to deliver cutting-edge solutions.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="faq-item transition-all duration-300"
+                 style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1);"
+                 onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.3)';"
+                 onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.1)';">
+                <button class="faq-question w-full p-5 sm:p-6 flex justify-between items-center text-left">
+                    <h3 class="text-base sm:text-lg font-semibold text-white pr-4">How long does a typical project take?</h3>
+                    <span class="faq-icon text-xl transform rotate-45 transition-transform duration-300 flex-shrink-0" style="color: #06D6A0;">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-300">
+                    <div class="pb-5 sm:pb-6 text-white/70 text-sm sm:text-base">
+                        Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while complex enterprise solutions can take 3-6 months. During our initial consultation, we'll provide a detailed timeline based on your specific requirements.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="faq-item transition-all duration-300"
+                 style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                 onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.3)';"
+                 onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)';">
+                <button class="faq-question w-full p-5 sm:p-6 flex justify-between items-center text-left">
+                    <h3 class="text-base sm:text-lg font-semibold text-white pr-4">What is your pricing model?</h3>
+                    <span class="faq-icon text-xl transform rotate-45 transition-transform duration-300 flex-shrink-0" style="color: #118AB2;">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-300">
+                    <div class="pb-5 sm:pb-6 text-white/70 text-sm sm:text-base">
+                        We offer flexible pricing models: fixed-price for well-defined projects, time-and-material for ongoing development, and dedicated team models for long-term partnerships. We provide detailed quotes after understanding your project requirements.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" class="faq-item transition-all duration-300"
+                 style="background-color: rgba(6, 214, 160, 0.05); border: 1px solid rgba(6, 214, 160, 0.1);"
+                 onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.3)';"
+                 onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.1)';">
+                <button class="faq-question w-full p-5 sm:p-6 flex justify-between items-center text-left">
+                    <h3 class="text-base sm:text-lg font-semibold text-white pr-4">Do you provide ongoing support?</h3>
+                    <span class="faq-icon text-xl transform rotate-45 transition-transform duration-300 flex-shrink-0" style="color: #06D6A0;">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-300">
+                    <div class="pb-5 sm:pb-6 text-white/70 text-sm sm:text-base">
+                        Yes, we offer comprehensive post-launch support packages including maintenance, updates, security monitoring, and technical support. Our support team is available 24/7 to ensure your systems run smoothly.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="700" class="faq-item transition-all duration-300"
+                 style="background-color: rgba(17, 138, 178, 0.05); border: 1px solid rgba(17, 138, 178, 0.1);"
+                 onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.3)';"
+                 onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.1)';">
+                <button class="faq-question w-full p-5 sm:p-6 flex justify-between items-center text-left">
+                    <h3 class="text-base sm:text-lg font-semibold text-white pr-4">What industries do you serve?</h3>
+                    <span class="faq-icon text-xl transform rotate-45 transition-transform duration-300 flex-shrink-0" style="color: #118AB2;">
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </button>
+                <div class="faq-answer px-5 sm:px-6 overflow-hidden max-h-0 transition-all duration-300">
+                    <div class="pb-5 sm:pb-6 text-white/70 text-sm sm:text-base">
+                        We serve clients across various industries including healthcare, finance, e-commerce, education, logistics, and technology. Our solutions are tailored to meet industry-specific requirements and compliance standards.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="800" class="text-center mt-10 sm:mt-12">
+            <p class="text-white/70 mb-6">Still have questions? We're here to help!</p>
+            <a href="#contact-form" class="inline-flex items-center gap-2 font-semibold group" style="color: #118AB2;" onmouseover="this.style.color='rgba(17, 138, 178, 0.8)';" onmouseout="this.style.color='#118AB2';">
+                <span>Contact our team</span>
+                <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Global Presence Section - Fixed map and text alignment -->
+<section class="py-20 sm:py-24 px-6 bg-black relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-12 sm:mb-16">
+            <div data-aos="fade-down" data-aos-duration="800" class="inline-flex items-center gap-2 mb-6">
+                <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                <span class="text-xs font-medium text-white/70 tracking-widest uppercase">GLOBAL REACH</span>
+                <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Our Global Presence</h2>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <p class="text-base sm:text-lg text-white/70">Serving clients across three continents</p>
+            </div>
+        </div>
+
+        <!-- Map Container - Fixed sizing -->
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300" class="relative mb-12">
+            <div class="relative h-64 sm:h-80 md:h-96 bg-black rounded-lg overflow-hidden mx-auto max-w-4xl" style="border: 1px solid rgba(17, 138, 178, 0.2);">
+                <img src="images/map.jpg" 
+                     alt="World Map"
+                     class="w-full h-full object-cover object-center"
+                     style="filter: brightness(0.8) contrast(1.2) grayscale(1)">
+                
+                <!-- Pakistan Marker -->
+                <div class="absolute top-[58%] left-[62%] transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shadow-lg" style="background-color: #118AB2;">
+                        <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style="background-color: white;"></div>
+                    </div>
+                </div>
+                
+                <!-- USA Marker -->
+                <div class="absolute top-[42%] left-[28%] transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shadow-lg" style="background-color: #06D6A0;">
+                        <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style="background-color: white;"></div>
+                    </div>
+                </div>
+                
+                <!-- Canada Marker -->
+                <div class="absolute top-[35%] left-[25%] transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shadow-lg" style="background-color: #118AB2;">
+                        <div class="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style="background-color: white;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Location Labels - Fixed grid -->
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="text-center p-4">
+                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3" style="background-color: rgba(17, 138, 178, 0.1);">
+                        <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    </div>
+                    <h3 class="text-white font-bold text-lg">Karachi</h3>
+                    <p class="text-white/60 text-sm">Pakistan</p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="text-center p-4">
+                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3" style="background-color: rgba(6, 214, 160, 0.1);">
+                        <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+                    </div>
+                    <h3 class="text-white font-bold text-lg">New York</h3>
+                    <p class="text-white/60 text-sm">USA</p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" class="text-center p-4">
+                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3" style="background-color: rgba(17, 138, 178, 0.1);">
+                        <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    </div>
+                    <h3 class="text-white font-bold text-lg">Toronto</h3>
+                    <p class="text-white/60 text-sm">Canada</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simple Stats - Fixed grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="700" class="text-center p-4">
+                <div class="text-4xl sm:text-5xl font-bold mb-3" style="color: #118AB2;">3</div>
+                <div class="text-sm text-white/70 uppercase tracking-widest">Countries</div>
+                <div class="text-xs text-white/50 mt-2">Pakistan, USA, Canada</div>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="800" class="text-center p-4">
+                <div class="text-4xl sm:text-5xl font-bold mb-3" style="color: #06D6A0;">24/7</div>
+                <div class="text-sm text-white/70 uppercase tracking-widest">Support</div>
+                <div class="text-xs text-white/50 mt-2">Round the clock</div>
+            </div>
+            
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="900" class="text-center p-4">
+                <div class="text-4xl sm:text-5xl font-bold mb-3" style="color: #118AB2;">150+</div>
+                <div class="text-sm text-white/70 uppercase tracking-widest">Clients</div>
+                <div class="text-xs text-white/50 mt-2">Worldwide</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-16 sm:py-20 md:py-24 relative overflow-hidden" role="contentinfo">
+    <!-- Edge decorations -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2" style="border-color: rgba(17, 138, 178, 0.1);"></div>
+        <div class="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2" style="border-color: rgba(6, 214, 160, 0.1);"></div>
+        <div class="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2" style="border-color: rgba(6, 214, 160, 0.1);"></div>
+        <div class="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2" style="border-color: rgba(17, 138, 178, 0.1);"></div>
+        
+        <div class="absolute inset-0 opacity-5">
+            <div class="h-full w-full" style="background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+        
+        <div class="absolute top-12 right-12 w-px h-48 rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(17, 138, 178, 0.1) 50%, transparent 100%);"></div>
+        <div class="absolute bottom-12 left-12 w-px h-48 -rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(6, 214, 160, 0.1) 50%, transparent 100%);"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <!-- Header badges -->
+        <div data-aos="fade-right" data-aos-duration="800" class="inline-flex items-center gap-2 mb-10 sm:mb-12">
+            <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+            <span class="text-xs font-medium text-white/70 tracking-widest uppercase">OUTWERK SOLUTIONS</span>
+            <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+        </div>
+
+        <!-- Main Footer Content -->
+        <div class="grid md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
+            <!-- Company Info -->
+            <div class="md:col-span-2 space-y-6 sm:space-y-8">
+                <div class="space-y-4 sm:space-y-6">
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <img src="images/logo-main.png" alt="Outwerk Solutions Logo" class="h-16 sm:h-20 w-auto">
+                    </div>
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="150" class="text-sm tracking-wide" style="color: #118AB2;">
+                        IT SERVICES & SOLUTIONS PROVIDER
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <p class="text-sm leading-relaxed max-w-lg" style="color: rgba(255, 255, 255, 0.8);">
+                        Providing innovative IT solutions for businesses worldwide since 2021. We help companies transform their digital presence, optimize operations, and achieve sustainable growth through cutting-edge technology.
+                    </p>
+                </div>
+
+                <!-- Social Links -->
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="250" class="flex gap-3">
+                    <a href="https://linkedin.com/company/outwerk-solutions"
+                        class="w-10 h-10 flex items-center justify-center transition-all duration-300 group"
+                        style="border: 2px solid #118AB2; color: #118AB2;"
+                        onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white'; this.style.borderColor='#118AB2';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#118AB2'; this.style.borderColor='#118AB2';">
+                        <i class="fab fa-linkedin-in text-sm group-hover:scale-110 transition-transform duration-300"></i>
+                    </a>
+                    <a href="https://twitter.com/outwerksolutions"
+                        class="w-10 h-10 flex items-center justify-center transition-all duration-300 group"
+                        style="border: 2px solid #118AB2; color: #118AB2;"
+                        onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white'; this.style.borderColor='#118AB2';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#118AB2'; this.style.borderColor='#118AB2';">
+                        <i class="fab fa-twitter text-sm group-hover:scale-110 transition-transform duration-300"></i>
+                    </a>
+                    <a href="https://facebook.com/outwerksolutions"
+                        class="w-10 h-10 flex items-center justify-center transition-all duration-300 group"
+                        style="border: 2px solid #06D6A0; color: #06D6A0;"
+                        onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='white'; this.style.borderColor='#06D6A0';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#06D6A0'; this.style.borderColor='#06D6A0';">
+                        <i class="fab fa-facebook-f text-sm group-hover:scale-110 transition-transform duration-300"></i>
+                    </a>
+                    <a href="https://instagram.com/outwerksolutions"
+                        class="w-10 h-10 flex items-center justify-center transition-all duration-300 group"
+                        style="border: 2px solid #06D6A0; color: #06D6A0;"
+                        onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='white'; this.style.borderColor='#06D6A0';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#06D6A0'; this.style.borderColor='#06D6A0';">
+                        <i class="fab fa-instagram text-sm group-hover:scale-110 transition-transform duration-300"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-6 sm:space-y-8">
+                <div>
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="text-xs tracking-widest uppercase mb-4" style="color: #118AB2;">01 / LINKS</div>
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
+                        <h3 class="font-bold text-xl text-white mb-6 tracking-wide">Quick Links</h3>
+                    </div>
+                </div>
+                <ul class="space-y-3">
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <a href="home.html"
+                            class="transition-all duration-300 flex items-center group"
+                            style="color: #118AB2;"
+                            onmouseover="this.style.color='#0DA8E9';"
+                            onmouseout="this.style.color='#118AB2';">
+                            <div class="w-2 h-2 mr-3 transition-all duration-300" style="background-color: #118AB2;" onmouseover="this.style.backgroundColor='#0DA8E9';" onmouseout="this.style.backgroundColor='#118AB2';"></div>
+                            <span class="text-sm tracking-wide group-hover:translate-x-2 transition-transform duration-300">Home</span>
+                        </a>
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="350">
+                        <a href="home.html#about"
+                            class="transition-all duration-300 flex items-center group"
+                            style="color: #118AB2;"
+                            onmouseover="this.style.color='#0DA8E9';"
+                            onmouseout="this.style.color='#118AB2';">
+                            <div class="w-2 h-2 mr-3 transition-all duration-300" style="background-color: #118AB2;" onmouseover="this.style.backgroundColor='#0DA8E9';" onmouseout="this.style.backgroundColor='#118AB2';"></div>
+                            <span class="text-sm tracking-wide group-hover:translate-x-2 transition-transform duration-300">About</span>
+                        </a>
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <a href="services.html"
+                            class="transition-all duration-300 flex items-center group"
+                            style="color: #06D6A0;"
+                            onmouseover="this.style.color='#2CFFB8';"
+                            onmouseout="this.style.color='#06D6A0';">
+                            <div class="w-2 h-2 mr-3 transition-all duration-300" style="background-color: #06D6A0;" onmouseover="this.style.backgroundColor='#2CFFB8';" onmouseout="this.style.backgroundColor='#06D6A0';"></div>
+                            <span class="text-sm tracking-wide group-hover:translate-x-2 transition-transform duration-300">Services</span>
+                        </a>
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="450">
+                        <a href="contact.html"
+                            class="transition-all duration-300 flex items-center group"
+                            style="color: #118AB2;"
+                            onmouseover="this.style.color='#0DA8E9';"
+                            onmouseout="this.style.color='#118AB2';">
+                            <div class="w-2 h-2 mr-3 transition-all duration-300" style="background-color: #118AB2;" onmouseover="this.style.backgroundColor='#0DA8E9';" onmouseout="this.style.backgroundColor='#118AB2';"></div>
+                            <span class="text-sm tracking-wide group-hover:translate-x-2 transition-transform duration-300">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-6 sm:space-y-8">
+                <div>
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" class="text-xs tracking-widest uppercase mb-4" style="color: #06D6A0;">02 / CONTACT</div>
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="350">
+                        <h3 class="font-bold text-xl text-white mb-6 tracking-wide">Contact Info</h3>
+                    </div>
+                </div>
+                <ul class="space-y-4">
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="flex items-start gap-3 group">
+                        <div class="w-3 h-3 border mt-1 flex-shrink-0 transition-all duration-300" style="border-color: #118AB2;" onmouseover="this.style.backgroundColor='#118AB2'; this.style.borderColor='#118AB2';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#118AB2';"></div>
+                        <div>
+                            <div class="text-xs tracking-widest uppercase mb-1" style="color: #118AB2;">LOCATIONS</div>
+                            <div class="text-sm" style="color: #118AB2;">Karachi, Pakistan & Global</div>
+                        </div>
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="450" class="flex items-start gap-3 group">
+                        <div class="w-3 h-3 border mt-1 flex-shrink-0 transition-all duration-300" style="border-color: #118AB2;" onmouseover="this.style.backgroundColor='#118AB2'; this.style.borderColor='#118AB2';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#118AB2';"></div>
+                        <div>
+                            <div class="text-xs tracking-widest uppercase mb-1" style="color: #118AB2;">EMAIL</div>
+                            <a href="mailto:info@outwerksolutions.com"
+                                class="text-sm transition-colors duration-300" style="color: #118AB2;" onmouseover="this.style.color='#0DA8E9';" onmouseout="this.style.color='#118AB2';">info@outwerksolutions.com</a>
+                        </div>
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="flex items-start gap-3 group">
+                        <div class="w-3 h-3 border mt-1 flex-shrink-0 transition-all duration-300" style="border-color: #06D6A0;" onmouseover="this.style.backgroundColor='#06D6A0'; this.style.borderColor='#06D6A0';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#06D6A0';"></div>
+                        <div>
+                            <div class="text-xs tracking-widest uppercase mb-1" style="color: #06D6A0;">PHONE</div>
+                            <a href="tel:+923001234567"
+                                class="text-sm transition-colors duration-300" style="color: #06D6A0;" onmouseover="this.style.color='#2CFFB8';" onmouseout="this.style.color='#06D6A0';">+92 300 1234567</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="450" class="h-px my-10 md:my-16" style="background: linear-gradient(to right, transparent, #118AB2, transparent);"></div>
+
+        <!-- Bottom Section -->
+        <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+            <!-- Copyright -->
+            <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="500" class="space-y-3 sm:space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-2 h-2" style="background-color: #118AB2;"></div>
+                    <div class="text-xs tracking-widest uppercase" style="color: #118AB2;">&copy; <span id="currentYear">2025</span> OUTWERK SOLUTIONS</div>
+                    <div class="w-2 h-2" style="background-color: #06D6A0;"></div>
+                </div>
+                <p class="text-xs tracking-wide" style="color: rgba(255, 255, 255, 0.6);">
+                    All rights reserved. Designed for innovative businesses worldwide.
+                </p>
+            </div>
+
+            <!-- Additional Links -->
+            <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="550" class="flex flex-wrap gap-4 sm:gap-6 justify-start md:justify-end">
+                <a href="privacy.html" class="text-xs transition-colors duration-300 tracking-widest" style="color: #118AB2;" onmouseover="this.style.color='#0DA8E9';" onmouseout="this.style.color='#118AB2';">
+                    PRIVACY POLICY
+                </a>
+                <span class="w-px h-4" style="background-color: #118AB2;"></span>
+                <a href="terms.html" class="text-xs transition-colors duration-300 tracking-widest" style="color: #06D6A0;" onmouseover="this.style.color='#2CFFB8';" onmouseout="this.style.color='#06D6A0';">
+                    TERMS OF SERVICE
+                </a>
+                <span class="w-px h-4" style="background-color: #06D6A0;"></span>
+                <a href="careers.html" class="text-xs transition-colors duration-300 tracking-widest" style="color: #118AB2;" onmouseover="this.style.color='#0DA8E9';" onmouseout="this.style.color='#118AB2';">
+                    CAREERS
+                </a>
+            </div>
+        </div>
+
+        <!-- Back to Top -->
+        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" class="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t" style="border-color: #118AB2;">
+            <button onclick="scrollToTop()" 
+                    class="group flex items-center gap-3 mx-auto transition-colors duration-300"
+                    style="color: #118AB2;"
+                    onmouseover="this.style.color='#0DA8E9';"
+                    onmouseout="this.style.color='#118AB2';">
+                <span class="text-xs tracking-widest uppercase">BACK TO TOP</span>
+                <div class="w-8 h-8 border flex items-center justify-center transition-all duration-300"
+                     style="border-color: #118AB2;"
+                     onmouseover="this.style.borderColor='#118AB2'; this.style.backgroundColor='#118AB2'; this.querySelector('svg').style.color='white';"
+                     onmouseout="this.style.borderColor='#118AB2'; this.style.backgroundColor='transparent'; this.querySelector('svg').style.color='currentColor';">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+</footer>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- JavaScript -->
+<script>
+    // Initialize AOS
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScrollTop = 0;
+        const scrollThreshold = 100;
+        let isMobileMenuOpen = false;
+        
+        function updateNavbarState() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Apply blur effect when scrolled
+            if (scrollTop > 20) {
+                navbar.classList.add('navbar-blur');
+            } else {
+                navbar.classList.remove('navbar-blur');
+            }
+            
+            // Hide/show navbar based on scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                // Scrolling down - hide navbar
+                if (!isMobileMenuOpen) {
+                    navbar.classList.add('navbar-hidden');
+                }
+            } else {
+                // Scrolling up - show navbar
+                navbar.classList.remove('navbar-hidden');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }
+        
+        window.addEventListener('scroll', updateNavbarState);
+        updateNavbarState();
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+        const mobileServicesMenu = document.getElementById('mobileServicesMenu');
+        const mobileCareersBtn = document.getElementById('mobileCareersBtn');
+        const mobileCareersMenu = document.getElementById('mobileCareersMenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isMobileMenuOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                isMobileMenuOpen = !mobileMenu.classList.contains('hidden');
+                
+                if (isMobileMenuOpen) {
+                    navbar.classList.remove('navbar-hidden');
+                }
+            });
+        }
+        
+        if (mobileServicesBtn && mobileServicesMenu) {
+            mobileServicesBtn.addEventListener('click', () => {
+                mobileServicesMenu.classList.toggle('hidden');
+                const icon = mobileServicesBtn.querySelector('.fa-chevron-down');
+                if (icon) icon.classList.toggle('rotate-180');
+            });
+        }
+        
+        if (mobileCareersBtn && mobileCareersMenu) {
+            mobileCareersBtn.addEventListener('click', () => {
+                mobileCareersMenu.classList.toggle('hidden');
+                const icon = mobileCareersBtn.querySelector('.fa-chevron-down');
+                if (icon) icon.classList.toggle('rotate-180');
+            });
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNavbar = navbar.contains(event.target);
+            const isMobileMenuOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+            
+            if (!isClickInsideNavbar && isMobileMenuOpen) {
+                mobileMenu.classList.add('hidden');
+                if (mobileServicesMenu) mobileServicesMenu.classList.add('hidden');
+                if (mobileCareersMenu) mobileCareersMenu.classList.add('hidden');
+                if (mobileServicesBtn) {
+                    const icon = mobileServicesBtn.querySelector('.fa-chevron-down');
+                    if (icon) icon.classList.remove('rotate-180');
+                }
+                if (mobileCareersBtn) {
+                    const icon = mobileCareersBtn.querySelector('.fa-chevron-down');
+                    if (icon) icon.classList.remove('rotate-180');
+                }
+                isMobileMenuOpen = false;
+            }
+        });
+        
+        // Close mobile menu when clicking links
+        if (mobileMenu) {
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    if (mobileServicesMenu) mobileServicesMenu.classList.add('hidden');
+                    if (mobileCareersMenu) mobileCareersMenu.classList.add('hidden');
+                    if (mobileServicesBtn) {
+                        const icon = mobileServicesBtn.querySelector('.fa-chevron-down');
+                        if (icon) icon.classList.remove('rotate-180');
+                    }
+                    if (mobileCareersBtn) {
+                        const icon = mobileCareersBtn.querySelector('.fa-chevron-down');
+                        if (icon) icon.classList.remove('rotate-180');
+                    }
+                    isMobileMenuOpen = false;
+                });
+            });
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (successMessage) {
+                    successMessage.classList.remove('hidden');
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 5000);
+                    
+                    successMessage.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }
+            });
+        }
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-icon');
+            
+            if (question && answer && icon) {
+                question.addEventListener('click', () => {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherItem.querySelector('.faq-icon');
+                            if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+                            if (otherIcon) otherIcon.style.transform = 'rotate(45deg)';
+                        }
+                    });
+                    
+                    if (answer.style.maxHeight === '0px' || !answer.style.maxHeight) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.style.transform = 'rotate(90deg)';
+                    } else {
+                        answer.style.maxHeight = '0px';
+                        icon.style.transform = 'rotate(45deg)';
+                    }
+                });
+            }
+        });
+        
+        // Set current year
+        const yearElement = document.getElementById('currentYear');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+</body>
+</html>
