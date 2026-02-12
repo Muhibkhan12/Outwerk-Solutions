@@ -516,9 +516,6 @@ section {
         -webkit-backdrop-filter: blur(10px) !important;
     }
     
-    header#navbar.navbar-blur img {
-        filter: brightness(0) invert(1) !important;
-    }
 
     @media (max-width: 768px) {
         .service-front,
@@ -572,7 +569,7 @@ section {
 
     <nav class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between relative z-10">
         <!-- Logo -->
-         <a href="home.html" class="flex items-center group">
+         <a href="index.html" class="flex items-center group">
             <div class="relative flex items-center gap-3">
                 <div class="relative">
                     <img 
@@ -589,7 +586,7 @@ section {
         <ul class="hidden md:flex items-center gap-1">
             <!-- Home -->
             <li>
-                <a href="home.html" 
+                <a href="index.html" 
                    class="group relative px-4 py-3 transition-all duration-300 flex items-center" 
                    style="color: rgba(255, 255, 255, 0.8);"
                    onmouseover="this.style.color='white';">
@@ -962,128 +959,92 @@ section {
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden" style="background-color: rgba(17, 138, 178, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.2);">
+    <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-sm border-t" style="border-color: rgba(17, 138, 178, 0.2);">
         <div class="px-6 py-8 space-y-1">
             <!-- Mobile Menu Header -->
             <div class="flex items-center justify-between mb-10">
                 <div class="flex items-center gap-3">
-                    <div class="w-4 h-4 rotate-45" style="background-color: white; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);"></div>
+                    <div class="w-4 h-4 rotate-45" style="background-color: #118AB2; box-shadow: 0 0 15px rgba(17, 138, 178, 0.5);"></div>
                     <div>
-                        <div class="text-sm tracking-widest uppercase font-medium" style="color: rgba(255, 255, 255, 0.9);">MENU</div>
-                        <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.6);">Navigation</div>
+                        <div class="text-sm text-white/90 tracking-widest uppercase font-medium">MENU</div>
+                        <div class="text-xs text-white/60 mt-0.5">Navigation</div>
                     </div>
                 </div>
-                <div class="text-xs px-3 py-1 rounded" style="color: rgba(255, 255, 255, 0.6); background-color: rgba(255, 255, 255, 0.1);">02</div>
+                <div class="text-xs text-white/60 px-3 py-1 rounded" style="background-color: rgba(17, 138, 178, 0.1);">02</div>
             </div>
             
             <!-- Mobile Navigation Links -->
-            <a href="home.html" class="group block py-5 transition-all duration-300" 
-               style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.1);"
-               onmouseover="this.style.color='white';">
+            <a href="index.html" class="group block py-5 text-white/80 hover:text-white transition-all duration-300 border-b" style="border-color: rgba(17, 138, 178, 0.1);">
                 <div class="flex items-center gap-4">
-                    <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                         style="background-color: rgba(255, 255, 255, 0.1);"
-                         onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';">
-                        <i class="fas fa-home text-sm transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.7);"
-                           onmouseover="this.style.color='white';"></i>
+                    <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                        <i class="fas fa-home text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
                     </div>
                     <div>
                         <div class="text-sm tracking-wide font-medium">HOME</div>
-                        <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.6);">Main page</div>
+                        <div class="text-xs text-white/60 mt-0.5">Main page</div>
                     </div>
-                    <i class="fas fa-arrow-right text-xs ml-auto transition-all duration-300" 
-                       style="opacity: 0; transform: translateX(-0.5rem);"
-                       onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"></i>
+                    <i class="fas fa-arrow-right text-xs ml-auto opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
                 </div>
             </a>
             
             <!-- Mobile Services -->
-            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                <button id="mobileServicesBtn" class="group w-full flex justify-between items-center py-5 transition-all duration-300" 
-                        style="color: rgba(255, 255, 255, 0.8);"
-                        onmouseover="this.style.color='white';">
+            <div class="border-b" style="border-color: rgba(17, 138, 178, 0.1);">
+                <button id="mobileServicesBtn" class="group w-full flex justify-between items-center py-5 text-white/80 hover:text-white transition-all duration-300">
                     <div class="flex items-center gap-4">
-                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                             style="background-color: rgba(255, 255, 255, 0.1);"
-                             onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';">
-                            <i class="fas fa-cogs text-sm transition-all duration-300" 
-                               style="color: rgba(255, 255, 255, 0.7);"
-                               onmouseover="this.style.color='white';"></i>
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)';">
+                            <i class="fas fa-cogs text-sm" style="color: rgba(17, 138, 178, 0.7);" onmouseover="this.style.color='#118AB2';" onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"></i>
                         </div>
                         <div>
                             <div class="text-sm tracking-wide font-medium">SERVICES</div>
-                            <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.6);">Our offerings</div>
+                            <div class="text-xs text-white/60 mt-0.5">Our offerings</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                        <div class="w-2 h-2 rotate-45 transition-all duration-300" 
-                             style="background-color: rgba(255, 255, 255, 0.5);"
-                             onmouseover="this.style.backgroundColor='white';"></div>
+                        <div class="w-2 h-2 rotate-45 transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.5);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.5)';"></div>
                     </div>
                 </button>
                 <div id="mobileServicesMenu" class="hidden pl-12 pb-4 space-y-4">
                     <!-- Web Dev -->
-                    <a href="services.html#web-dev" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="services.html#web-dev" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
                                 <i class="fas fa-code text-xs"></i>
                             </div>
                             <span class="text-sm">Web Development</span>
                         </div>
                     </a>
                     <!-- UI/UX -->
-                    <a href="services.html#ui-ux" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="services.html#ui-ux" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
                                 <i class="fas fa-paint-brush text-xs"></i>
                             </div>
                             <span class="text-sm">UI/UX Design</span>
                         </div>
                     </a>
                     <!-- IT Solutions -->
-                    <a href="services.html#it-solutions" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="services.html#it-solutions" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
                                 <i class="fas fa-server text-xs"></i>
                             </div>
                             <span class="text-sm">IT Solutions</span>
                         </div>
                     </a>
                     <!-- Consulting -->
-                    <a href="services.html#consulting" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="services.html#consulting" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(17, 138, 178, 0.3);" onmouseover="this.style.borderColor='#118AB2';" onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.3)';">
                                 <i class="fas fa-chart-line text-xs"></i>
                             </div>
                             <span class="text-sm">Consulting</span>
                         </div>
                     </a>
                     <!-- View All -->
-                    <a href="services.html" class="group/item block pt-4 font-medium transition-all duration-300" 
-                       style="color: white;"
-                       onmouseover="this.style.color='#118AB2';">
+                    <a href="services.html" class="group/item block pt-4 text-white font-medium">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                 onmouseover="this.style.backgroundColor='white'; this.style.color='#118AB2';">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.1);" onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='black';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.1)'; this.style.color='white';">
                                 <i class="fas fa-arrow-right text-xs"></i>
                             </div>
                             <span>View All Services</span>
@@ -1093,78 +1054,54 @@ section {
             </div>
             
             <!-- Mobile Careers -->
-            <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                <button id="mobileCareersBtn" class="group w-full flex justify-between items-center py-5 transition-all duration-300" 
-                        style="color: rgba(255, 255, 255, 0.8);"
-                        onmouseover="this.style.color='white';">
+            <div class="border-b" style="border-color: rgba(6, 214, 160, 0.1);">
+                <button id="mobileCareersBtn" class="group w-full flex justify-between items-center py-5 text-white/80 hover:text-white transition-all duration-300">
                     <div class="flex items-center gap-4">
-                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                             style="background-color: rgba(255, 255, 255, 0.1);"
-                             onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';">
-                            <i class="fas fa-users text-sm transition-all duration-300" 
-                               style="color: rgba(255, 255, 255, 0.7);"
-                               onmouseover="this.style.color='white';"></i>
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='rgba(6, 214, 160, 0.2)';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)';">
+                            <i class="fas fa-users text-sm" style="color: rgba(6, 214, 160, 0.7);" onmouseover="this.style.color='#06D6A0';" onmouseout="this.style.color='rgba(6, 214, 160, 0.7)';"></i>
                         </div>
                         <div>
                             <div class="text-sm tracking-wide font-medium">CAREERS</div>
-                            <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.6);">Join our team</div>
+                            <div class="text-xs text-white/60 mt-0.5">Join our team</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                        <div class="w-2 h-2 rotate-45 transition-all duration-300" 
-                             style="background-color: rgba(255, 255, 255, 0.5);"
-                             onmouseover="this.style.backgroundColor='white';"></div>
+                        <div class="w-2 h-2 rotate-45 transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.5);" onmouseover="this.style.backgroundColor='#06D6A0';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.5)';"></div>
                     </div>
                 </button>
                 <div id="mobileCareersMenu" class="hidden pl-12 pb-4 space-y-4">
                     <!-- Open Positions -->
-                    <a href="career.html#openings" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="career.html#openings" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(6, 214, 160, 0.3);" onmouseover="this.style.borderColor='#06D6A0';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.3)';">
                                 <i class="fas fa-briefcase text-xs"></i>
                             </div>
                             <span class="text-sm">Open Positions</span>
                         </div>
                     </a>
                     <!-- Benefits -->
-                    <a href="career.html#benefits" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="career.html#benefits" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(6, 214, 160, 0.3);" onmouseover="this.style.borderColor='#06D6A0';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.3)';">
                                 <i class="fas fa-gift text-xs"></i>
                             </div>
                             <span class="text-sm">Benefits & Culture</span>
                         </div>
                     </a>
                     <!-- Internships -->
-                    <a href="career.html#internships" class="group/item block transition-all duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
+                    <a href="career.html#internships" class="group/item block text-white/70 hover:text-white transition-all duration-300">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.3);"
-                                 onmouseover="this.style.borderColor='white';">
+                            <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300" style="border-color: rgba(6, 214, 160, 0.3);" onmouseover="this.style.borderColor='#06D6A0';" onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.3)';">
                                 <i class="fas fa-graduation-cap text-xs"></i>
                             </div>
                             <span class="text-sm">Internships</span>
                         </div>
                     </a>
                     <!-- Apply Now -->
-                    <a href="career.html#apply" class="group/item block pt-4 font-medium transition-all duration-300" 
-                       style="color: white;"
-                       onmouseover="this.style.color='#06D6A0';">
+                    <a href="career.html#apply" class="group/item block pt-4 text-white font-medium">
                         <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                 onmouseover="this.style.backgroundColor='white'; this.style.color='#06D6A0';">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" style="background-color: rgba(6, 214, 160, 0.1);" onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='black';" onmouseout="this.style.backgroundColor='rgba(6, 214, 160, 0.1)'; this.style.color='white';">
                                 <i class="fas fa-paper-plane text-xs"></i>
                             </div>
                             <span>Apply Now</span>
@@ -1174,48 +1111,38 @@ section {
             </div>
             
             <!-- Mobile Contact -->
-            <a href="contact.html" class="group block py-5 transition-all duration-300" style="color: white;">
+            <a href="contact.html" class="group block py-5 text-white transition-all duration-300">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-4">
-                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                             style="background-color: rgba(255, 255, 255, 0.2);"
-                             onmouseover="this.style.backgroundColor='white'; this.style.color='#118AB2';">
-                            <i class="fas fa-envelope text-sm transition-all duration-300"></i>
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" style="background-color: rgba(17, 138, 178, 0.2);" onmouseover="this.style.backgroundColor='#118AB2';" onmouseout="this.style.backgroundColor='rgba(17, 138, 178, 0.2)';">
+                            <i class="fas fa-envelope text-white text-sm"></i>
                         </div>
                         <div>
                             <div class="text-sm tracking-wide font-medium">CONTACT</div>
-                            <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.6);">Get in touch</div>
+                            <div class="text-xs text-white/60 mt-0.5">Get in touch</div>
                         </div>
                     </div>
-                    <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                         style="border: 1px solid white;"
-                         onmouseover="this.style.backgroundColor='white'; this.style.color='#118AB2';">
+                    <div class="w-8 h-8 border flex items-center justify-center transition-all duration-300" style="border-color: #118AB2;" onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">
                         <i class="fas fa-arrow-right text-xs"></i>
                     </div>
                 </div>
             </a>
             
             <!-- Mobile Menu Footer -->
-            <div class="pt-10 mt-8" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+            <div class="pt-10 mt-8 border-t" style="border-color: rgba(17, 138, 178, 0.2);">
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
-                    <div class="text-xs tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.8);">QUICK ACCESS</div>
+                    <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    <div class="text-xs text-white/80 tracking-widest uppercase">QUICK ACCESS</div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <a href="tel:+923001234567" class="group flex items-center gap-3 transition-colors duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
-                        <div class="w-6 h-6 flex items-center justify-center" 
-                             style="border: 1px solid rgba(255, 255, 255, 0.3);">
+                    <a href="tel:+923001234567" class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300">
+                        <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(17, 138, 178, 0.3);">
                             <i class="fas fa-phone text-xs"></i>
                         </div>
                         <div class="text-xs">+92 300 1234567</div>
                     </a>
-                    <a href="mailto:info@outwerksolutions.com" class="group flex items-center gap-3 transition-colors duration-300" 
-                       style="color: rgba(255, 255, 255, 0.7);"
-                       onmouseover="this.style.color='white';">
-                        <div class="w-6 h-6 flex items-center justify-center" 
-                             style="border: 1px solid rgba(255, 255, 255, 0.3);">
+                    <a href="mailto:info@outwerksolutions.com" class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300">
+                        <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(17, 138, 178, 0.3);">
                             <i class="fas fa-envelope text-xs"></i>
                         </div>
                         <div class="text-xs">info@outwerk.com</div>
@@ -1226,99 +1153,6 @@ section {
     </div>
 </header>
 
-<style>
-    /* Navbar Styles */
-    #navbar {
-        transform: translateY(0);
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                    backdrop-filter 0.5s ease,
-                    background-color 0.5s ease;
-    }
-    
-    #navbar.navbar-hidden {
-        transform: translateY(-100%);
-    }
-    
-    #navbar.navbar-blur {
-        background-color: rgba(17, 138, 178, 0.95);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-    }
-    
-    #navbar.navbar-blur::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, 
-            transparent 0%, 
-            rgba(17, 138, 178, 0.3) 50%, 
-            transparent 100%);
-    }
-    
-    /* Smooth transitions for all interactive elements */
-    * {
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    /* Rotated elements with smooth transitions */
-    .rotate-45 {
-        transform: rotate(45deg);
-        transition: transform 0.3s ease;
-    }
-    
-    /* Custom scrollbar for mobile menu */
-    #mobileMenu {
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
-    }
-    
-    #mobileMenu::-webkit-scrollbar {
-        width: 4px;
-    }
-    
-    #mobileMenu::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    
-    #mobileMenu::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.4);
-        border-radius: 2px;
-    }
-    
-    /* Selection */
-    ::selection {
-        background: #118AB2;
-        color: white;
-    }
-    
-    /* Enhanced focus styles */
-    button:focus,
-    a:focus {
-        outline: 2px solid #118AB2;
-        outline-offset: 4px;
-    }
-    
-    /* Custom scrollbar for entire page */
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background: rgba(17, 138, 178, 0.1);
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        background: #118AB2;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        background: #06D6A0;
-    }
-</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1481,7 +1315,7 @@ section {
     });
 </script>
 
-<!-- HERO SECTION - Minimalist & Edgy -->
+<!-- HERO SECTION - Minimalist & Edgy - FULLY FIXED -->
 <section id="home" class="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-16 overflow-hidden"
     aria-labelledby="hero-heading">
     
@@ -1515,7 +1349,7 @@ section {
         </div>
 
         <!-- Main Heading - Minimalist Style -->
-        <div class="reveal reveal-fade active">
+        <div>
             <h1 id="hero-heading"
                 class="font-montserrat text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-none tracking-tight"
                 style="color: #118AB2;">
@@ -1528,8 +1362,8 @@ section {
             <!-- Typewriter effect container -->
             <div class="mt-8 mb-12">
                 <p id="missionText" class="text-xl max-w-3xl mx-auto font-light tracking-wide" style="color: rgba(255, 255, 255, 0.9);">
-                    <span class="typing-text" id="typingText"></span>
-                    <span class="typing-cursor inline-block w-[3px] h-[1em] ml-1 animate-blink" style="background-color: #118AB2;"></span>
+                    <span class="typing-text" id="typingText">Reliable IT & Web Solutions.</span>
+                    <span class="typing-cursor inline-block w-[3px] h-[1.2em] ml-1 align-middle" style="background-color: #118AB2; animation: blink 1s infinite;"></span>
                 </p>
             </div>
 
@@ -1562,24 +1396,6 @@ section {
                     </span>
                 </button>
             </div>
-
-            <!-- Stats Row - Minimalist -->
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-16 opacity-0 translate-y-10" id="hero-stats">
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold mb-2" id="heroClients" style="color: #118AB2;">150+</div>
-                    <div class="text-xs tracking-widest uppercase" style="color: rgba(17, 138, 178, 0.7);">Clients</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold mb-2" id="heroProjects" style="color: #06D6A0;">280+</div>
-                    <div class="text-xs tracking-widest uppercase" style="color: rgba(6, 214, 160, 0.7);">Projects</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold mb-2" id="heroCountries" style="color: #118AB2;">3</div>
-                    <div class="text-xs tracking-widest uppercase" style="color: rgba(17, 138, 178, 0.7);">Countries</div>
-                </div>
-            </div>
-
-            
         </div>
     </div>
     
@@ -1588,346 +1404,111 @@ section {
     <div class="absolute left-1/2 top-0 bottom-0 w-px" style="background: linear-gradient(to bottom, transparent 0%, rgba(6, 214, 160, 0.1) 50%, transparent 100%);"></div>
 </section>
 
-<!-- Include GSAP for animations -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-
-<style>
-    /* Minimalist animations */
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-
-    @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes rotateSlow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    /* Animation classes */
-    .animate-blink {
-        animation: blink 1s infinite;
-    }
-
-    .animate-bounce {
-        animation: bounce 2s infinite;
-    }
-
-    .animate-fadeUp {
-        animation: fadeUp 0.8s ease-out forwards;
-    }
-
-    .animate-rotate-slow {
-        animation: rotateSlow 20s linear infinite;
-    }
-
-    /* Custom scrollbar for minimalist aesthetic */
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: rgba(17, 138, 178, 0.1);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: rgba(17, 138, 178, 0.3);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: rgba(17, 138, 178, 0.5);
-    }
-
-    /* Sharp corner utility */
-    .rotate-45 {
-        transform: rotate(45deg);
-    }
-
-    .-rotate-45 {
-        transform: rotate(-45deg);
-    }
-
-    /* Enhanced grayscale */
-    .grayscale {
-        filter: grayscale(100%);
-    }
-
-    /* Smooth transitions */
-    .transition-all {
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Transform GPU acceleration */
-    .transform-gpu {
-        transform: translateZ(0);
-    }
-
-    /* Shadow utilities */
-    .shadow-lg {
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .shadow-2xl {
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    }
-</style>
-
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize GSAP
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Typing effect
-        const textArray = [
-            "Reliable IT & Web Solutions.",
-            "Expert technology across Pakistan, USA, and Canada.",
-            "Web-based innovation since 2021.",
-            "Global reach, Pakistani roots."
-        ];
-        
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 50;
-        const deletingSpeed = 30;
-        const pauseTime = 2000;
-        
-        const typingElement = document.getElementById('typingText');
-        
-        function typeWriter() {
-            const currentText = textArray[textIndex];
-            
-            if (isDeleting) {
-                // Deleting text
-                typingElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % textArray.length;
-                    setTimeout(typeWriter, 500);
-                } else {
-                    setTimeout(typeWriter, deletingSpeed);
-                }
-            } else {
-                // Typing text
-                typingElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                
-                if (charIndex === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(typeWriter, pauseTime);
-                } else {
-                    setTimeout(typeWriter, typingSpeed);
-                }
-            }
-        }
-        
-        // Start typing effect after a brief delay
-        setTimeout(typeWriter, 1000);
-
-        // Animate stats
-        const stats = document.getElementById('hero-stats');
-        if (stats) {
-            gsap.to(stats, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                delay: 1.5,
-                ease: 'power3.out'
-            });
-        }
-
-        // Animate header badges
-        const badges = document.querySelectorAll('.w-3.h-3');
-        badges.forEach((badge, index) => {
-            gsap.to(badge, {
-                rotation: 360,
-                duration: 20,
-                repeat: -1,
-                ease: 'none',
-                delay: index * 10
-            });
-        });
-
-        // Animate edge decorations
-        gsap.to('.absolute.top-0.left-0', {
-            borderColor: 'rgba(17, 138, 178, 0.4)',
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-        });
-
-        gsap.to('.absolute.bottom-0.right-0', {
-            borderColor: 'rgba(17, 138, 178, 0.4)',
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: 1
-        });
-
-        // Diagonal line animations
-        gsap.to('.absolute.top-1\\/4.right-8', {
-            y: 20,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-        });
-
-        gsap.to('.absolute.bottom-1\\/4.left-8', {
-            y: -20,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: 1.5
-        });
-
-        // Center cross lines animation
-        const horizontalLine = document.querySelector('.absolute.top-1\\/2');
-        const verticalLine = document.querySelector('.absolute.left-1\\/2');
-        
-        if (horizontalLine && verticalLine) {
-            gsap.to(horizontalLine, {
-                width: '100%',
-                duration: 2,
-                repeat: -1,
-                yoyo: true,
-                ease: 'power2.inOut'
-            });
-            
-            gsap.to(verticalLine, {
-                height: '100%',
-                duration: 2,
-                repeat: -1,
-                yoyo: true,
-                ease: 'power2.inOut',
-                delay: 1
-            });
-        }
-
-        // Button hover effects with GSAP for smoother animations
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                gsap.to(button, {
-                    scale: 1.05,
-                    duration: 0.3,
-                    ease: 'power2.out'
-                });
-            });
-            
-            button.addEventListener('mouseleave', () => {
-                gsap.to(button, {
-                    scale: 1,
-                    duration: 0.3,
-                    ease: 'power2.out'
-                });
-            });
-        });
-
-        // Scroll indicator animation
-        const scrollIndicator = document.querySelector('#scroll-indicator .w-1');
-        if (scrollIndicator) {
-            gsap.to(scrollIndicator, {
-                y: 8,
-                duration: 1.5,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-        }
-
-        // Stats counter animation
-        const heroStats = {
-            clients: { element: 'heroClients', value: 150, suffix: '+' },
-            projects: { element: 'heroProjects', value: 280, suffix: '+' },
-            countries: { element: 'heroCountries', value: 3, suffix: '' }
-        };
-
-        Object.values(heroStats).forEach(stat => {
-            const element = document.getElementById(stat.element);
-            if (element) {
-                // Start counter after stats section fades in
-                setTimeout(() => {
-                    gsap.to(element, {
-                        innerText: stat.value,
-                        duration: 2,
-                        ease: 'power2.out',
-                        snap: { innerText: 1 },
-                        onUpdate: function() {
-                            element.textContent = Math.floor(this.targets()[0].innerText) + stat.suffix;
-                        }
-                    });
-                }, 2000);
-            }
-        });
-
-        // Video brightness animation
-        const video = document.querySelector('video');
-        if (video) {
-            gsap.fromTo(video,
-                { filter: 'brightness(0.1) grayscale(100%)' },
-                {
-                    filter: 'brightness(0.2) grayscale(100%)',
-                    duration: 3,
-                    ease: 'power2.inOut'
-                }
-            );
-        }
-
-        // Scroll progress indicator
-        const progressBar = document.createElement('div');
-        progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(to right, #118AB2, #06D6A0);
-            z-index: 1000;
-            transition: width 0.1s;
-        `;
-        document.body.appendChild(progressBar);
-        
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + '%';
-        });
-    });
-
-    // Utility function for smooth scrolling
-    function scrollToSection(sectionId) {
+    // IMMEDIATELY DECLARE FUNCTIONS IN GLOBAL SCOPE
+    window.scrollToSection = function(sectionId) {
         const section = document.getElementById(sectionId);
         if (section) {
             window.scrollTo({
-                top: section.offsetTop,
+                top: section.offsetTop - 100,
                 behavior: 'smooth'
             });
         }
+    };
+
+    // MAIN INITIALIZATION - RUN IMMEDIATELY AND ON DOM CONTENT LOADED
+    (function initHero() {
+        'use strict';
+        
+        // ============================================
+        // TYPING EFFECT - SINGLE INSTANCE
+        // ============================================
+        function initTypingEffect() {
+    const typingElement = document.getElementById('typingText');
+    if (!typingElement) return;
+    
+    // Set initial text
+    const textArray = [
+        "Reliable IT & Web Solutions.",
+        "Expert technology across Pakistan, USA, and Canada.",
+        "Web-based innovation since 2021.",
+        "Global reach, Pakistani roots."
+    ];
+    
+    let textIndex = 0;
+    let charIndex = textArray[0].length; // Start with full first text
+    let isDeleting = false;
+    let typingTimeout;
+    
+    const typingSpeed = 80;
+    const deletingSpeed = 40;
+    const pauseTime = 2000;
+    
+    // Set initial text
+    typingElement.textContent = textArray[0];
+    
+    function typeWriter() {
+        if (typingTimeout) clearTimeout(typingTimeout);
+        
+        const currentText = textArray[textIndex];
+        
+        if (isDeleting) {
+            // Deleting text
+            typingElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                charIndex = 0; // Reset charIndex for new text
+                typingTimeout = setTimeout(typeWriter, 500);
+            } else {
+                typingTimeout = setTimeout(typeWriter, deletingSpeed);
+            }
+        } else {
+            // Typing text
+            typingElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentText.length) {
+                isDeleting = true;
+                typingTimeout = setTimeout(typeWriter, pauseTime);
+            } else {
+                typingTimeout = setTimeout(typeWriter, typingSpeed);
+            }
+        }
     }
+    
+    // Start the animation after a delay
+    setTimeout(() => {
+        isDeleting = true;
+        // Use the current text from the current index
+        charIndex = textArray[textIndex].length;
+        typeWriter();
+    }, 3000);
+}
+
+        // ============================================
+        // SCROLL PROGRESS INDICATOR
+        // ============================================
+        
+        // Initialize everything
+        initTypingEffect();
+        initCounters();
+        initGSAPAnimations();
+        initProgressBar();
+        
+    })();
+
+    // Also run on DOMContentLoaded as a backup
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure stats are visible
+        const stats = document.getElementById('hero-stats');
+        if (stats) {
+            stats.style.opacity = '1';
+            stats.style.transform = 'translateY(0)';
+        }
+    });
 </script>
     <!-- ABOUT -->
 <section id="about" class="relative overflow-hidden bg-white py-32 px-4 sm:px-6 lg:px-8">
@@ -3259,13 +2840,13 @@ section {
                         </p>
                         
                         <a href="#contact" 
-                           class="inline-flex items-center gap-3 px-6 py-3 transition-all duration-300 hover:bg-[#118AB2] hover:text-white"
-                           style="border: 2px solid #118AB2; color: #118AB2;">
-                            <span class="text-sm tracking-widest">LEARN MORE</span>
-                            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
+   class="group inline-flex items-center gap-3 px-6 py-3 transition-all duration-300 hover:bg-[#118AB2] hover:text-white"
+   style="border: 2px solid #118AB2; color: #118AB2;">
+    <span class="text-sm tracking-widest">LEARN MORE</span>
+    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+    </svg>
+</a>
                     </div>
                 </div>
 
@@ -4091,7 +3672,7 @@ section {
                 <div class="space-y-6">
                     <div class="text-reveal-wrapper text-reveal-left">
                         <div class="text-reveal-mask"></div>
-                        <img src="images/logo-main.png" alt="">
+                        <img class="h-32" src="images/logo-main.png" alt="">
                     </div>
                     <div class="text-sm tracking-wide" style="color: #118AB2;">
                         IT SERVICES & SOLUTIONS PROVIDER
@@ -4153,7 +3734,7 @@ section {
                 </div>
                 <ul class="space-y-3">
                     <li>
-                        <a href="home.html"
+                        <a href="index.html"
                             class="transition-all duration-300 flex items-center group"
                             style="color: #118AB2;"
                             onmouseover="this.style.color='#0DA8E9';"
@@ -4166,7 +3747,7 @@ section {
                         </a>
                     </li>
                     <li>
-                        <a href="home.html#about"
+                        <a href="index.html#about"
                             class="transition-all duration-300 flex items-center group"
                             style="color: #118AB2;"
                             onmouseover="this.style.color='#0DA8E9';"
@@ -4615,70 +4196,6 @@ if (mobileMenuBtn && mobileMenu) {
         }
     });
 }
-
-        /* =======================
-           TYPING EFFECT
-        ======================= */
-        function initTypingEffect() {
-            const typingText = document.getElementById('typingText');
-            if (!typingText) return;
-
-            const missionTexts = [
-                "Innovative Solutions",
-                "Digital Transformation",
-                "Global Reach",
-                "Expert Team"
-            ];
-
-            let currentMissionIndex = 0;
-            let isDeleting = false;
-            let typingTimeout;
-
-            const typingSpeed = 100;
-            const deletingSpeed = 50;
-            const pauseTime = 2000;
-
-            function typeMissionText() {
-                const currentText = missionTexts[currentMissionIndex];
-
-                if (isDeleting) {
-                    typingText.textContent = currentText.slice(0, typingText.textContent.length - 1);
-
-                    if (typingText.textContent === '') {
-                        isDeleting = false;
-                        currentMissionIndex = (currentMissionIndex + 1) % missionTexts.length;
-                        typingTimeout = setTimeout(typeMissionText, 500);
-                        return;
-                    }
-
-                    typingTimeout = setTimeout(typeMissionText, deletingSpeed);
-                } else {
-                    typingText.textContent = currentText.slice(0, typingText.textContent.length + 1);
-
-                    if (typingText.textContent === currentText) {
-                        typingTimeout = setTimeout(() => {
-                            isDeleting = true;
-                            typeMissionText();
-                        }, pauseTime);
-                        return;
-                    }
-
-                    typingTimeout = setTimeout(typeMissionText, typingSpeed);
-                }
-            }
-
-            // Start typing effect
-            typingText.textContent = '';
-            typeMissionText();
-
-            // Add interaction
-            const missionText = document.getElementById('missionText');
-            if (missionText) {
-                missionText.addEventListener('mouseenter', () => clearTimeout(typingTimeout));
-                missionText.addEventListener('mouseleave', () => typeMissionText());
-            }
-        }
-
         /* =======================
            TESTIMONIAL SLIDER
         ======================= */

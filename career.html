@@ -30,58 +30,10 @@
                     fontFamily: {
                         'outfit': ['Outfit', 'sans-serif'],
                         'sora': ['Sora', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
                     },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'fade-in-left': 'fadeInLeft 0.6s ease-out',
-                        'fade-in-right': 'fadeInRight 0.6s ease-out',
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s ease-in-out infinite',
-                        'gradient': 'gradient 8s ease infinite',
-                        'ripple': 'ripple 2s linear infinite',
-                        'shine': 'shine 3s ease-in-out infinite',
-                        'text-shimmer': 'textShimmer 3s ease-in-out infinite',
-                        'wave': 'wave 5s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeInLeft: {
-                            '0%': { opacity: '0', transform: 'translateX(-20px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        fadeInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(20px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                        },
-                        ripple: {
-                            '0%': { transform: 'scale(0.8)', opacity: '1' },
-                            '100%': { transform: 'scale(2.5)', opacity: '0' },
-                        },
-                        shine: {
-                            '0%': { backgroundPosition: '-200% center' },
-                            '100%': { backgroundPosition: '200% center' },
-                        },
-                        textShimmer: {
-                            '0%': { backgroundPosition: '200% center' },
-                            '100%': { backgroundPosition: '-200% center' },
-                        },
-                        wave: {
-                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                            '25%': { transform: 'translateY(-10px) rotate(5deg)' },
-                            '75%': { transform: 'translateY(5px) rotate(-5deg)' },
-                        },
-                    },
+                    // ... rest of your config
                 }
             }
         }
@@ -89,16 +41,15 @@
     
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: white;
-            color: black;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: var(--white);
+        color: var(--black);
+    }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-        }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
 
         .gradient-text {
             background: linear-gradient(90deg, #000000, #333333);
@@ -541,7 +492,7 @@
 
     <nav class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between relative z-10">
         <!-- Logo -->
-         <a href="home.html" class="flex items-center group">
+         <a href="index.html" class="flex items-center group">
             <div class="relative flex items-center gap-3">
                 <div class="relative">
                     <img 
@@ -558,7 +509,7 @@
         <ul class="hidden md:flex items-center gap-1">
             <!-- Home -->
             <li>
-                <a href="home.html" 
+                <a href="index.html" 
                    class="group relative px-4 py-3 transition-all duration-300 flex items-center" 
                    style="color: rgba(255, 255, 255, 0.8);"
                    onmouseover="this.style.color='white';">
@@ -946,7 +897,7 @@
             </div>
             
             <!-- Mobile Navigation Links -->
-            <a href="home.html" class="group block py-5 transition-all duration-300" 
+            <a href="index.html" class="group block py-5 transition-all duration-300" 
                style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.1);"
                onmouseover="this.style.color='white';">
                 <div class="flex items-center gap-4">
@@ -1312,627 +1263,540 @@
     });
 </script>
 
-<!-- Hero Section -->
-<section id="career-hero" class="relative min-h-screen flex items-center justify-center text-center px-6 pt-28 pb-16 overflow-hidden bg-black" aria-labelledby="career-hero-heading">
-    <!-- Black Background Image -->
-    <div class="absolute inset-0 z-0">
-        <img src="images/person.jpg" 
-             alt="Black background"
-             class="w-full h-full object-cover opacity-40"
-             style="filter: brightness(0.3) contrast(1.2)">
-    </div>
-
-    <!-- Sharp edge decorations -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <!-- Corner accents -->
-        <div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
-        <div class="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2" style="border-color: rgba(6, 214, 160, 0.3);"></div>
-        <div class="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2" style="border-color: rgba(6, 214, 160, 0.3);"></div>
-        <div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
-        
-        <!-- Diagonal lines -->
-        <div class="absolute top-1/4 right-16 w-px h-64 rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(17, 138, 178, 0.3) 50%, transparent 100%);"></div>
-        <div class="absolute bottom-1/4 left-16 w-px h-64 -rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(6, 214, 160, 0.3) 50%, transparent 100%);"></div>
-        
-        <!-- Grid dots background -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="h-full w-full" style="background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <!-- Hero Section - Dark with Video Background -->
+    <section id="career-hero" class="relative min-h-screen flex items-center justify-center text-center px-6 pt-28 pb-16 overflow-hidden section-dark" aria-labelledby="career-hero-heading">
+        <!-- Video Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                class="w-full h-full object-cover opacity-40">
+                <source src="video/home-careers.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/90 to-[#0F172A]/80"></div>
         </div>
-        
-        <!-- Minimal animated elements -->
-        <div class="absolute top-20 left-20 w-8 h-8 border animate-spin-slow" style="border-color: rgba(17, 138, 178, 0.4);"></div>
-        <div class="absolute bottom-20 right-20 w-6 h-6 border animate-spin-slow-reverse" style="border-color: rgba(6, 214, 160, 0.4);"></div>
-        <div class="absolute top-1/2 left-1/4 w-4 h-4 border animate-pulse-slow" style="border-color: rgba(17, 138, 178, 0.3);"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-4 h-4 border animate-pulse-slow-delay" style="border-color: rgba(6, 214, 160, 0.3);"></div>
-    </div>
 
-    <div class="max-w-6xl relative z-20">
-        <div>
-            <!-- Minimalist Career Badge -->
-            <div class="inline-flex items-center gap-2 mb-8" data-aos="fade-down" data-aos-duration="800">
-                <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
-                <span class="text-xs font-medium tracking-widest uppercase" style="color: rgba(17, 138, 178, 0.7);">JOIN OUR TEAM</span>
-                <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+        <!-- Sharp edge decorations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2" style="border-color: rgba(6, 214, 160, 0.3);"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2" style="border-color: rgba(6, 214, 160, 0.3);"></div>
+            <div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
+            
+            <div class="absolute inset-0 opacity-10">
+                <div class="h-full w-full" style="background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px); background-size: 40px 40px;"></div>
             </div>
+            
+            <div class="absolute top-20 left-20 w-8 h-8 border animate-spin-slow" style="border-color: rgba(17, 138, 178, 0.4);"></div>
+            <div class="absolute bottom-20 right-20 w-6 h-6 border animate-spin-slow-reverse" style="border-color: rgba(6, 214, 160, 0.4);"></div>
+        </div>
 
-            <!-- Main Career Heading - Minimalist -->
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                <h1 id="career-hero-heading" class="font-montserrat font-bold text-5xl md:text-7xl lg:text-8xl mb-8 tracking-tight" style="color: #118AB2;">
-                    BUILD YOUR
-                    <div class="block mt-4">
-                        <span class="font-light" style="color: #06D6A0;">FUTURE HERE</span>
+        <div class="max-w-6xl relative z-20">
+            <div>
+                <div class="inline-flex items-center gap-2 mb-8" data-aos="fade-down" data-aos-duration="800">
+                    <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    <span class="text-xs font-medium tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.8);">JOIN OUR TEAM</span>
+                    <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <h1 id="career-hero-heading" class="font-montserrat font-bold text-5xl md:text-7xl lg:text-8xl mb-8 tracking-tight" style="color: #118AB2;">
+                        BUILD YOUR
+                        <div class="block mt-4">
+                            <span class="font-light" style="color: #06D6A0;">FUTURE HERE</span>
+                        </div>
+                    </h1>
+                    <p class="text-base max-w-xl mx-auto leading-relaxed mb-8 font-medium" style="color: rgba(255, 255, 255, 0.9);">
+                        Join a team of innovators shaping the future of digital solutions with precision and purpose.
+                    </p>
+                    <div class="h-px w-24 mx-auto mb-8" style="background: linear-gradient(to right, #118AB2, #06D6A0);"></div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <button onclick="scrollToSection('culture')"
+                        class="group relative px-10 py-4 font-medium transition-all duration-300 flex items-center justify-center gap-3"
+                        style="border: 2px solid #118AB2; background: linear-gradient(to right, #118AB2, #06D6A0); color: white;">
+                        <span class="tracking-widest text-sm">VIEW POSITIONS</span>
+                        <div class="w-6 h-6 border-2 flex items-center justify-center transition-all duration-300"
+                             style="border-color: white;">
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </div>
+                    </button>
+                    
+                    <button onclick="scrollToSection('workplace-excellence')"
+                        class="group relative px-10 py-4 font-medium transition-all duration-300 flex items-center justify-center gap-3"
+                        style="border: 2px solid #06D6A0; background: transparent; color: #06D6A0;">
+                        <span class="tracking-widest text-sm">WHY OUTWERK</span>
+                        <div class="w-6 h-6 border-2 flex items-center justify-center transition-all duration-300"
+                             style="border-color: #06D6A0;">
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talent We Value Section - Light Theme -->
+    <section id="culture" class="py-32 relative section-light" aria-labelledby="culture-heading">
+        <!-- Sharp edge decorations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2" style="border-color: rgba(17, 138, 178, 0.1);"></div>
+            <div class="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2" style="border-color: rgba(6, 214, 160, 0.1);"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2" style="border-color: rgba(6, 214, 160, 0.1);"></div>
+            <div class="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2" style="border-color: rgba(17, 138, 178, 0.1);"></div>
+            
+            <div class="absolute inset-0 opacity-[0.03]">
+                <div class="h-full w-full" style="background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px); background-size: 40px 40px;"></div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-24">
+                <div data-aos="fade-down" data-aos-duration="800" class="inline-flex items-center gap-2 mb-8">
+                    <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
+                    <span class="text-xs font-medium tracking-widest uppercase" style="color: rgba(17, 138, 178, 0.7);">OUR CULTURE DNA</span>
+                    <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
+                </div>
+                
+                <h1 id="culture-heading" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="font-montserrat text-5xl md:text-7xl font-bold mb-8 tracking-tight" style="color: #118AB2;">
+                    TALENT WE
+                    <div class="block mt-2">
+                        <span class="font-light" style="color: #06D6A0;">VALUE</span>
                     </div>
                 </h1>
-                <p class="text-base max-w-xl mx-auto leading-relaxed mb-8 font-medium" style="color: rgba(255, 255, 255, 0.8);">
-                    Join a team of innovators shaping the future of digital solutions with precision and purpose.
+                
+                <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="text-base max-w-xl mx-auto leading-relaxed" style="color: #475569;">
+                    We've built a workplace where <span class="font-semibold" style="color: #118AB2;">collaboration</span>, 
+                    <span class="font-semibold" style="color: #06D6A0;">growth</span>, and 
+                    <span class="font-semibold" style="color: #118AB2;">balance</span> create exceptional results.
                 </p>
-                <div class="h-px w-24 mx-auto mb-8" style="background-color: #118AB2;"></div>
             </div>
 
-            <!-- Career CTA Buttons - Minimalist -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                <!-- View Positions Button -->
-                <button onclick="scrollToSection('open-positions')"
-                    class="group relative px-10 py-4 font-medium transition-all duration-300 flex items-center justify-center gap-3"
-                    style="border: 2px solid #118AB2; background: linear-gradient(to right, #118AB2, #06D6A0); color: white;"
-                    onmouseover="this.style.background='transparent'; this.style.color='#118AB2';"
-                    onmouseout="this.style.background='linear-gradient(to right, #118AB2, #06D6A0)'; this.style.color='white';"
-                    aria-label="View open positions at Outwerk Solutions">
-                    <span class="tracking-widest text-sm">VIEW POSITIONS</span>
-                    <div class="w-6 h-6 border-2 flex items-center justify-center transition-all duration-300"
-                         style="border-color: white;"
-                         onmouseover="this.style.borderColor='#118AB2';"
-                         onmouseout="this.style.borderColor='white';">
-                        <i class="fas fa-arrow-right text-xs"></i>
-                    </div>
-                </button>
-                
-                <!-- Why Work With Us Button -->
-                <button onclick="scrollToSection('career-benefits')"
-                    class="group relative px-10 py-4 font-medium transition-all duration-300 flex items-center justify-center gap-3"
-                    style="border: 2px solid #06D6A0; background: transparent; color: #06D6A0;"
-                    onmouseover="this.style.background='#06D6A0'; this.style.color='white';"
-                    onmouseout="this.style.background='transparent'; this.style.color='#06D6A0';"
-                    aria-label="Learn about career benefits">
-                    <span class="tracking-widest text-sm">WHY OUTWERK</span>
-                    <div class="w-6 h-6 border-2 flex items-center justify-center transition-all duration-300"
-                         style="border-color: #06D6A0;"
-                         onmouseover="this.style.borderColor='white';"
-                         onmouseout="this.style.borderColor='#06D6A0';">
-                        <i class="fas fa-arrow-right text-xs"></i>
-                    </div>
-                </button>
-            </div>
-
-            <!-- Career Stats - Minimalist -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-                <!-- Team Members -->
-                <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="300" class="group p-6 transition-all duration-500 cursor-pointer bg-black/40 backdrop-blur-sm"
-                     style="border: 2px solid rgba(17, 138, 178, 0.5);"
-                     onmouseover="this.style.borderColor='#118AB2';"
-                     onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.5)';">
-                    <div class="text-4xl font-bold mb-2 font-montserrat group-hover:scale-105 transition-transform duration-300" style="color: #118AB2;">50+</div>
-                    <div class="text-sm uppercase tracking-widest" style="color: rgba(17, 138, 178, 0.7);">TEAM MEMBERS</div>
-                    <div class="h-1 mt-4 overflow-hidden" style="background-color: rgba(17, 138, 178, 0.2);">
-                        <div class="h-full transition-all duration-500" style="width: 100%; background-color: #118AB2;"></div>
-                    </div>
-                </div>
-                
-                <!-- Countries -->
-                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="group p-6 transition-all duration-500 cursor-pointer bg-black/40 backdrop-blur-sm"
-                     style="border: 2px solid rgba(6, 214, 160, 0.5);"
-                     onmouseover="this.style.borderColor='#06D6A0';"
-                     onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.5)';">
-                    <div class="text-4xl font-bold mb-2 font-montserrat group-hover:scale-105 transition-transform duration-300" style="color: #06D6A0;">15+</div>
-                    <div class="text-sm uppercase tracking-widest" style="color: rgba(6, 214, 160, 0.7);">COUNTRIES</div>
-                    <div class="h-1 mt-4 overflow-hidden" style="background-color: rgba(6, 214, 160, 0.2);">
-                        <div class="h-full transition-all duration-500" style="width: 85%; background-color: #06D6A0;"></div>
-                    </div>
-                </div>
-                
-                <!-- Global Support -->
-                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="group p-6 transition-all duration-500 cursor-pointer bg-black/40 backdrop-blur-sm"
-                     style="border: 2px solid rgba(17, 138, 178, 0.5);"
-                     onmouseover="this.style.borderColor='#118AB2';"
-                     onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.5)';">
-                    <div class="text-4xl font-bold mb-2 font-montserrat group-hover:scale-105 transition-transform duration-300" style="color: #118AB2;">24/7</div>
-                    <div class="text-sm uppercase tracking-widest" style="color: rgba(17, 138, 178, 0.7);">GLOBAL SUPPORT</div>
-                    <div class="h-1 mt-4 overflow-hidden" style="background-color: rgba(17, 138, 178, 0.2);">
-                        <div class="h-full transition-all duration-500" style="width: 100%; background-color: #118AB2;"></div>
-                    </div>
-                </div>
-                
-                <!-- Projects Delivered -->
-                <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="600" class="group p-6 transition-all duration-500 cursor-pointer bg-black/40 backdrop-blur-sm"
-                     style="border: 2px solid rgba(6, 214, 160, 0.5);"
-                     onmouseover="this.style.borderColor='#06D6A0';"
-                     onmouseout="this.style.borderColor='rgba(6, 214, 160, 0.5)';">
-                    <div class="text-4xl font-bold mb-2 font-montserrat group-hover:scale-105 transition-transform duration-300" style="color: #06D6A0;">100+</div>
-                    <div class="text-sm uppercase tracking-widest" style="color: rgba(6, 214, 160, 0.7);">PROJECTS</div>
-                    <div class="h-1 mt-4 overflow-hidden" style="background-color: rgba(6, 214, 160, 0.2);">
-                        <div class="h-full transition-all duration-500" style="width: 90%; background-color: #06D6A0;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll Indicator - Minimalist -->
-            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="700" class="mt-20">
-                <button onclick="scrollToSection('culture')" 
-                        class="group inline-flex flex-col items-center gap-3 transition-colors duration-300 cursor-pointer"
-                        style="color: rgba(17, 138, 178, 0.7);"
-                        onmouseover="this.style.color='#118AB2';"
-                        onmouseout="this.style.color='rgba(17, 138, 178, 0.7)';"
-                        aria-label="Scroll down to explore opportunities">
-                    <span class="text-xs tracking-widest uppercase">EXPLORE OPPORTUNITIES</span>
-                    <div class="relative w-8 h-12">
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-8 transition-all duration-300" style="background-color: #118AB2;" onmouseover="this.style.height='2.5rem';" onmouseout="this.style.height='2rem';"></div>
-                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 rotate-45 group-hover:translate-y-2 transition-all duration-300" style="border-color: #118AB2;"></div>
-                    </div>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Talent We Value Section -->
-<section id="culture" class="py-32 relative bg-black overflow-hidden" aria-labelledby="culture-heading">
-    <!-- Sharp edge decorations -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
-        <div class="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2" style="border-color: rgba(6, 214, 160, 0.3);"></div>
-        <div class="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2" style="border-color: rgba(6, 214, 160, 0.3);"></div>
-        <div class="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2" style="border-color: rgba(17, 138, 178, 0.3);"></div>
-        
-        <div class="absolute top-1/3 right-12 w-px h-48 rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(17, 138, 178, 0.3) 50%, transparent 100%);"></div>
-        <div class="absolute bottom-1/3 left-12 w-px h-48 -rotate-45" style="background: linear-gradient(to bottom, transparent 0%, rgba(6, 214, 160, 0.3) 50%, transparent 100%);"></div>
-        
-        <div class="absolute inset-0 opacity-5">
-            <div class="h-full w-full" style="background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px); background-size: 40px 40px;"></div>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <!-- Minimalist header -->
-        <div class="text-center mb-24">
-            <div data-aos="fade-down" data-aos-duration="800" class="inline-flex items-center gap-2 mb-8">
-                <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
-                <span class="text-xs font-medium tracking-widest uppercase" style="color: rgba(17, 138, 178, 0.7);">OUR CULTURE DNA</span>
-                <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
-            </div>
-            
-            <h1 id="culture-heading" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="font-montserrat text-5xl md:text-7xl font-bold mb-8 tracking-tight" style="color: #118AB2;">
-                TALENT WE
-                <div class="block mt-2">
-                    <span class="font-light" style="color: #06D6A0;">VALUE</span>
-                </div>
-            </h1>
-            
-            <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="text-base max-w-xl mx-auto leading-relaxed" style="color: rgba(17, 138, 178, 0.5);">
-                We've built a workplace where <span class="font-semibold" style="color: #118AB2;">collaboration</span>, 
-                <span class="font-semibold" style="color: #06D6A0;">growth</span>, and 
-                <span class="font-semibold" style="color: #118AB2;">balance</span> create exceptional results.
-            </p>
-        </div>
-
-        <!-- Talent Grid - Minimalist Flip Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
-            <!-- Card 1: Energetic Innovators -->
-            <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="300" class="talent-card-wrapper group" data-card-index="1">
-                <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500" style="border: 2px solid #118AB2;" onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.4)';" onmouseout="this.style.borderColor='#118AB2';">
-                    <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
-                        <div class="talent-image absolute inset-0 overflow-hidden">
-                            <img src="images/girl.jpg" 
-                                 alt="Energetic Innovators"
-                                 loading="lazy"
-                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#118AB2]/90 via-[#118AB2]/60 to-transparent"></div>
-                        </div>
-                        <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">01</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
-                                    ENERGETIC INNOVATORS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
+            <!-- Talent Grid - Dark Cards on Light Background -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
+                <!-- Card 1: Energetic Innovators -->
+                <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="300" class="talent-card-wrapper group" data-card-index="1">
+                    <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500 bg-[#0F172A] border-2" style="border-color: #118AB2;">
+                        <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
+                            <div class="talent-image absolute inset-0 overflow-hidden">
+                                <img src="images/girl.jpg" 
+                                     alt="Energetic Innovators"
+                                     loading="lazy"
+                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#118AB2]/90 via-[#118AB2]/60 to-transparent"></div>
                             </div>
-                            <p class="text-white/80 text-sm leading-relaxed mb-4">
-                                Creative minds solving complex problems with fresh perspectives.
-                            </p>
-                            <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <span class="text-white text-xs tracking-widest">PROBLEM SOLVING</span>
-                                <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <i class="fas fa-bolt text-white text-xs"></i>
+                            <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">01</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
+                                        ENERGETIC INNOVATORS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #118AB2; color: white;">
-                        <div class="h-full flex flex-col">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">01</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
-                                    ENERGETIC INNOVATORS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            
-                            <div class="talent-details flex-grow overflow-hidden">
-                                <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                    Creative minds who thrive on solving complex problems with fresh perspectives and innovative approaches.
+                                <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                    Creative minds solving complex problems with fresh perspectives.
                                 </p>
-                                <div class="space-y-2 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Problem Solving</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Creativity</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Innovation</span>
+                                <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <span class="text-white text-xs tracking-widest">PROBLEM SOLVING</span>
+                                    <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <i class="fas fa-bolt text-white text-xs"></i>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <div class="text-white text-xs tracking-widest opacity-70">INNOVATION CULTURE</div>
+                        </div>
+
+                        <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #118AB2;">
+                            <div class="h-full flex flex-col text-white">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">01</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
+                                        ENERGETIC INNOVATORS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                
+                                <div class="talent-details flex-grow overflow-hidden">
+                                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                        Creative minds who thrive on solving complex problems with fresh perspectives and innovative approaches.
+                                    </p>
+                                    <div class="space-y-2 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Problem Solving</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Creativity</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Innovation</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <div class="text-white text-xs tracking-widest opacity-70">INNOVATION CULTURE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Seasoned Experts -->
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="talent-card-wrapper group" data-card-index="2">
+                    <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500 bg-[#0F172A] border-2" style="border-color: #06D6A0;">
+                        <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
+                            <div class="talent-image absolute inset-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Seasoned Experts"
+                                     loading="lazy"
+                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#06D6A0]/90 via-[#06D6A0]/60 to-transparent"></div>
+                            </div>
+                            <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">02</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
+                                        SEASONED EXPERTS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                    Professionals with diverse backgrounds and deep industry expertise.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <span class="text-white text-xs tracking-widest">EXPERIENCE</span>
+                                    <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <i class="fas fa-user-clock text-white text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #06D6A0;">
+                            <div class="h-full flex flex-col text-white">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">02</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
+                                        SEASONED EXPERTS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                
+                                <div class="talent-details flex-grow overflow-hidden">
+                                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                        Professionals with diverse backgrounds and deep industry expertise gained through years of practical experience.
+                                    </p>
+                                    <div class="space-y-2 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Experience</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Expertise</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Diversity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <div class="text-white text-xs tracking-widest opacity-70">PROFESSIONAL EXCELLENCE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Educated Specialists -->
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="talent-card-wrapper group" data-card-index="3">
+                    <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500 bg-[#0F172A] border-2" style="border-color: #118AB2;">
+                        <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
+                            <div class="talent-image absolute inset-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Educated Specialists"
+                                     loading="lazy"
+                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#118AB2]/90 via-[#118AB2]/60 to-transparent"></div>
+                            </div>
+                            <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">03</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
+                                        EDUCATED SPECIALISTS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                    Formally trained experts bringing academic excellence to practical challenges.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <span class="text-white text-xs tracking-widest">EDUCATION</span>
+                                    <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <i class="fas fa-graduation-cap text-white text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #118AB2;">
+                            <div class="h-full flex flex-col text-white">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">03</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
+                                        EDUCATED SPECIALISTS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                
+                                <div class="talent-details flex-grow overflow-hidden">
+                                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                        Formally trained experts who bring academic excellence, specialized knowledge, and research-based approaches to practical challenges.
+                                    </p>
+                                    <div class="space-y-2 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Education</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Specialization</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Excellence</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <div class="text-white text-xs tracking-widest opacity-70">ACADEMIC EXCELLENCE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Growth Champions -->
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" class="talent-card-wrapper group" data-card-index="4">
+                    <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500 bg-[#0F172A] border-2" style="border-color: #06D6A0;">
+                        <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
+                            <div class="talent-image absolute inset-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Growth Champions"
+                                     loading="lazy"
+                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#06D6A0]/90 via-[#06D6A0]/60 to-transparent"></div>
+                            </div>
+                            <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">04</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
+                                        GROWTH CHAMPIONS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                    Individuals committed to continuous learning and professional development.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <span class="text-white text-xs tracking-widest">LEARNING</span>
+                                    <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <i class="fas fa-seedling text-white text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #06D6A0;">
+                            <div class="h-full flex flex-col text-white">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">04</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
+                                        GROWTH CHAMPIONS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                
+                                <div class="talent-details flex-grow overflow-hidden">
+                                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                        Individuals passionately committed to continuous learning, skill development, and helping others grow.
+                                    </p>
+                                    <div class="space-y-2 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Learning</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Development</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Growth</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <div class="text-white text-xs tracking-widest opacity-70">CONTINUOUS GROWTH</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Global Thinkers -->
+                <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="700" class="talent-card-wrapper group" data-card-index="5">
+                    <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500 bg-[#0F172A] border-2" style="border-color: #118AB2;">
+                        <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
+                            <div class="talent-image absolute inset-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Global Thinkers"
+                                     loading="lazy"
+                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#118AB2]/90 via-[#118AB2]/60 to-transparent"></div>
+                            </div>
+                            <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">05</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
+                                        GLOBAL THINKERS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                    Professionals with international outlook who understand global markets.
+                                </p>
+                                <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <span class="text-white text-xs tracking-widest">GLOBAL MINDSET</span>
+                                    <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <i class="fas fa-globe text-white text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #118AB2;">
+                            <div class="h-full flex flex-col text-white">
+                                <div class="mb-6">
+                                    <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
+                                        <span class="text-white text-xs tracking-widest">05</span>
+                                    </div>
+                                    <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
+                                        GLOBAL THINKERS
+                                    </h3>
+                                    <div class="w-10 h-0.5 bg-white mb-4"></div>
+                                </div>
+                                
+                                <div class="talent-details flex-grow overflow-hidden">
+                                    <p class="text-white/80 text-sm leading-relaxed mb-4">
+                                        Professionals with international outlook and cultural intelligence who understand global markets and diverse perspectives.
+                                    </p>
+                                    <div class="space-y-2 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Global Mindset</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">Cultural IQ</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
+                                            <span class="text-white text-xs tracking-wide">International</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
+                                    <div class="text-white text-xs tracking-widest opacity-70">INTERNATIONAL OUTLOOK</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 2: Seasoned Experts -->
-            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="talent-card-wrapper group" data-card-index="2">
-                <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500" style="border: 2px solid #06D6A0;" onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.4)';" onmouseout="this.style.borderColor='#06D6A0';">
-                    <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
-                        <div class="talent-image absolute inset-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Seasoned Experts"
-                                 loading="lazy"
-                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#06D6A0]/90 via-[#06D6A0]/60 to-transparent"></div>
-                        </div>
-                        <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">02</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
-                                    SEASONED EXPERTS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            <p class="text-white/80 text-sm leading-relaxed mb-4">
-                                Professionals with diverse backgrounds and deep industry expertise.
-                            </p>
-                            <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <span class="text-white text-xs tracking-widest">EXPERIENCE</span>
-                                <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <i class="fas fa-user-clock text-white text-xs"></i>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Circuit Line Container -->
+            <div class="circuit-container">
+                <div class="circuit-line-wrapper">
+                    <div class="circuit-line">
+                        <div class="circuit-line-glow"></div>
                     </div>
-
-                    <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #06D6A0; color: white;">
-                        <div class="h-full flex flex-col">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">02</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
-                                    SEASONED EXPERTS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            
-                            <div class="talent-details flex-grow overflow-hidden">
-                                <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                    Professionals with diverse backgrounds and deep industry expertise gained through years of practical experience.
-                                </p>
-                                <div class="space-y-2 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Experience</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Expertise</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Diversity</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <div class="text-white text-xs tracking-widest opacity-70">PROFESSIONAL EXCELLENCE</div>
-                            </div>
-                        </div>
+                    
+                    <div class="circuit-node" data-card="1">
+                        <div class="node-glow"></div>
+                        <div class="node-core"></div>
                     </div>
+                    <div class="circuit-node" data-card="2">
+                        <div class="node-glow"></div>
+                        <div class="node-core"></div>
+                    </div>
+                    <div class="circuit-node" data-card="3">
+                        <div class="node-glow"></div>
+                        <div class="node-core"></div>
+                    </div>
+                    <div class="circuit-node" data-card="4">
+                        <div class="node-glow"></div>
+                        <div class="node-core"></div>
+                    </div>
+                    <div class="circuit-node" data-card="5">
+                        <div class="node-glow"></div>
+                        <div class="node-core"></div>
+                    </div>
+                    
+                    <div class="moving-point" id="movingPoint"></div>
                 </div>
             </div>
 
-            <!-- Card 3: Educated Specialists -->
-            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="talent-card-wrapper group" data-card-index="3">
-                <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500" style="border: 2px solid #118AB2;" onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.4)';" onmouseout="this.style.borderColor='#118AB2';">
-                    <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
-                        <div class="talent-image absolute inset-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Educated Specialists"
-                                 loading="lazy"
-                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#118AB2]/90 via-[#118AB2]/60 to-transparent"></div>
-                        </div>
-                        <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">03</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
-                                    EDUCATED SPECIALISTS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            <p class="text-white/80 text-sm leading-relaxed mb-4">
-                                Formally trained experts bringing academic excellence to practical challenges.
-                            </p>
-                            <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <span class="text-white text-xs tracking-widest">EDUCATION</span>
-                                <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <i class="fas fa-graduation-cap text-white text-xs"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #118AB2; color: white;">
-                        <div class="h-full flex flex-col">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">03</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
-                                    EDUCATED SPECIALISTS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            
-                            <div class="talent-details flex-grow overflow-hidden">
-                                <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                    Formally trained experts who bring academic excellence, specialized knowledge, and research-based approaches to practical challenges.
-                                </p>
-                                <div class="space-y-2 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Education</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Specialization</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Excellence</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <div class="text-white text-xs tracking-widest opacity-70">ACADEMIC EXCELLENCE</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4: Growth Champions -->
-            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" class="talent-card-wrapper group" data-card-index="4">
-                <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500" style="border: 2px solid #06D6A0;" onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.4)';" onmouseout="this.style.borderColor='#06D6A0';">
-                    <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
-                        <div class="talent-image absolute inset-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Growth Champions"
-                                 loading="lazy"
-                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#06D6A0]/90 via-[#06D6A0]/60 to-transparent"></div>
-                        </div>
-                        <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">04</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
-                                    GROWTH CHAMPIONS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            <p class="text-white/80 text-sm leading-relaxed mb-4">
-                                Individuals committed to continuous learning and professional development.
-                            </p>
-                            <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <span class="text-white text-xs tracking-widest">LEARNING</span>
-                                <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <i class="fas fa-seedling text-white text-xs"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #06D6A0; color: white;">
-                        <div class="h-full flex flex-col">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">04</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
-                                    GROWTH CHAMPIONS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            
-                            <div class="talent-details flex-grow overflow-hidden">
-                                <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                    Individuals passionately committed to continuous learning, skill development, and helping others grow in their professional journeys.
-                                </p>
-                                <div class="space-y-2 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Learning</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Development</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Growth</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <div class="text-white text-xs tracking-widest opacity-70">CONTINUOUS GROWTH</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5: Global Thinkers -->
-            <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="700" class="talent-card-wrapper group" data-card-index="5">
-                <div class="talent-card relative h-[420px] overflow-hidden cursor-pointer transition-all duration-500" style="border: 2px solid #118AB2;" onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.4)';" onmouseout="this.style.borderColor='#118AB2';">
-                    <div class="talent-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
-                        <div class="talent-image absolute inset-0 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Global Thinkers"
-                                 loading="lazy"
-                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#118AB2]/90 via-[#118AB2]/60 to-transparent"></div>
-                        </div>
-                        <div class="talent-content absolute inset-0 p-6 flex flex-col justify-end z-10">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">05</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl text-white mb-3 tracking-wide">
-                                    GLOBAL THINKERS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            <p class="text-white/80 text-sm leading-relaxed mb-4">
-                                Professionals with international outlook who understand global markets.
-                            </p>
-                            <div class="flex items-center justify-between pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <span class="text-white text-xs tracking-widest">GLOBAL MINDSET</span>
-                                <div class="w-6 h-6 border flex items-center justify-center" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <i class="fas fa-globe text-white text-xs"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="talent-back absolute inset-0 p-6 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out" style="background-color: #118AB2; color: white;">
-                        <div class="h-full flex flex-col">
-                            <div class="mb-6">
-                                <div class="inline-block px-3 py-1 mb-3 border" style="border-color: rgba(255, 255, 255, 0.3);">
-                                    <span class="text-white text-xs tracking-widest">05</span>
-                                </div>
-                                <h3 class="font-montserrat font-bold text-xl mb-3 tracking-wide">
-                                    GLOBAL THINKERS
-                                </h3>
-                                <div class="w-10 h-0.5 bg-white mb-4"></div>
-                            </div>
-                            
-                            <div class="talent-details flex-grow overflow-hidden">
-                                <p class="text-white/70 text-sm leading-relaxed mb-4">
-                                    Professionals with international outlook and cultural intelligence who understand global markets, diverse perspectives, and cross-border opportunities.
-                                </p>
-                                <div class="space-y-2 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Global Mindset</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">Cultural IQ</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-1.5 h-1.5 bg-white rotate-45"></div>
-                                        <span class="text-white text-xs tracking-wide">International</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-auto pt-4 border-t" style="border-color: rgba(255, 255, 255, 0.2);">
-                                <div class="text-white text-xs tracking-widest opacity-70">INTERNATIONAL OUTLOOK</div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- CTA Section -->
+            <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800" class="mt-24 text-center">
+                <div class="max-w-md mx-auto">
+                    <h3 class="text-2xl font-bold mb-6 tracking-wider" style="color: #118AB2;">
+                        WANT TO JOIN OUR TEAM?
+                    </h3>
+                    <p class="mb-10 text-sm" style="color: #475569;">
+                        Discover opportunities to grow with us
+                    </p>
+                    <a href="#apply" class="group inline-flex items-center gap-3 px-10 py-4 font-medium transition-all duration-300 border-2" 
+                       style="background: linear-gradient(to right, #118AB2, #06D6A0); color: white; border-color: transparent;">
+                        <span>VIEW CAREERS</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- Circuit Line Container -->
-        <div class="circuit-container">
-            <div class="circuit-line-wrapper">
-                <div class="circuit-line">
-                    <div class="circuit-line-glow"></div>
-                </div>
-                
-                <div class="circuit-node" data-card="1">
-                    <div class="node-glow"></div>
-                    <div class="node-core"></div>
-                </div>
-                <div class="circuit-node" data-card="2">
-                    <div class="node-glow"></div>
-                    <div class="node-core"></div>
-                </div>
-                <div class="circuit-node" data-card="3">
-                    <div class="node-glow"></div>
-                    <div class="node-core"></div>
-                </div>
-                <div class="circuit-node" data-card="4">
-                    <div class="node-glow"></div>
-                    <div class="node-core"></div>
-                </div>
-                <div class="circuit-node" data-card="5">
-                    <div class="node-glow"></div>
-                    <div class="node-core"></div>
-                </div>
-                
-                <div class="moving-point" id="movingPoint"></div>
-            </div>
-        </div>
-
-        <!-- CTA Section -->
-        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800" class="mt-24 text-center">
-            <div class="max-w-md mx-auto">
-                <h3 class="text-2xl font-bold mb-6 tracking-wider" style="color: #118AB2;">
-                    WANT TO JOIN OUR TEAM?
-                </h3>
-                <p class="mb-10 text-sm" style="color: rgba(17, 138, 178, 0.5);">
-                    Discover opportunities to grow with us
-                </p>
-                <a href="#apply" class="group inline-flex items-center gap-3 px-10 py-4 font-medium transition-colors duration-300 border-2" style="background: linear-gradient(to right, #118AB2, #06D6A0); color: white; border-color: transparent;" onmouseover="this.style.background='transparent'; this.style.color='#118AB2'; this.style.borderColor='#118AB2';" onmouseout="this.style.background='linear-gradient(to right, #118AB2, #06D6A0)'; this.style.color='white'; this.style.borderColor='transparent';">
-                    <span>VIEW CAREERS</span>
-                    <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 <!-- Workplace Excellence Section -->
 <section id="workplace-excellence" class="py-32 relative bg-black overflow-hidden" aria-labelledby="workplace-heading">
@@ -2908,7 +2772,7 @@
                 <div class="space-y-6">
                     <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="text-reveal-wrapper text-reveal-left">
                         <div class="text-reveal-mask"></div>
-                        <img src="images/logo-main.png" alt="">
+                        <img class="h-32" src="images/logo-main.png" alt="">
                     </div>
                     <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="150" class="text-sm tracking-wide" style="color: #118AB2;">
                         IT SERVICES & SOLUTIONS PROVIDER
@@ -2968,7 +2832,7 @@
                 </div>
                 <ul class="space-y-3">
                     <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                        <a href="home.html"
+                        <a href="index.html"
                             class="transition-all duration-300 flex items-center group"
                             style="color: #118AB2;"
                             onmouseover="this.style.color='#0DA8E9';"
@@ -2981,7 +2845,7 @@
                         </a>
                     </li>
                     <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="350">
-                        <a href="home.html#about"
+                        <a href="index.html#about"
                             class="transition-all duration-300 flex items-center group"
                             style="color: #118AB2;"
                             onmouseover="this.style.color='#0DA8E9';"
