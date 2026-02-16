@@ -622,740 +622,638 @@
     </div>
 
     <!-- Navbar - FIXED -->
-    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500" role="banner">
-        <!-- Edge decorations -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-0 left-0 w-12 sm:w-16 md:w-20 lg:w-24 h-px" style="background: linear-gradient(to right, #42c7f3, rgba(6, 214, 160, 0.5), transparent);"></div>
-            <div class="absolute top-0 right-0 w-12 sm:w-16 md:w-20 lg:w-24 h-px" style="background: linear-gradient(to left, #42c7f3, rgba(6, 214, 160, 0.5), transparent);"></div>
-            
-            <div class="absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 w-1 h-1 rotate-45" style="background-color: rgba(17, 138, 178, 0.8);"></div>
-            <div class="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 w-1 h-1 rotate-45" style="background-color: rgba(6, 214, 160, 0.8);"></div>
-            
-            <div class="absolute top-full left-1/2 -translate-x-1/2 w-16 sm:w-20 md:w-24 lg:w-32 h-px" style="background: linear-gradient(to right, transparent 0%, rgba(17, 138, 178, 0.3) 50%, transparent 100%);"></div>
-            
-            <div class="hidden md:block absolute bottom-4 left-4 w-1 h-1 rotate-45" style="background-color: rgba(17, 138, 178, 0.5);"></div>
-            <div class="hidden md:block absolute bottom-4 right-4 w-1 h-1 rotate-45" style="background-color: rgba(6, 214, 160, 0.5);"></div>
-        </div>
+<header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500" role="banner">
+    <!-- Edge decorations - hidden on mobile -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+        <div class="absolute top-0 left-0 w-16 h-px" style="background: linear-gradient(to right, #42c7f3, rgba(6, 214, 160, 0.5), transparent);"></div>
+        <div class="absolute top-0 right-0 w-16 h-px" style="background: linear-gradient(to left, #42c7f3, rgba(6, 214, 160, 0.5), transparent);"></div>
+        <div class="absolute top-4 left-4 w-1 h-1 rotate-45" style="background-color: rgba(17, 138, 178, 0.8);"></div>
+        <div class="absolute top-4 right-4 w-1 h-1 rotate-45" style="background-color: rgba(6, 214, 160, 0.8);"></div>
+        <div class="absolute top-full left-1/2 -translate-x-1/2 w-24 h-px" style="background: linear-gradient(to right, transparent 0%, rgba(17, 138, 178, 0.3) 50%, transparent 100%);"></div>
+    </div>
 
-        <nav class="px-4 sm:px-6 h-16 sm:h-20 md:h-24 flex items-center justify-between relative z-10">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center group">
-                <div class="relative flex items-center gap-3">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 md:h-24 flex items-center justify-between relative z-10">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center group">
+            <div class="relative flex items-center gap-2 md:gap-3">
+                <div class="relative">
+                    <img 
+                        src="images/logo-main.png" 
+                        alt="OUTWERK SOLUTIONS Logo"
+                        class="h-10 sm:h-14 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300 navbar-logo"
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60/ffffff/000000?text=OUTWERK+SOLUTIONS'"
+                    >
+                </div>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex items-center gap-1">
+            <!-- Home -->
+            <li>
+                <a href="index.html" 
+                   class="group relative px-4 py-3 transition-all duration-300 flex items-center nav-link" 
+                   style="color: rgba(255, 255, 255, 0.9);">
+                    <div class="flex items-center gap-3">
+                        <div class="relative w-5 h-5">
+                            <div class="absolute inset-0 w-2 h-2 transition-all duration-300 group-hover:w-3 group-hover:h-3" 
+                                 style="border: 2px solid rgba(255, 255, 255, 0.9);"></div>
+                        </div>
+                        <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">HOME</span>
+                    </div>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-10" 
+                         style="background-color: #42c7f3;"></div>
+                </a>
+            </li>
+            
+            <!-- Services Dropdown -->
+            <li class="relative group">
+                <button class="group relative px-4 py-3 transition-all duration-300 flex items-center gap-3 nav-link" 
+                        style="color: rgba(255, 255, 255, 0.9);">
+                    <div class="relative w-5 h-5">
+                        <div class="absolute inset-0">
+                            <div class="w-2 h-2 transition-all duration-300 group-hover:w-3 group-hover:h-3" 
+                                 style="border: 1px solid rgba(255, 255, 255, 0.9);"></div>
+                            <div class="w-1 h-1 transition-all duration-300 absolute -bottom-1 -right-1" 
+                                 style="background-color: rgba(255, 255, 255, 0.9);"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">SERVICES</span>
+                    <i class="fas fa-chevron-down text-xs mt-0.5 transition-all duration-300" 
+                       style="color: rgba(255, 255, 255, 0.9); opacity: 0.7;"></i>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-10" 
+                         style="background-color: #06D6A0;"></div>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
                     <div class="relative">
-                        <img 
-                            src="images/logo-main.png" 
-                            alt="OUTWERK SOLUTIONS Logo"
-                            class="h-10 sm:h-14 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
-                            onerror="this.onerror=null; this.src='https://via.placeholder.com/200x60/ffffff/000000?text=OUTWERK+SOLUTIONS'"
-                        >
+                        <div class="absolute -top-2 left-6 w-4 h-4 rotate-45" style="background-color: rgba(17, 138, 178, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2);"></div>
+                        
+                        <div class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]" style="background-color: rgba(17, 138, 178, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <div class="flex items-center gap-2 mb-4 px-2">
+                                <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
+                                <div class="text-xs tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.9);">OUR SERVICES</div>
+                            </div>
+                            
+                            <!-- Web Development -->
+                            <a href="services.html#web-dev" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-code text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Web Development</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Modern web solutions</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- UI/UX Design -->
+                            <a href="services.html#ui-ux" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-paint-brush text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">UI/UX Design</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">User-centered design</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- IT Solutions -->
+                            <a href="services.html#it-solutions" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-server text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">IT Solutions</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Enterprise systems</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Consulting -->
+                            <a href="services.html#consulting" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-chart-line text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Consulting</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Strategic guidance</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- View All -->
+                            <div class="pt-4 mt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                                <a href="services.html" class="group/item block px-3 py-3 transition-all duration-300 rounded" 
+                                   style="color: white;">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm font-medium tracking-wide">VIEW ALL SERVICES</span>
+                                        <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                             style="border: 1px solid rgba(255, 255, 255, 0.7);">
+                                            <i class="fas fa-arrow-right text-xs" style="color: white;"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Careers Dropdown -->
+            <li class="relative group">
+                <button class="group relative px-4 py-3 transition-all duration-300 flex items-center gap-3 nav-link" 
+                        style="color: rgba(255, 255, 255, 0.9);">
+                    <div class="relative w-5 h-5">
+                        <div class="absolute inset-0">
+                            <div class="w-2 h-2 transition-all duration-300 group-hover:w-3 group-hover:h-3" 
+                                 style="border: 1px solid rgba(255, 255, 255, 0.9);"></div>
+                            <div class="w-1 h-1 transition-all duration-300 absolute -bottom-1 -right-1" 
+                                 style="background-color: rgba(255, 255, 255, 0.9);"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">CAREERS</span>
+                    <i class="fas fa-chevron-down text-xs mt-0.5 transition-all duration-300" 
+                       style="color: rgba(255, 255, 255, 0.9); opacity: 0.7;"></i>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-10" 
+                         style="background-color: #42c7f3;"></div>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
+                    <div class="relative">
+                        <div class="absolute -top-2 left-6 w-4 h-4 rotate-45" style="background-color: rgba(6, 214, 160, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2);"></div>
+                        
+                        <div class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]" style="background-color: rgba(6, 214, 160, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <div class="flex items-center gap-2 mb-4 px-2">
+                                <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
+                                <div class="text-xs tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.9);">JOIN OUR TEAM</div>
+                            </div>
+                            
+                            <!-- Open Positions -->
+                            <a href="career.html#openings" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-briefcase text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Open Positions</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Current vacancies</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Benefits -->
+                            <a href="career.html#benefits" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-gift text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Benefits & Culture</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Work environment</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Internships -->
+                            <a href="career.html#internships" class="group/item block px-3 py-4 transition-all duration-300" 
+                               style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                                             style="background-color: rgba(255, 255, 255, 0.1);">
+                                            <i class="fas fa-graduation-cap text-sm" style="color: rgba(255, 255, 255, 0.9);"></i>
+                                        </div>
+                                        <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45" style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Internships</div>
+                                        <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Student opportunities</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0" 
+                                       style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- Apply Now -->
+                            <div class="pt-4 mt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                                <a href="career.html#apply" class="group/item block px-3 py-3 transition-all duration-300 rounded" 
+                                   style="background-color: rgba(255, 255, 255, 0.1); color: white;">
+                                    <div class="flex items-center justify-center gap-3">
+                                        <span class="text-sm font-medium tracking-wide">APPLY NOW</span>
+                                        <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                             style="border: 1px solid white;">
+                                            <i class="fas fa-paper-plane text-xs" style="color: white;"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Contact Button -->
+            <li class="ml-4">
+                <a href="contact.html" 
+                   class="group relative px-6 lg:px-8 py-3 flex items-center gap-3 lg:gap-4 transition-all duration-300 contact-btn"
+                   style="border: 1px solid rgba(17, 138, 178, 0.5); color: white;">
+                    <div class="relative">
+                        <div class="w-4 h-4 transition-all duration-300" 
+                             style="border: 2px solid rgba(255, 255, 255, 0.9);"></div>
+                        <div class="w-2 h-2 transition-all duration-300 absolute -bottom-1 -right-1" 
+                             style="background-color: rgba(255, 255, 255, 0.9);"></div>
+                    </div>
+                    <span class="text-sm tracking-wider font-medium">CONTACT</span>
+                    <div class="w-4 h-4 flex items-center justify-center group-hover:rotate-45 transition-all duration-300">
+                        <i class="fas fa-arrow-right text-xs" style="color: white;"></i>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden flex flex-col items-end justify-center w-10 h-10 gap-1.5 relative z-[10000]" aria-label="Toggle mobile menu">
+            <span class="w-6 h-0.5 transition-all duration-300" style="background-color: white;"></span>
+            <span class="w-5 h-0.5 transition-all duration-300" style="background-color: white;"></span>
+            <span class="w-4 h-0.5 transition-all duration-300" style="background-color: white;"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden fixed left-0 right-0 bg-white shadow-xl z-[9998] transform -translate-y-full transition-transform duration-300 ease-in-out overflow-y-auto" 
+         style="backdrop-filter: blur(10px); border-top: 1px solid rgba(17, 138, 178, 0.1); border-bottom: 1px solid rgba(17, 138, 178, 0.1); max-height: calc(100vh - 4rem);">
+        <div class="px-6 py-8 space-y-1">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between mb-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rotate-45" style="background-color: #42c7f3;"></div>
+                    <div>
+                        <div class="text-sm tracking-widest uppercase font-medium" style="color: #1E293B;">MENU</div>
+                        <div class="text-xs mt-0.5" style="color: #475569;">Navigation</div>
+                    </div>
+                </div>
+                <div class="text-xs px-3 py-1 rounded" style="color: #1E293B; background-color: rgba(17, 138, 178, 0.1);">03</div>
+            </div>
+            
+            <!-- Mobile Navigation Links -->
+            <a href="index.html" class="group block py-5 transition-all duration-300" 
+               style="color: #1E293B; border-bottom: 1px solid rgba(17, 138, 178, 0.1);">
+                <div class="flex items-center gap-4">
+                    <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                         style="background-color: rgba(17, 138, 178, 0.1);">
+                        <i class="fas fa-home text-sm" style="color: #42c7f3;"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm tracking-wide font-medium">HOME</div>
+                        <div class="text-xs mt-0.5" style="color: #475569;">Main page</div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xs ml-auto" style="color: #42c7f3;"></i>
+                </div>
+            </a>
+            
+            <!-- Mobile Services -->
+            <div style="border-bottom: 1px solid rgba(17, 138, 178, 0.1);">
+                <button id="mobileServicesBtn" class="group w-full flex justify-between items-center py-5 transition-all duration-300" 
+                        style="color: #1E293B;">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                             style="background-color: rgba(17, 138, 178, 0.1);">
+                            <i class="fas fa-cogs text-sm" style="color: #42c7f3;"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm tracking-wide font-medium">SERVICES</div>
+                            <div class="text-xs mt-0.5" style="color: #475569;">Our offerings</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-chevron-down text-xs transform transition-transform duration-300" style="color: #42c7f3;"></i>
+                        <div class="w-2 h-2 rotate-45" style="background-color: #42c7f3;"></div>
+                    </div>
+                </button>
+                <div id="mobileServicesMenu" class="hidden pl-12 pb-4 space-y-4">
+                    <!-- Web Dev -->
+                    <a href="services.html#web-dev" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(17, 138, 178, 0.4);">
+                                <i class="fas fa-code text-xs" style="color: #42c7f3;"></i>
+                            </div>
+                            <span class="text-sm">Web Development</span>
+                        </div>
+                    </a>
+                    <!-- UI/UX -->
+                    <a href="services.html#ui-ux" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(17, 138, 178, 0.4);">
+                                <i class="fas fa-paint-brush text-xs" style="color: #42c7f3;"></i>
+                            </div>
+                            <span class="text-sm">UI/UX Design</span>
+                        </div>
+                    </a>
+                    <!-- IT Solutions -->
+                    <a href="services.html#it-solutions" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(17, 138, 178, 0.4);">
+                                <i class="fas fa-server text-xs" style="color: #42c7f3;"></i>
+                            </div>
+                            <span class="text-sm">IT Solutions</span>
+                        </div>
+                    </a>
+                    <!-- Consulting -->
+                    <a href="services.html#consulting" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(17, 138, 178, 0.4);">
+                                <i class="fas fa-chart-line text-xs" style="color: #42c7f3;"></i>
+                            </div>
+                            <span class="text-sm">Consulting</span>
+                        </div>
+                    </a>
+                    <!-- View All -->
+                    <a href="services.html" class="group/item block pt-4 font-medium transition-all duration-300" style="color: #42c7f3;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="background-color: rgba(17, 138, 178, 0.1);">
+                                <i class="fas fa-arrow-right text-xs" style="color: #42c7f3;"></i>
+                            </div>
+                            <span>View All Services</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Careers -->
+            <div style="border-bottom: 1px solid rgba(17, 138, 178, 0.1);">
+                <button id="mobileCareersBtn" class="group w-full flex justify-between items-center py-5 transition-all duration-300" 
+                        style="color: #1E293B;">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                             style="background-color: rgba(6, 214, 160, 0.1);">
+                            <i class="fas fa-users text-sm" style="color: #06D6A0;"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm tracking-wide font-medium">CAREERS</div>
+                            <div class="text-xs mt-0.5" style="color: #475569;">Join our team</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-chevron-down text-xs transform transition-transform duration-300" style="color: #06D6A0;"></i>
+                        <div class="w-2 h-2 rotate-45" style="background-color: #06D6A0;"></div>
+                    </div>
+                </button>
+                <div id="mobileCareersMenu" class="hidden pl-12 pb-4 space-y-4">
+                    <!-- Open Positions -->
+                    <a href="career.html#openings" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(6, 214, 160, 0.4);">
+                                <i class="fas fa-briefcase text-xs" style="color: #06D6A0;"></i>
+                            </div>
+                            <span class="text-sm">Open Positions</span>
+                        </div>
+                    </a>
+                    <!-- Benefits -->
+                    <a href="career.html#benefits" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(6, 214, 160, 0.4);">
+                                <i class="fas fa-gift text-xs" style="color: #06D6A0;"></i>
+                            </div>
+                            <span class="text-sm">Benefits & Culture</span>
+                        </div>
+                    </a>
+                    <!-- Internships -->
+                    <a href="career.html#internships" class="group/item block transition-all duration-300" style="color: #475569;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="border: 1px solid rgba(6, 214, 160, 0.4);">
+                                <i class="fas fa-graduation-cap text-xs" style="color: #06D6A0;"></i>
+                            </div>
+                            <span class="text-sm">Internships</span>
+                        </div>
+                    </a>
+                    <!-- Apply Now -->
+                    <a href="career.html#apply" class="group/item block pt-4 font-medium transition-all duration-300" style="color: #06D6A0;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
+                                 style="background-color: rgba(6, 214, 160, 0.1);">
+                                <i class="fas fa-paper-plane text-xs" style="color: #06D6A0;"></i>
+                            </div>
+                            <span>Apply Now</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Contact -->
+            <a href="contact.html" class="group block py-5 transition-all duration-300" style="color: #1E293B;">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                             style="background-color: #42c7f3;">
+                            <i class="fas fa-envelope text-sm" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm tracking-wide font-medium">CONTACT</div>
+                            <div class="text-xs mt-0.5" style="color: #475569;">Get in touch</div>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
+                         style="border: 1px solid #42c7f3;">
+                        <i class="fas fa-arrow-right text-xs" style="color: #42c7f3;"></i>
                     </div>
                 </div>
             </a>
-
-            <!-- Desktop Navigation -->
-            <ul class="hidden md:flex items-center gap-1">
-                <!-- Home -->
-                <li>
-                    <a href="index.html" 
-                       class="group relative px-4 py-3 transition-all duration-300 flex items-center" 
-                       style="color: rgba(255, 255, 255, 0.9);"
-                       onmouseover="this.style.color='white';"
-                       onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';">
-                        <div class="flex items-center gap-3">
-                            <div class="relative w-5 h-5">
-                                <div class="absolute inset-0 w-2 h-2 transition-all duration-300" 
-                                     style="border: 2px solid rgba(255, 255, 255, 0.9);"
-                                     onmouseover="this.style.borderColor='white'; this.style.width='0.75rem'; this.style.height='0.75rem';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.9)'; this.style.width='0.5rem'; this.style.height='0.5rem';"></div>
-                            </div>
-                            <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">HOME</span>
+            
+            <!-- Mobile Menu Footer -->
+            <div class="pt-10 mt-8" style="border-top: 1px solid rgba(17, 138, 178, 0.2);">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-3 h-3 rotate-45" style="background-color: #42c7f3;"></div>
+                    <div class="text-xs tracking-widest uppercase" style="color: #1E293B;">QUICK ACCESS</div>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <a href="tel:021-34545003" class="group flex items-center gap-3 transition-colors duration-300" style="color: #475569;">
+                        <div class="w-6 h-6 flex items-center justify-center" style="border: 1px solid rgba(17, 138, 178, 0.4);">
+                            <i class="fas fa-phone text-xs" style="color: #42c7f3;"></i>
                         </div>
-                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300" 
-                             style="background-color: #42c7f3;"
-                             onmouseover="this.style.width='2.5rem';"
-                             onmouseout="this.style.width='0';"></div>
+                        <div class="text-xs">021-34545003</div>
                     </a>
-                </li>
-                
-                <!-- Services Dropdown -->
-                <li class="relative group">
-                    <button class="group relative px-4 py-3 transition-all duration-300 flex items-center gap-3" 
-                            style="color: rgba(255, 255, 255, 0.9);"
-                            onmouseover="this.style.color='white';"
-                            onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';">
-                        <div class="relative w-5 h-5">
-                            <div class="absolute inset-0">
-                                <div class="w-2 h-2 transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.9);"
-                                     onmouseover="this.style.borderColor='white'; this.style.width='0.75rem'; this.style.height='0.75rem';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.9)'; this.style.width='0.5rem'; this.style.height='0.5rem';"></div>
-                                <div class="w-1 h-1 transition-all duration-300 absolute -bottom-1 -right-1" 
-                                     style="background-color: rgba(255, 255, 255, 0.9);"
-                                     onmouseover="this.style.backgroundColor='white';"
-                                     onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.9)';"></div>
-                            </div>
+                    <a href="mailto:hr@outwerksolutions.com" class="group flex items-center gap-3 transition-colors duration-300" style="color: #475569;">
+                        <div class="w-6 h-6 flex items-center justify-center" style="border: 1px solid rgba(17, 138, 178, 0.4);">
+                            <i class="fas fa-envelope text-xs" style="color: #42c7f3;"></i>
                         </div>
-                        <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">SERVICES</span>
-                        <i class="fas fa-chevron-down text-xs mt-0.5 transition-all duration-300" 
-                           style="opacity: 0.8;"
-                           onmouseover="this.style.opacity='1';"
-                           onmouseout="this.style.opacity='0.8';"></i>
-                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300" 
-                             style="background-color: #06D6A0;"
-                             onmouseover="this.style.width='2.5rem';"
-                             onmouseout="this.style.width='0';"></div>
-                    </button>
-                    
-                    <!-- Dropdown Menu -->
-                    <div class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
-                        <div class="relative">
-                            <div class="absolute -top-2 left-6 w-4 h-4 rotate-45" style="background-color: rgba(17, 138, 178, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2);"></div>
-                            
-                            <div class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]" style="background-color: rgba(17, 138, 178, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-                                <div class="flex items-center gap-2 mb-4 px-2">
-                                    <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
-                                    <div class="text-xs tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.9);">OUR SERVICES</div>
-                                </div>
-                                
-                                <!-- Web Development -->
-                                <a href="services.html#web-dev" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-code text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">Web Development</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Modern web solutions</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- UI/UX Design -->
-                                <a href="services.html#ui-ux" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-paint-brush text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">UI/UX Design</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">User-centered design</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- IT Solutions -->
-                                <a href="services.html#it-solutions" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-server text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">IT Solutions</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Enterprise systems</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- Consulting -->
-                                <a href="services.html#consulting" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-chart-line text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">Consulting</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Strategic guidance</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- View All -->
-                                <div class="pt-4 mt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                                    <a href="services.html" class="group/item block px-3 py-3 transition-all duration-300 rounded" 
-                                       style="color: white;"
-                                       onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';"
-                                       onmouseout="this.style.backgroundColor='transparent';">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-sm font-medium tracking-wide">VIEW ALL SERVICES</span>
-                                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                                 style="border: 1px solid rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.borderColor='white'; this.style.backgroundColor='white'; this.style.color='#42c7f3';"
-                                                 onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.7)'; this.style.backgroundColor='transparent'; this.style.color='inherit';">
-                                                <i class="fas fa-arrow-right text-xs"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                
-                <!-- Careers Dropdown -->
-                <li class="relative group">
-                    <button class="group relative px-4 py-3 transition-all duration-300 flex items-center gap-3" 
-                            style="color: rgba(255, 255, 255, 0.9);"
-                            onmouseover="this.style.color='white';"
-                            onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';">
-                        <div class="relative w-5 h-5">
-                            <div class="absolute inset-0">
-                                <div class="w-2 h-2 transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.9);"
-                                     onmouseover="this.style.borderColor='white'; this.style.width='0.75rem'; this.style.height='0.75rem';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.9)'; this.style.width='0.5rem'; this.style.height='0.5rem';"></div>
-                                <div class="w-1 h-1 transition-all duration-300 absolute -bottom-1 -right-1" 
-                                     style="background-color: rgba(255, 255, 255, 0.9);"
-                                     onmouseover="this.style.backgroundColor='white';"
-                                     onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.9)';"></div>
-                            </div>
-                        </div>
-                        <span class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">CAREERS</span>
-                        <i class="fas fa-chevron-down text-xs mt-0.5 transition-all duration-300" 
-                           style="opacity: 0.8;"
-                           onmouseover="this.style.opacity='1';"
-                           onmouseout="this.style.opacity='0.8';"></i>
-                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300" 
-                             style="background-color: #42c7f3;"
-                             onmouseover="this.style.width='2.5rem';"
-                             onmouseout="this.style.width='0';"></div>
-                    </button>
-                    
-                    <!-- Dropdown Menu -->
-                    <div class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
-                        <div class="relative">
-                            <div class="absolute -top-2 left-6 w-4 h-4 rotate-45" style="background-color: rgba(6, 214, 160, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2);"></div>
-                            
-                            <div class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]" style="background-color: rgba(6, 214, 160, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-                                <div class="flex items-center gap-2 mb-4 px-2">
-                                    <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
-                                    <div class="text-xs tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.9);">JOIN OUR TEAM</div>
-                                </div>
-                                
-                                <!-- Open Positions -->
-                                <a href="career.html#openings" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-briefcase text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">Open Positions</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Current vacancies</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- Benefits -->
-                                <a href="career.html#benefits" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-gift text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">Benefits & Culture</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Work environment</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- Internships -->
-                                <a href="career.html#internships" class="group/item block px-3 py-4 transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                   onmouseover="this.style.color='white'; this.style.borderLeftColor='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)'; this.style.borderLeftColor='transparent';">
-                                    <div class="flex items-center gap-4">
-                                        <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                                <i class="fas fa-graduation-cap text-sm transition-all duration-300" 
-                                                   style="color: rgba(255, 255, 255, 0.9);"
-                                                   onmouseover="this.style.color='white';"
-                                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                                            </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 transition-all duration-300" 
-                                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                                 onmouseover="this.style.backgroundColor='white';"
-                                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                                        </div>
-                                        <div class="flex-1">
-                                            <div class="text-sm font-medium">Internships</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Student opportunities</div>
-                                        </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300" 
-                                           style="opacity: 0; transform: translateX(-0.5rem);"
-                                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                                    </div>
-                                </a>
-                                
-                                <!-- Apply Now -->
-                                <div class="pt-4 mt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                                    <a href="career.html#apply" class="group/item block px-3 py-3 transition-all duration-300 rounded" 
-                                       style="background-color: rgba(255, 255, 255, 0.1); color: white;"
-                                       onmouseover="this.style.backgroundColor='white'; this.style.color='#06D6A0';"
-                                       onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'; this.style.color='white';">
-                                        <div class="flex items-center justify-center gap-3">
-                                            <span class="text-sm font-medium tracking-wide">APPLY NOW</span>
-                                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                                 style="border: 1px solid white;"
-                                                 onmouseover="this.style.borderColor='#06D6A0'; this.style.backgroundColor='#06D6A0'; this.style.color='white';"
-                                                 onmouseout="this.style.borderColor='white'; this.style.backgroundColor='transparent'; this.style.color='inherit';">
-                                                <i class="fas fa-paper-plane text-xs"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                
-                <!-- Contact Button -->
-                <li class="ml-4">
-                    <a href="contact.html" 
-                       class="group relative px-6 lg:px-8 py-3 flex items-center gap-3 lg:gap-4 transition-all duration-300"
-                       style="border: 1px solid rgba(17, 138, 178, 0.5); color: white;"
-                       onmouseover="this.style.borderColor='#42c7f3'; this.style.backgroundColor='rgba(17, 138, 178, 0.1)';"
-                       onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.5)'; this.style.backgroundColor='transparent';">
-                        <div class="relative">
-                            <div class="w-4 h-4 transition-all duration-300" 
-                                 style="border: 2px solid rgba(255, 255, 255, 0.9);"
-                                 onmouseover="this.style.borderColor='#42c7f3';"
-                                 onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.9)';"></div>
-                            <div class="w-2 h-2 transition-all duration-300 absolute -bottom-1 -right-1" 
-                                 style="background-color: rgba(255, 255, 255, 0.9);"
-                                 onmouseover="this.style.backgroundColor='#42c7f3';"
-                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.9)';"></div>
-                        </div>
-                        <span class="text-sm tracking-wider font-medium">CONTACT</span>
-                        <div class="w-4 h-4 flex items-center justify-center group-hover:rotate-45 transition-all duration-300">
-                            <i class="fas fa-arrow-right text-xs" style="color: white;"></i>
-                        </div>
+                        <div class="text-xs break-all">hr@outwerksolutions.com</div>
                     </a>
-                </li>
-            </ul>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="md:hidden flex flex-col items-end justify-center w-10 h-10 gap-1.5 relative z-[10000]" aria-label="Toggle mobile menu">
-                <span class="w-6 h-0.5 transition-all duration-300" style="background-color: white;"></span>
-                <span class="w-5 h-0.5 transition-all duration-300" style="background-color: white;"></span>
-                <span class="w-4 h-0.5 transition-all duration-300" style="background-color: white;"></span>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden">
-            <div class="px-6 py-8 space-y-1 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
-                <!-- Mobile Menu Header -->
-                <div class="flex items-center justify-between mb-10">
-                    <div class="flex items-center gap-3">
-                        <div class="w-4 h-4 rotate-45" style="background-color: white; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);"></div>
-                        <div>
-                            <div class="text-sm tracking-widest uppercase font-medium" style="color: rgba(255, 255, 255, 0.9);">MENU</div>
-                            <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.7);">Navigation</div>
-                        </div>
-                    </div>
-                    <div class="text-xs px-3 py-1 rounded" style="color: rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.1);">03</div>
-                </div>
-                
-                <!-- Mobile Navigation Links -->
-                <a href="index.html" class="group block py-5 transition-all duration-300" 
-                   style="color: rgba(255, 255, 255, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.1);"
-                   onmouseover="this.style.color='white';"
-                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';">
-                    <div class="flex items-center gap-4">
-                        <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                             style="background-color: rgba(255, 255, 255, 0.1);"
-                             onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                             onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                            <i class="fas fa-home text-sm transition-all duration-300" 
-                               style="color: rgba(255, 255, 255, 0.9);"
-                               onmouseover="this.style.color='white';"
-                               onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                        </div>
-                        <div>
-                            <div class="text-sm tracking-wide font-medium">HOME</div>
-                            <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.7);">Main page</div>
-                        </div>
-                        <i class="fas fa-arrow-right text-xs ml-auto transition-all duration-300" 
-                           style="opacity: 0; transform: translateX(-0.5rem);"
-                           onmouseover="this.style.opacity='1'; this.style.transform='translateX(0)';"
-                           onmouseout="this.style.opacity='0'; this.style.transform='translateX(-0.5rem)';"></i>
-                    </div>
-                </a>
-                
-                <!-- Mobile Services -->
-                <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                    <button id="mobileServicesBtn" class="group w-full flex justify-between items-center py-5 transition-all duration-300" 
-                            style="color: rgba(255, 255, 255, 0.9);"
-                            onmouseover="this.style.color='white';"
-                            onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';">
-                        <div class="flex items-center gap-4">
-                            <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                <i class="fas fa-cogs text-sm transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9);"
-                                   onmouseover="this.style.color='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm tracking-wide font-medium">SERVICES</div>
-                                <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.7);">Our offerings</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                            <div class="w-2 h-2 rotate-45 transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                 onmouseover="this.style.backgroundColor='white';"
-                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                        </div>
-                    </button>
-                    <div id="mobileServicesMenu" class="hidden pl-12 pb-4 space-y-4">
-                        <!-- Web Dev -->
-                        <a href="services.html#web-dev" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-code text-xs"></i>
-                                </div>
-                                <span class="text-sm">Web Development</span>
-                            </div>
-                        </a>
-                        <!-- UI/UX -->
-                        <a href="services.html#ui-ux" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-paint-brush text-xs"></i>
-                                </div>
-                                <span class="text-sm">UI/UX Design</span>
-                            </div>
-                        </a>
-                        <!-- IT Solutions -->
-                        <a href="services.html#it-solutions" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-server text-xs"></i>
-                                </div>
-                                <span class="text-sm">IT Solutions</span>
-                            </div>
-                        </a>
-                        <!-- Consulting -->
-                        <a href="services.html#consulting" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-chart-line text-xs"></i>
-                                </div>
-                                <span class="text-sm">Consulting</span>
-                            </div>
-                        </a>
-                        <!-- View All -->
-                        <a href="services.html" class="group/item block pt-4 font-medium transition-all duration-300" 
-                           style="color: white;"
-                           onmouseover="this.style.color='#42c7f3';"
-                           onmouseout="this.style.color='white';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="background-color: rgba(255, 255, 255, 0.1);"
-                                     onmouseover="this.style.backgroundColor='white'; this.style.color='#42c7f3';"
-                                     onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'; this.style.color='inherit';">
-                                    <i class="fas fa-arrow-right text-xs"></i>
-                                </div>
-                                <span>View All Services</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Mobile Careers -->
-                <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                    <button id="mobileCareersBtn" class="group w-full flex justify-between items-center py-5 transition-all duration-300" 
-                            style="color: rgba(255, 255, 255, 0.9);"
-                            onmouseover="this.style.color='white';"
-                            onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';">
-                        <div class="flex items-center gap-4">
-                            <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.1);"
-                                 onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)';"
-                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)';">
-                                <i class="fas fa-users text-sm transition-all duration-300" 
-                                   style="color: rgba(255, 255, 255, 0.9);"
-                                   onmouseover="this.style.color='white';"
-                                   onmouseout="this.style.color='rgba(255, 255, 255, 0.9)';"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm tracking-wide font-medium">CAREERS</div>
-                                <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.7);">Join our team</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                            <div class="w-2 h-2 rotate-45 transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.7);"
-                                 onmouseover="this.style.backgroundColor='white';"
-                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.7)';"></div>
-                        </div>
-                    </button>
-                    <div id="mobileCareersMenu" class="hidden pl-12 pb-4 space-y-4">
-                        <!-- Open Positions -->
-                        <a href="career.html#openings" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-briefcase text-xs"></i>
-                                </div>
-                                <span class="text-sm">Open Positions</span>
-                            </div>
-                        </a>
-                        <!-- Benefits -->
-                        <a href="career.html#benefits" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-gift text-xs"></i>
-                                </div>
-                                <span class="text-sm">Benefits & Culture</span>
-                            </div>
-                        </a>
-                        <!-- Internships -->
-                        <a href="career.html#internships" class="group/item block transition-all duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="border: 1px solid rgba(255, 255, 255, 0.4);"
-                                     onmouseover="this.style.borderColor='white';"
-                                     onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.4)';">
-                                    <i class="fas fa-graduation-cap text-xs"></i>
-                                </div>
-                                <span class="text-sm">Internships</span>
-                            </div>
-                        </a>
-                        <!-- Apply Now -->
-                        <a href="career.html#apply" class="group/item block pt-4 font-medium transition-all duration-300" 
-                           style="color: white;"
-                           onmouseover="this.style.color='#06D6A0';"
-                           onmouseout="this.style.color='white';">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 flex items-center justify-center transition-all duration-300" 
-                                     style="background-color: rgba(255, 255, 255, 0.1);"
-                                     onmouseover="this.style.backgroundColor='white'; this.style.color='#06D6A0';"
-                                     onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'; this.style.color='inherit';">
-                                    <i class="fas fa-paper-plane text-xs"></i>
-                                </div>
-                                <span>Apply Now</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Mobile Contact -->
-                <a href="contact.html" class="group block py-5 transition-all duration-300" style="color: white;">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                                 style="background-color: rgba(255, 255, 255, 0.2);"
-                                 onmouseover="this.style.backgroundColor='white'; this.style.color='#42c7f3';"
-                                 onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.2)'; this.style.color='inherit';">
-                                <i class="fas fa-envelope text-sm transition-all duration-300"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm tracking-wide font-medium">CONTACT</div>
-                                <div class="text-xs mt-0.5" style="color: rgba(255, 255, 255, 0.7);">Get in touch</div>
-                            </div>
-                        </div>
-                        <div class="w-8 h-8 flex items-center justify-center transition-all duration-300" 
-                             style="border: 1px solid white;"
-                             onmouseover="this.style.backgroundColor='white'; this.style.color='#42c7f3';"
-                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='inherit';">
-                            <i class="fas fa-arrow-right text-xs"></i>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- Mobile Menu Footer -->
-                <div class="pt-10 mt-8" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
-                        <div class="text-xs tracking-widest uppercase" style="color: rgba(255, 255, 255, 0.9);">QUICK ACCESS</div>
-                    </div>
-                    <div class="grid grid-cols-1 gap-4">
-                        <a href="tel:021-34545003" class="group flex items-center gap-3 transition-colors duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="w-6 h-6 flex items-center justify-center" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.4);">
-                                <i class="fas fa-phone text-xs"></i>
-                            </div>
-                            <div class="text-xs">021-34545003</div>
-                        </a>
-                        <a href="mailto:hr@outwerksolutions.com" class="group flex items-center gap-3 transition-colors duration-300" 
-                           style="color: rgba(255, 255, 255, 0.8);"
-                           onmouseover="this.style.color='white';"
-                           onmouseout="this.style.color='rgba(255, 255, 255, 0.8)';">
-                            <div class="w-6 h-6 flex items-center justify-center" 
-                                 style="border: 1px solid rgba(255, 255, 255, 0.4);">
-                                <i class="fas fa-envelope text-xs"></i>
-                            </div>
-                            <div class="text-xs break-all">hr@outwerksolutions.com</div>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+<!-- Add this CSS to your styles -->
+<style>
+    /* Navbar base styles */
+    #navbar {
+        transform: translateY(0);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                    backdrop-filter 0.5s ease,
+                    background-color 0.5s ease;
+        background-color: transparent !important;
+    }
+    
+    #navbar.navbar-hidden {
+        transform: translateY(-100%);
+    }
+    
+    #navbar.navbar-blur {
+        background-color: rgba(17, 138, 178, 0.95) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    Mobile menu styles
+    #mobileMenu {
+        top: 4rem;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    #mobileMenu:not(.hidden) {
+        transform: translateY(0);
+    }
+    
+    #mobileMenu.hidden {
+        transform: translateY(-100%);
+    }
+    
+    @media (min-width: 640px) {
+        #mobileMenu {
+            top: 5rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        #mobileMenu {
+            top: 5rem;
+        }
+    }
+    
+    /* Mobile menu button animation */
+    #mobileMenuBtn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        width: 24px;
+    }
+    
+    #mobileMenuBtn.active span:nth-child(2) {
+        opacity: 0;
+        width: 0;
+    }
+    
+    #mobileMenuBtn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+        width: 24px;
+    }
+    
+    /* Dropdown hover states */
+    .group:hover .group-hover\:visible {
+        visibility: visible;
+    }
+    
+    .group:hover .group-hover\:opacity-100 {
+        opacity: 1;
+    }
+    
+    .group:hover .group-hover\:translate-y-0 {
+        transform: translateY(0);
+    }
+    
+    .group\/item:hover .group-hover\/item\:opacity-100 {
+        opacity: 1;
+    }
+    
+    .group\/item:hover .group-hover\/item\:translate-x-0 {
+        transform: translateX(0);
+    }
+    
+    /* Responsive fixes */
+    @media (max-width: 768px) {
+        #navbar nav {
+            height: 4rem !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        
+        .navbar-logo {
+            height: 2rem !important;
+        }
+        
+        #navbar.navbar-blur {
+            background-color: rgba(17, 138, 178, 0.98) !important;
+        }
+    }
+    
+    @media (max-width: 375px) {
+        #navbar nav {
+            height: 3.5rem !important;
+        }
+        
+        .navbar-logo {
+            height: 1.75rem !important;
+        }
+    }
+</style>
 
     <!-- Hero Section - Dark with Video Background - BRIGHTER TEXT -->
     <section id="career-hero" class="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-6 pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden" aria-labelledby="career-hero-heading">
