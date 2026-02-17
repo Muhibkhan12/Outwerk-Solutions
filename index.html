@@ -325,109 +325,9 @@
             margin: 0 auto;
         }
 
-
-        /* Faster transitions for reveal animations */
-        .reveal,
-        .reveal-left,
-        .reveal-right,
-        .reveal-scale,
-        .reveal-fade {
-            transition-duration: 0.4s !important;
-            /* Reduced from 0.8s */
-            transition-delay: 0s !important;
-        }
-
-        /* Force hardware acceleration */
-        .reveal.active,
-        .reveal-left.active,
-        .reveal-right.active,
-        .reveal-scale.active,
-        .reveal-fade.active {
-            transform: translate3d(0, 0, 0);
-            opacity: 1;
-        }
-
-        /* Preload animations */
-        @keyframes preloadFadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Optimize scroll performance */
-        * {
-            backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Ensure sections are visible during scroll */
-        section {
-            transform: translate3d(0, 0, 0);
-            will-change: transform, opacity;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-        .reveal-left.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-        .reveal-right.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-        .reveal-scale.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .reveal-fade {
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .reveal-fade.active {
-            opacity: 1;
-        }
-
-        .text-cover.active,
-        .stats-cover.active,
-        .btn-cover.active,
-        .content-cover.active {
-            transform: translateX(100%);
+        /* AOS Customizations */
+        [data-aos] {
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
         }
 
         .floating-element {
@@ -506,51 +406,6 @@
             background: rgba(255, 255, 255, 0.6);
             border-radius: 50%;
         }
-
-        /* ========== NAVBAR FIXES ========== */
-        /* Higher specificity to override Tailwind */
-        /* header#navbar {
-            transform: translateY(0);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                backdrop-filter 0.5s ease,
-                background-color 0.5s ease;
-            background-color: transparent !important;
-        }
-
-        header#navbar.navbar-hidden {
-            transform: translateY(-100%) !important;
-        }
-
-        header#navbar.navbar-blur {
-            background-color: rgba(0, 0, 0, 0.4) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-        } */
-
-
-        /* @media (max-width: 768px) {
-
-            .service-front,
-            .service-back {
-                padding: 1rem;
-            }
-
-            .testimonial-slide {
-                min-width: 100%;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .testimonial-slide {
-                min-width: 50%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .testimonial-slide {
-                min-width: 33.333%;
-            }
-        } */
     </style>
 </head>
 
@@ -563,7 +418,6 @@
         <i class="fas fa-chevron-up"></i>
     </div>
 
-    <!-- EDGY MINIMALIST NAVBAR - Enhanced White Theme -->
     <!-- EDGY MINIMALIST NAVBAR - Enhanced White Theme -->
     <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-0"
         role="banner">
@@ -1240,7 +1094,6 @@
         </div>
     </header>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.getElementById('navbar');
@@ -1401,50 +1254,6 @@
                     navbar.classList.remove('navbar-hidden');
                 });
             });
-
-            // GSAP animations (if available)
-            if (typeof gsap !== 'undefined') {
-                // Animate corner dots
-                const cornerDots = document.querySelectorAll('.absolute.w-1.h-1');
-                cornerDots.forEach((dot, index) => {
-                    gsap.to(dot, {
-                        scale: 1.5,
-                        duration: 2,
-                        repeat: -1,
-                        yoyo: true,
-                        ease: 'sine.inOut',
-                        delay: index * 0.5
-                    });
-                });
-
-                // Animate top border lines
-                gsap.to('.absolute.top-0.left-0.w-16', {
-                    backgroundPosition: '200% 0%',
-                    duration: 3,
-                    repeat: -1,
-                    ease: 'linear'
-                });
-
-                gsap.to('.absolute.top-0.right-0.w-16', {
-                    backgroundPosition: '-200% 0%',
-                    duration: 3,
-                    repeat: -1,
-                    ease: 'linear',
-                    delay: 1.5
-                });
-
-                // Animate bottom line
-                const bottomLine = document.querySelector('.absolute.top-full');
-                if (bottomLine) {
-                    gsap.to(bottomLine, {
-                        width: '40%',
-                        duration: 3,
-                        repeat: -1,
-                        yoyo: true,
-                        ease: 'sine.inOut'
-                    });
-                }
-            }
         });
     </script>
 
@@ -1738,7 +1547,7 @@
                 // Set initial text
                 const textArray = [
                     "Reliable IT & Web Solutions.",
-                    "Expert technology across Pakistan, USA, and Canada.",
+                    "Reliable BPO Solutions",
                     "Web-based innovation since 2021.",
                     "Global reach, Pakistani roots."
                 ];
@@ -1796,15 +1605,8 @@
                 }, 3000);
             }
 
-            // ============================================
-            // SCROLL PROGRESS INDICATOR
-            // ============================================
-
             // Initialize everything
             initTypingEffect();
-            initCounters();
-            initGSAPAnimations();
-            initProgressBar();
 
         })();
 
@@ -1851,21 +1653,21 @@
         <div class="max-w-6xl mx-auto relative z-10">
             <!-- Minimalist header -->
             <div class="text-center mb-24">
-                <div class="inline-flex items-center gap-2 mb-8">
+                <div data-aos="fade-up" data-aos-duration="800" class="inline-flex items-center gap-2 mb-8">
                     <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
                     <span class="text-xs font-medium tracking-widest uppercase"
                         style="color: rgba(17, 138, 178, 0.7);">EST. 2021</span>
                     <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
                 </div>
 
-                <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight" style="color: #118AB2;">
-                    <span class="block opacity-0 translate-y-10" id="main-heading">OUTWERK</span>
-                    <span class="block mt-2 opacity-0 translate-y-10" id="sub-heading">
+                <h1 data-aos="fade-up" data-aos-duration="1000" class="text-5xl md:text-7xl font-bold mb-8 tracking-tight" style="color: #118AB2;">
+                    <span class="block">OUTWERK</span>
+                    <span class="block mt-2">
                         <span class="font-light" style="color: #06D6A0;">SOLUTIONS</span>
                     </span>
                 </h1>
 
-                <p class="text-base max-w-xl mx-auto leading-relaxed opacity-0 translate-y-10" id="hero-description"
+                <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="text-base max-w-xl mx-auto leading-relaxed"
                     style="color: rgba(0, 0, 0, 0.7);">
                     Web-based innovation. Global reach. Pakistani roots. Since 2021.
                 </p>
@@ -1876,7 +1678,7 @@
                 <!-- Left column: Core story -->
                 <div class="space-y-16">
                     <!-- Sharp-edged card -->
-                    <div class="relative opacity-0 translate-y-20" id="story-card">
+                    <div data-aos="fade-right" data-aos-duration="1000" id="story-card">
                         <div class="relative bg-white border-2 p-12 group hover:translate-y-[-4px] transition-transform duration-300"
                             style="border-color: #118AB2;">
                             <!-- Corner accents -->
@@ -1914,7 +1716,7 @@
                     </div>
 
                     <!-- Timeline with sharp edges -->
-                    <div class="opacity-0 translate-y-20" id="timeline">
+                    <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100" id="timeline">
                         <h3 class="text-xl font-bold mb-8 tracking-wider" style="color: #118AB2;">/TIMELINE</h3>
 
                         <div class="space-y-8">
@@ -1978,7 +1780,7 @@
                 <!-- Right column: Stats & services -->
                 <div class="space-y-16">
                     <!-- Sharp-edged stats -->
-                    <div class="opacity-0 translate-y-20" id="stats-section">
+                    <div data-aos="fade-left" data-aos-duration="1000" id="stats-section">
                         <h3 class="text-xl font-bold mb-8 tracking-wider" style="color: #118AB2;">/NUMBERS</h3>
 
                         <div class="grid grid-cols-2 gap-6">
@@ -2053,7 +1855,7 @@
                     </div>
 
                     <!-- Services with sharp icons -->
-                    <div class="opacity-0 translate-y-20" id="services">
+                    <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100" id="services">
                         <h3 class="text-xl font-bold mb-8 tracking-wider" style="color: #06D6A0;">/SERVICES</h3>
 
                         <div class="space-y-6">
@@ -2135,7 +1937,7 @@
             </div>
 
             <!-- Global presence - minimalist -->
-            <div class="opacity-0 translate-y-20" id="global-presence">
+            <div data-aos="fade-up" data-aos-duration="1000" id="global-presence">
                 <div class="border-2 p-12 bg-white" style="border-color: #118AB2;">
                     <div class="text-center mb-12">
                         <h3 class="text-2xl font-bold mb-4 tracking-wider" style="color: #118AB2;">/GLOBAL FOOTPRINT
@@ -2244,7 +2046,7 @@
             </div>
 
             <!-- Final CTA - minimalist -->
-            <div class="mt-32 text-center opacity-0 translate-y-20" id="cta-section">
+            <div data-aos="fade-up" data-aos-duration="1000" class="mt-32 text-center" id="cta-section">
                 <div class="max-w-md mx-auto">
                     <h3 class="text-2xl font-bold mb-6 tracking-wider" style="color: #118AB2;">
                         READY TO WORK?
@@ -2271,10 +2073,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Include GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
     <style>
         /* Base minimalist styles */
@@ -2375,265 +2173,50 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Initialize GSAP
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Hero text - simple and clean
-            gsap.to(['#main-heading', '#sub-heading', '#hero-description'], {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power3.out'
-            });
-
-            // Scroll animations for sections
-            const sections = [
-                '#story-card',
-                '#timeline',
-                '#stats-section',
-                '#services',
-                '#global-presence',
-                '#cta-section'
-            ];
-
-            sections.forEach((section, index) => {
-                gsap.fromTo(section,
-                    {
-                        opacity: 0,
-                        y: 40
-                    },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        delay: index * 0.1,
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 85%',
-                            end: 'bottom 20%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            });
-
             // Animated counters - clean and precise
             const counters = [
-                { id: 'clientsCounter', value: 150, suffix: '+', color: '#118AB2' },
-                { id: 'projectsCounter', value: 280, suffix: '+', color: '#06D6A0' },
-                { id: 'countriesCounter', value: 3, suffix: '', color: 'white' }
+                { id: 'clientsCounter', value: 150, suffix: '+' },
+                { id: 'projectsCounter', value: 280, suffix: '+' },
+                { id: 'countriesCounter', value: 3, suffix: '' }
             ];
+
+            // Simple counter animation function
+            function animateCounter(element, target, suffix = '') {
+                let current = 0;
+                const increment = Math.ceil(target / 50);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = current + suffix;
+                    }
+                }, 20);
+            }
+
+            // Use Intersection Observer to trigger counters
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = counters.find(c => c.id === entry.target.id);
+                        if (counter) {
+                            animateCounter(entry.target, counter.value, counter.suffix);
+                            observer.unobserve(entry.target);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
 
             counters.forEach(counter => {
                 const element = document.getElementById(counter.id);
-                const progressBar = element.closest('.group')?.querySelector('.progress-bar');
-
-                ScrollTrigger.create({
-                    trigger: element,
-                    start: 'top 90%',
-                    onEnter: () => {
-                        gsap.to(element, {
-                            innerText: counter.value,
-                            duration: 1.5,
-                            ease: 'power2.out',
-                            snap: { innerText: 1 },
-                            onUpdate: function () {
-                                element.textContent = Math.floor(this.targets()[0].innerText) + counter.suffix;
-                            }
-                        });
-
-                        // Animate progress bar
-                        if (progressBar) {
-                            let targetWidth = '85%';
-                            if (counter.id === 'projectsCounter') targetWidth = '95%';
-                            if (counter.id === 'countriesCounter') targetWidth = '100%';
-
-                            gsap.to(progressBar, {
-                                width: targetWidth,
-                                duration: 1.5,
-                                ease: 'power2.out',
-                                delay: 0.2
-                            });
-                        }
-                    }
-                });
+                if (element) observer.observe(element);
             });
 
-            // Timeline items animation
-            const timelineItems = document.querySelectorAll('#timeline .relative');
-            timelineItems.forEach((item, index) => {
-                gsap.fromTo(item,
-                    {
-                        opacity: 0,
-                        x: -20
-                    },
-                    {
-                        opacity: 1,
-                        x: 0,
-                        duration: 0.6,
-                        delay: index * 0.15,
-                        scrollTrigger: {
-                            trigger: item,
-                            start: 'top 90%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            });
-
-            // Hover effects with GSAP for smoothness
-            document.querySelectorAll('.group.relative').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    const border = card.querySelector('.border-2');
-                    if (border) {
-                        const currentColor = getComputedStyle(border).borderColor;
-                        gsap.to(border, {
-                            borderColor: currentColor.includes('118AB2') ? 'rgba(17, 138, 178, 0.7)' : 'rgba(6, 214, 160, 0.7)',
-                            duration: 0.3,
-                            ease: 'power2.out'
-                        });
-                    }
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    const border = card.querySelector('.border-2');
-                    if (border) {
-                        const currentColor = getComputedStyle(border).borderColor;
-                        gsap.to(border, {
-                            borderColor: currentColor.includes('118AB2') ? '#118AB2' : '#06D6A0',
-                            duration: 0.3,
-                            ease: 'power2.out'
-                        });
-                    }
-                });
-            });
-
-            // Global presence cards animation
-            const presenceCards = document.querySelectorAll('#global-presence .group');
-            presenceCards.forEach((card, index) => {
-                gsap.fromTo(card,
-                    {
-                        opacity: 0,
-                        y: 20
-                    },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        delay: index * 0.1,
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 90%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            });
-
-            // Services cards animation
-            const serviceCards = document.querySelectorAll('#services .group');
-            serviceCards.forEach((card, index) => {
-                gsap.fromTo(card,
-                    {
-                        opacity: 0,
-                        x: 20
-                    },
-                    {
-                        opacity: 1,
-                        x: 0,
-                        duration: 0.6,
-                        delay: index * 0.1,
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 90%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            });
-
-            // Subtle background element animations
-            gsap.to('.absolute.top-0.left-0', {
-                rotation: 360,
-                duration: 20,
-                repeat: -1,
-                ease: 'none'
-            });
-
-            gsap.to('.absolute.bottom-0.right-0', {
-                rotation: -360,
-                duration: 20,
-                repeat: -1,
-                ease: 'none'
-            });
-
-            // Diagonal line animations
-            gsap.to('.absolute.top-1\\/4.right-10', {
-                y: 20,
-                duration: 3,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-
-            gsap.to('.absolute.bottom-1\\/4.left-10', {
-                y: -20,
-                duration: 3,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-
-            // Add a subtle pulse to the header squares
-            gsap.to('.inline-flex.items-center.gap-2 .w-3', {
-                scale: 1.2,
-                duration: 1,
-                repeat: -1,
-                yoyo: true,
-                stagger: 0.5,
-                ease: 'power2.inOut'
-            });
-
-            // CTA button hover effect
-            const ctaButton = document.querySelector('a[href="#contact"]');
-            if (ctaButton) {
-                ctaButton.addEventListener('mouseenter', () => {
-                    gsap.to(ctaButton, {
-                        scale: 1.05,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                });
-
-                ctaButton.addEventListener('mouseleave', () => {
-                    gsap.to(ctaButton, {
-                        scale: 1,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                });
-            }
-
-            // Scroll progress indicator
-            const progressBar = document.createElement('div');
-            progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(to right, #118AB2, #06D6A0);
-            z-index: 1000;
-            transition: width 0.1s;
-        `;
-            document.body.appendChild(progressBar);
-
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + '%';
+            // Progress bars animation
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                observer.observe(bar);
             });
         });
     </script>
@@ -2671,14 +2254,14 @@
         <div class="max-w-7xl mx-auto relative z-10">
             <!-- Minimalist header -->
             <div class="text-center mb-24">
-                <div class="inline-flex items-center gap-2 mb-8">
+                <div data-aos="fade-up" data-aos-duration="800" class="inline-flex items-center gap-2 mb-8">
                     <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
                     <span class="text-xs font-medium tracking-widest uppercase"
                         style="color: rgba(17, 138, 178, 0.7);">OUR SERVICES</span>
                     <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
                 </div>
 
-                <h1 id="services-heading" class="font-montserrat text-5xl md:text-7xl font-bold mb-8 tracking-tight"
+                <h1 id="services-heading" data-aos="fade-up" data-aos-duration="1000" class="font-montserrat text-5xl md:text-7xl font-bold mb-8 tracking-tight"
                     style="color: #118AB2;">
                     WHAT WE
                     <div class="block mt-2">
@@ -2686,7 +2269,7 @@
                     </div>
                 </h1>
 
-                <p class="text-base max-w-xl mx-auto leading-relaxed opacity-0 translate-y-10" id="services-description"
+                <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="text-base max-w-xl mx-auto leading-relaxed" id="services-description"
                     style="color: rgba(0, 0, 0, 0.7);">
                     Specialized services crafted to elevate your digital presence
                 </p>
@@ -2696,7 +2279,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Web Solutions -->
-                <div class="service-card-wrapper group">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="service-card-wrapper group">
                     <div class="service-card relative bg-white border-2 h-[480px] overflow-hidden cursor-pointer transition-all duration-500"
                         style="border-color: #118AB2;" onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.7)';"
                         onmouseout="this.style.borderColor='#118AB2';">
@@ -2773,8 +2356,8 @@
                                     </div>
                                 </div>
 
-                                <a href="web-solutions.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black hover:text-black   transition-all duration-300 group/link">
+                                <a href="services.html"
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2785,7 +2368,7 @@
                 </div>
 
                 <!-- Lead Generation -->
-                <div class="service-card-wrapper group">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="service-card-wrapper group">
                     <div class="service-card relative bg-white border-2 h-[480px] overflow-hidden cursor-pointer transition-all duration-500"
                         style="border-color: #06D6A0;" onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.7)';"
                         onmouseout="this.style.borderColor='#06D6A0';">
@@ -2862,7 +2445,7 @@
                                     </div>
                                 </div>
 
-                                <a href="lead-generation.html"
+                                <a href="services.html"
                                     class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
@@ -2874,7 +2457,7 @@
                 </div>
 
                 <!-- AutoCAD Design -->
-                <div class="service-card-wrapper group">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" class="service-card-wrapper group">
                     <div class="service-card relative bg-white border-2 h-[480px] overflow-hidden cursor-pointer transition-all duration-500"
                         style="border-color: #118AB2;" onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.7)';"
                         onmouseout="this.style.borderColor='#118AB2';">
@@ -2952,7 +2535,7 @@
                                     </div>
                                 </div>
 
-                                <a href="autocad-design.html"
+                                <a href="services.html"
                                     class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
@@ -2964,7 +2547,7 @@
                 </div>
 
                 <!-- Customer Support -->
-                <div class="service-card-wrapper group">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" class="service-card-wrapper group">
                     <div class="service-card relative bg-white border-2 h-[480px] overflow-hidden cursor-pointer transition-all duration-500"
                         style="border-color: #06D6A0;" onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.7)';"
                         onmouseout="this.style.borderColor='#06D6A0';">
@@ -3042,7 +2625,7 @@
                                     </div>
                                 </div>
 
-                                <a href="customer-support.html"
+                                <a href="services.html"
                                     class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
@@ -3054,7 +2637,7 @@
                 </div>
 
                 <!-- BPO &  SALES -->
-                <div class="service-card-wrapper group">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" class="service-card-wrapper group">
                     <div class="service-card relative bg-white border-2 h-[480px] overflow-hidden cursor-pointer transition-all duration-500"
                         style="border-color: #118AB2;" onmouseover="this.style.borderColor='rgba(17, 138, 178, 0.7)';"
                         onmouseout="this.style.borderColor='#118AB2';">
@@ -3131,7 +2714,7 @@
                                     </div>
                                 </div>
 
-                                <a href="bpo-sales.html"
+                                <a href="services.html"
                                     class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
@@ -3143,7 +2726,7 @@
                 </div>
 
                 <!-- Digital Marketing -->
-                <div class="service-card-wrapper group">
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" class="service-card-wrapper group">
                     <div class="service-card relative bg-white border-2 h-[480px] overflow-hidden cursor-pointer transition-all duration-500"
                         style="border-color: #06D6A0;" onmouseover="this.style.borderColor='rgba(6, 214, 160, 0.7)';"
                         onmouseout="this.style.borderColor='#06D6A0';">
@@ -3221,7 +2804,7 @@
                                     </div>
                                 </div>
 
-                                <a href="digital-marketing.html"
+                                <a href="services.html"
                                     class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
@@ -3286,14 +2869,14 @@
         <div class="max-w-7xl mx-auto relative z-10">
             <!-- Minimalist header -->
             <div class="text-center mb-24">
-                <div class="inline-flex items-center gap-2 mb-8">
+                <div data-aos="fade-up" data-aos-duration="800" class="inline-flex items-center gap-2 mb-8">
                     <div class="w-3 h-3 rotate-45" style="background-color: #118AB2;"></div>
                     <span class="text-xs font-medium tracking-widest uppercase"
                         style="color: rgba(17, 138, 178, 0.7);">CLIENT FEEDBACK</span>
                     <div class="w-3 h-3 rotate-45" style="background-color: #06D6A0;"></div>
                 </div>
 
-                <h1 id="testimonials-heading" class="font-montserrat text-5xl md:text-7xl font-bold mb-8 tracking-tight"
+                <h1 id="testimonials-heading" data-aos="fade-up" data-aos-duration="1000" class="font-montserrat text-5xl md:text-7xl font-bold mb-8 tracking-tight"
                     style="color: #118AB2;">
                     WHAT OUR
                     <div class="block mt-2">
@@ -3301,7 +2884,7 @@
                     </div>
                 </h1>
 
-                <p class="text-base max-w-xl mx-auto leading-relaxed" id="testimonials-description"
+                <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="text-base max-w-xl mx-auto leading-relaxed" id="testimonials-description"
                     style="color: rgba(0, 0, 0, 0.7);">
                     Don't just take our word for it - hear from businesses we've transformed
                 </p>
@@ -3311,7 +2894,7 @@
             <div class="pt-16 border-t-2" style="border-color: rgba(17, 138, 178, 0.3);">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Left Column: Text Content -->
-                    <div class="space-y-8">
+                    <div data-aos="fade-right" data-aos-duration="1000" class="space-y-8">
                         <div>
                             <div class="text-xs font-mono tracking-widest mb-4" style="color: rgba(17, 138, 178, 0.7);">
                                 IMPACT</div>
@@ -3344,7 +2927,7 @@
                     <!-- Right Column: Statistics Grid -->
                     <div class="grid grid-cols-2 gap-8">
                         <!-- Client Satisfaction -->
-                        <div class="group stat-card">
+                        <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="100" class="group stat-card">
                             <div class="border-2 p-6 text-center transition-all duration-300 hover:scale-105"
                                 style="border-color: #118AB2;">
                                 <div class="text-4xl md:text-5xl font-bold mb-2 stat-number" data-target="98"
@@ -3360,7 +2943,7 @@
                         </div>
 
                         <!-- Industries Served -->
-                        <div class="group stat-card">
+                        <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" class="group stat-card">
                             <div class="border-2 p-6 text-center transition-all duration-300 hover:scale-105"
                                 style="border-color: #06D6A0;">
                                 <div class="text-4xl md:text-5xl font-bold mb-2 stat-number" data-target="45"
@@ -3375,7 +2958,7 @@
                         </div>
 
                         <!-- Projects Delivered -->
-                        <div class="group stat-card">
+                        <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="300" class="group stat-card">
                             <div class="border-2 p-6 text-center transition-all duration-300 hover:scale-105"
                                 style="border-color: #118AB2;">
                                 <div class="text-4xl md:text-5xl font-bold mb-2 stat-number" data-target="150"
@@ -3391,7 +2974,7 @@
                         </div>
 
                         <!-- Support Available -->
-                        <div class="group stat-card">
+                        <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" class="group stat-card">
                             <div class="border-2 p-6 text-center transition-all duration-300 hover:scale-105"
                                 style="border-color: #06D6A0;">
                                 <div class="text-4xl md:text-5xl font-bold mb-2">24/7</div>
@@ -3920,9 +3503,6 @@
         })();
     </script>
 
-
-
-
     <!-- AOS Initialization - Add this before closing body tag -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -4285,7 +3865,6 @@
         });
     </script>
 
-
     <!-- FOOTER - Minimalist & Edgy -->
     <footer class="bg-black text-white py-24 relative overflow-hidden" role="contentinfo">
         <!-- Edge decorations -->
@@ -4373,7 +3952,6 @@
 
                 <div class="space-y-8">
                     <div>
-                        <!-- <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="text-xs tracking-widest uppercase mb-4" style="color: #5dc5e8;">01 / LINKS</div> -->
                         <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="250"
                             class="text-reveal-wrapper text-reveal-left">
                             <div class="text-reveal-mask"></div>
@@ -4677,36 +4255,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Initialize GSAP if available
-            if (typeof gsap !== 'undefined') {
-                gsap.registerPlugin(ScrollTrigger);
-            }
-
             // Animate footer content
             const footerSections = document.querySelectorAll('.space-y-8');
             footerSections.forEach((section, index) => {
-                gsap.fromTo(section,
-                    {
-                        opacity: 0,
-                        y: 20
-                    },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        delay: index * 0.1,
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 90%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 100);
             });
-
-            // Corner accents animation
-            const corners = document.querySelectorAll('.absolute.w-24.h-24');
-
 
             // Back to top button hover effect
 
@@ -4817,12 +4373,6 @@
 
             // Initialize testimonial slider
             initTestimonialSlider();
-
-            // Initialize reveal animations
-            initRevealAnimations();
-
-            // Initialize CTA video
-            initCTAVideo();
 
             // Initialize connection canvas
             initConnectionCanvas();
@@ -5058,167 +4608,6 @@
 
             // Initial render
             renderTestimonials();
-        }
-
-        /* =======================
-           REVEAL ANIMATIONS
-        ======================= */
-        /* =======================
-   REVEAL ANIMATIONS - OPTIMIZED
-======================= */
-        function initRevealAnimations() {
-            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade');
-
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        // Don't unobserve to allow for reverse animations
-                    } else {
-                        // Optional: Remove active class when out of view for re-animation
-                        // entry.target.classList.remove('active');
-                    }
-                });
-            }, {
-                threshold: 0.15, // Lower threshold for faster detection
-                rootMargin: '50px' // Trigger 50px before element enters viewport
-            });
-
-            revealElements.forEach(element => {
-                element.classList.remove('active'); // Ensure initial state
-                revealObserver.observe(element);
-            });
-
-            // Add GSAP animations with faster triggers
-            if (typeof gsap !== 'undefined') {
-                // Animate stats counters immediately when in view
-                const stats = document.querySelectorAll('[id$="Stat"], [id$="Counter"]');
-                stats.forEach(stat => {
-                    gsap.fromTo(stat,
-                        {
-                            opacity: 0,
-                            scale: 0.8
-                        },
-                        {
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.5,
-                            scrollTrigger: {
-                                trigger: stat,
-                                start: 'top 85%', // Trigger earlier
-                                end: 'bottom 60%',
-                                toggleActions: 'play none none reverse'
-                            }
-                        }
-                    );
-                });
-
-                // Animate cards with staggered timing but no initial delay
-                const cards = document.querySelectorAll('.service-card, .group.relative');
-                cards.forEach((card, index) => {
-                    gsap.fromTo(card,
-                        {
-                            opacity: 0,
-                            y: 30
-                        },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.6,
-                            delay: index * 0.05, // Reduced delay between cards
-                            scrollTrigger: {
-                                trigger: card,
-                                start: 'top 85%',
-                                toggleActions: 'play none none reverse'
-                            }
-                        }
-                    );
-                });
-            }
-        }
-
-        // Initialize immediately when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize reveal animations FIRST
-            initRevealAnimations();
-
-            // Then initialize other features
-            setTimeout(() => {
-                animateCounter('clientsCount', 150);
-                animateCounter('projectsCount', 280);
-                animateCounter('experienceCount', 4);
-            }, 300); // Reduced delay
-
-
-            // Initialize other effects with minimal delays
-            initTypingEffect();
-            initTestimonialSlider();
-            initCTAVideo();
-
-            // Add scroll progress indicator for debugging
-            window.addEventListener('scroll', function () {
-                const scrollPosition = window.scrollY + window.innerHeight;
-                const sections = document.querySelectorAll('section');
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-
-                    if (scrollPosition > sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                        section.classList.add('in-view');
-                    } else {
-                        section.classList.remove('in-view');
-                    }
-                });
-            });
-        });
-
-        /* =======================
-           CTA VIDEO
-        ======================= */
-        function initCTAVideo() {
-            const video = document.getElementById('ctaVideo');
-            const videoStatus = document.getElementById('videoStatus');
-
-            if (!video || !videoStatus) return;
-
-            const playVideo = () => {
-                video.play().catch(e => {
-                    console.log('Video autoplay prevented:', e);
-                    videoStatus.textContent = 'Click play to start video';
-                });
-            };
-
-            video.muted = true;
-            playVideo();
-
-            video.addEventListener('playing', () => {
-                videoStatus.textContent = 'Playing background video';
-            });
-
-            video.addEventListener('pause', () => {
-                videoStatus.textContent = 'Video paused';
-            });
-
-            video.addEventListener('ended', () => {
-                video.currentTime = 0;
-                video.play();
-            });
-
-            // Optimize for mobile
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        video.play().catch(e => console.log('Video autoplay prevented:', e));
-                    } else {
-                        video.pause();
-                    }
-                });
-            }, {
-                threshold: 0.3
-            });
-
-            observer.observe(video);
         }
 
         /* =======================
