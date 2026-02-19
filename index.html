@@ -7,13 +7,15 @@
 
     <!-- SEO Meta Tags -->
     <title>Outwerk Solutions | IT & Web Development Services in Pakistan, USA & Canada</title>
-    <meta name="description" content="Outwerk Solutions: Premier IT & Web Development Company serving Pakistan, USA & Canada since 2021. Expert web development, BPO services, IT solutions, SEO, digital marketing, and AutoCAD design. Trusted technology partner for global businesses. Free consultation available.">
-    <meta name="keywords" content="IT solutions Pakistan, web development company USA, software development Canada, BPO services, digital marketing agency, SEO services, AutoCAD design services, lead generation company, customer support outsourcing, IT consulting, web design, e-commerce development, mobile app development, cloud solutions, IT services Karachi, technology partner, business process outsourcing, IT company in Pakistan, web development agency USA, Canadian IT services">
+    <meta name="description"
+        content="Outwerk Solutions: Premier IT & Web Development Company serving Pakistan, USA & Canada since 2021. Expert web development, BPO services, IT solutions, SEO, digital marketing, and AutoCAD design. Trusted technology partner for global businesses. Free consultation available.">
+    <meta name="keywords"
+        content="IT solutions Pakistan, web development company USA, software development Canada, BPO services, digital marketing agency, SEO services, AutoCAD design services, lead generation company, customer support outsourcing, IT consulting, web design, e-commerce development, mobile app development, cloud solutions, IT services Karachi, technology partner, business process outsourcing, IT company in Pakistan, web development agency USA, Canadian IT services">
     <meta name="author" content="Outwerk Solutions">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
-    
+
     <!-- Additional SEO Meta Tags -->
     <meta name="geo.region" content="PK" />
     <meta name="geo.placename" content="Karachi" />
@@ -47,8 +49,10 @@
     <meta property="og:locale:alternate" content="en_PK" />
     <meta property="og:site_name" content="Outwerk Solutions" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Outwerk Solutions | Premier IT & Web Development Services in Pakistan, USA & Canada" />
-    <meta property="og:description" content="Leading IT solutions provider offering web development, BPO services, digital marketing, and technology consulting. Trusted by 150+ clients across 3 countries." />
+    <meta property="og:title"
+        content="Outwerk Solutions | Premier IT & Web Development Services in Pakistan, USA & Canada" />
+    <meta property="og:description"
+        content="Leading IT solutions provider offering web development, BPO services, digital marketing, and technology consulting. Trusted by 150+ clients across 3 countries." />
     <meta property="og:url" content="https://outwerksolutions.com" />
     <meta property="og:image" content="https://outwerksolutions.com/images/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -61,7 +65,8 @@
     <meta name="twitter:site" content="@outwerksolutions" />
     <meta name="twitter:creator" content="@outwerksolutions" />
     <meta name="twitter:title" content="Outwerk Solutions | IT & Web Development Services" />
-    <meta name="twitter:description" content="Global IT solutions provider with offices in Pakistan, USA & Canada. Web development, BPO, digital marketing, and more." />
+    <meta name="twitter:description"
+        content="Global IT solutions provider with offices in Pakistan, USA & Canada. Web development, BPO, digital marketing, and more." />
     <meta name="twitter:image" content="https://outwerksolutions.com/images/twitter-card.jpg" />
     <meta name="twitter:image:alt" content="Outwerk Solutions company overview" />
 
@@ -92,6 +97,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0EA5E9" />
+
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <meta http-equiv="Expires" content="31536000">
 
     <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
@@ -249,16 +257,20 @@
         rel="stylesheet">
 
     <!-- Tailwind CDN -->
+    <!-- Tailwind CSS - Load normally (not deferred) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Font Awesome - Load normally (not deferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS CSS - Load normally -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- AOS JS - Load normally (put before closing body) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-
-    <!-- Lottie -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lottie - Keep deferred, it's not critical -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
 
     <!-- Tailwind Config -->
     <script>
@@ -461,6 +473,17 @@
             margin: 0 auto;
         }
 
+        /* Disable AOS animations on mobile only - THIS IS SAFE */
+        @media (max-width: 768px) {
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+                pointer-events: auto !important;
+            }
+        }
+
         /* AOS Customizations */
         [data-aos] {
             transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -591,7 +614,8 @@
                 <!-- Home -->
                 <li>
                     <a href="index.html"
-                        class="group relative px-4 py-3 text-white/80 hover:text-white transition-all duration-300 flex items-center" aria-label="Home Page">
+                        class="group relative px-4 py-3 text-white/80 hover:text-white transition-all duration-300 flex items-center"
+                        aria-label="Home Page">
                         <div class="flex items-center gap-3">
                             <div class="relative w-5 h-5">
                                 <div class="absolute inset-0 w-2 h-2 border-2"
@@ -653,7 +677,8 @@
 
                                 <!-- Web Development -->
                                 <a href="services.html#web-dev"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="Web Development Services">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="Web Development Services">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -681,7 +706,8 @@
 
                                 <!-- UI/UX Design -->
                                 <a href="services.html#bpo"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="BPO Services">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="BPO Services">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -710,7 +736,8 @@
 
                                 <!-- IT Solutions -->
                                 <a href="services.html#it-solutions"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="IT Solutions">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="IT Solutions">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -738,7 +765,8 @@
 
                                 <!-- seo -->
                                 <a href="services.html#seo"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="SEO Services">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="SEO Services">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -767,7 +795,8 @@
                                 <!-- View All -->
                                 <div class="pt-4 mt-2 border-t" style="border-color: rgba(17, 138, 178, 0.2);">
                                     <a href="services.html"
-                                        class="group/item block px-3 py-3 text-white hover:bg-white/10 transition-all duration-300 rounded" aria-label="View All Services">
+                                        class="group/item block px-3 py-3 text-white hover:bg-white/10 transition-all duration-300 rounded"
+                                        aria-label="View All Services">
                                         <div class="flex items-center justify-between">
                                             <span class="text-sm font-medium tracking-wide">VIEW ALL SERVICES</span>
                                             <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
@@ -828,7 +857,8 @@
 
                                 <!-- Open Positions -->
                                 <a href="career.html#openings"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="Open Positions">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="Open Positions">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -856,7 +886,8 @@
 
                                 <!-- Benefits -->
                                 <a href="career.html#benefits"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="Benefits and Culture">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="Benefits and Culture">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -883,7 +914,8 @@
 
                                 <!-- Internships -->
                                 <a href="career.html#internships"
-                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white" aria-label="Internship Opportunities">
+                                    class="group/item block px-3 py-4 text-white/80 hover:text-white transition-all duration-300 border-l-2 border-transparent hover:border-white"
+                                    aria-label="Internship Opportunities">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
                                             <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -912,7 +944,8 @@
                                 <!-- Apply Now -->
                                 <div class="pt-4 mt-2 border-t border-teal-500/70">
                                     <a href="career.html#apply"
-                                        class=" group block px-3 py-3 rounded transition-all duration-300 bg-teal-500/10 hover:bg-teal-500 text-white hover:text-black focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-black" aria-label="Apply Now">
+                                        class=" group block px-3 py-3 rounded transition-all duration-300 bg-teal-500/10 hover:bg-teal-500 text-white hover:text-black focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-black"
+                                        aria-label="Apply Now">
                                         <div class="flex items-center justify-center gap-3">
                                             <span class="text-sm font-medium tracking-wide"> APPLY NOW </span>
                                             <div
@@ -933,7 +966,8 @@
                         class="group relative px-8 py-3 flex items-center gap-4 border transition-all duration-300"
                         style="border-color: rgba(17, 138, 178, 0.4);"
                         onmouseover="this.style.borderColor='#42c7f3'; this.style.backgroundColor='#42c7f3'; this.style.color='white';"
-                        onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.4)'; this.style.backgroundColor='transparent'; this.style.color='white';" aria-label="Contact Us">
+                        onmouseout="this.style.borderColor='rgba(17, 138, 178, 0.4)'; this.style.backgroundColor='transparent'; this.style.color='white';"
+                        aria-label="Contact Us">
                         <div class="relative">
                             <div class="w-4 h-4 border-2 transition-all duration-300"
                                 style="border-color: rgba(17, 138, 178, 0.7);"
@@ -1032,7 +1066,8 @@
                     <div id="mobileServicesMenu" class="hidden pl-12 pb-4 space-y-4">
                         <!-- Web Dev -->
                         <a href="services.html#web-dev"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="Web Development">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="Web Development">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(17, 138, 178, 0.3);"
@@ -1045,7 +1080,8 @@
                         </a>
                         <!-- UI/UX -->
                         <a href="services.html#ui-ux"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="UI UX Design">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="UI UX Design">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(17, 138, 178, 0.3);"
@@ -1058,7 +1094,8 @@
                         </a>
                         <!-- IT Solutions -->
                         <a href="services.html#it-solutions"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="IT Solutions">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="IT Solutions">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(17, 138, 178, 0.3);"
@@ -1071,7 +1108,8 @@
                         </a>
                         <!-- Consulting -->
                         <a href="services.html#consulting"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="Consulting Services">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="Consulting Services">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(17, 138, 178, 0.3);"
@@ -1083,7 +1121,8 @@
                             </div>
                         </a>
                         <!-- View All -->
-                        <a href="services.html" class="group/item block pt-4 text-white font-medium" aria-label="View All Services">
+                        <a href="services.html" class="group/item block pt-4 text-white font-medium"
+                            aria-label="View All Services">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 flex items-center justify-center transition-all duration-300"
                                     style="background-color: rgba(17, 138, 178, 0.1);"
@@ -1126,7 +1165,8 @@
                     <div id="mobileCareersMenu" class="hidden pl-12 pb-4 space-y-4">
                         <!-- Open Positions -->
                         <a href="career.html#openings"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="Open Positions">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="Open Positions">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(6, 214, 160, 0.3);"
@@ -1139,7 +1179,8 @@
                         </a>
                         <!-- Benefits -->
                         <a href="career.html#benefits"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="Benefits and Culture">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="Benefits and Culture">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(6, 214, 160, 0.3);"
@@ -1152,7 +1193,8 @@
                         </a>
                         <!-- Internships -->
                         <a href="career.html#internships"
-                            class="group/item block text-white/70 hover:text-white transition-all duration-300" aria-label="Internship Opportunities">
+                            class="group/item block text-white/70 hover:text-white transition-all duration-300"
+                            aria-label="Internship Opportunities">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 border flex items-center justify-center transition-all duration-300"
                                     style="border-color: rgba(6, 214, 160, 0.3);"
@@ -1164,7 +1206,8 @@
                             </div>
                         </a>
                         <!-- Apply Now -->
-                        <a href="career.html#apply" class="group/item block pt-4 text-white font-medium" aria-label="Apply Now">
+                        <a href="career.html#apply" class="group/item block pt-4 text-white font-medium"
+                            aria-label="Apply Now">
                             <div class="flex items-center gap-3">
                                 <div class="w-6 h-6 flex items-center justify-center transition-all duration-300"
                                     style="background-color: rgba(6, 214, 160, 0.1);"
@@ -1179,7 +1222,8 @@
                 </div>
 
                 <!-- Mobile Contact -->
-                <a href="contact.html" class="group block py-5 text-white transition-all duration-300" aria-label="Contact Us">
+                <a href="contact.html" class="group block py-5 text-white transition-all duration-300"
+                    aria-label="Contact Us">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
                             <div class="relative w-8 h-8 flex items-center justify-center transition-all duration-300"
@@ -1210,7 +1254,8 @@
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <a href="tel:+923001234567"
-                            class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300" aria-label="Call us at 021-34545003">
+                            class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300"
+                            aria-label="Call us at 021-34545003">
                             <div class="w-6 h-6 border flex items-center justify-center"
                                 style="border-color: rgba(17, 138, 178, 0.3);">
                                 <i class="fas fa-phone text-xs"></i>
@@ -1218,7 +1263,8 @@
                             <div class="text-xs">021-34545003</div>
                         </a>
                         <a href="mailto:hr@outwerksolutions.com"
-                            class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300" aria-label="Email us at info@outwerk.com">
+                            class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-300"
+                            aria-label="Email us at info@outwerk.com">
                             <div class="w-6 h-6 border flex items-center justify-center"
                                 style="border-color: rgba(17, 138, 178, 0.3);">
                                 <i class="fas fa-envelope text-xs"></i>
@@ -1422,10 +1468,13 @@
 
         <!-- Video Background -->
         <div class="absolute inset-0 z-0">
-            <video autoplay muted playsinline poster="hero.jpg" class="w-full h-full object-cover brightness-20 grayscale" aria-label="Background video showing technology concepts">
+            <video autoplay muted playsinline poster="hero.jpg"
+                class="w-full h-full object-cover brightness-20 grayscale"
+                aria-label="Background video showing technology concepts">
                 <source src="video/home-page-video.mp4" type="video/mp4">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                    alt="Technology background - modern office with computers and team collaboration" class="w-full h-full object-cover">
+                    alt="Technology background - modern office with computers and team collaboration"
+                    class="w-full h-full object-cover">
             </video>
 
             <!-- Dark overlay with gradient - matches services hero section -->
@@ -1758,7 +1807,8 @@
         });
     </script>
     <!-- ABOUT -->
-    <section id="about" class="relative overflow-hidden bg-white py-32 px-4 sm:px-6 lg:px-8" aria-label="About Outwerk Solutions">
+    <section id="about" class="relative overflow-hidden bg-white py-32 px-4 sm:px-6 lg:px-8"
+        aria-label="About Outwerk Solutions">
         <!-- Geometric edge decorations -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <!-- Sharp corner accents -->
@@ -2097,7 +2147,8 @@
                                         style="border-color: #118AB2; background-color: #f8f8f8;"
                                         onmouseover="this.style.borderColor='white';"
                                         onmouseout="this.style.borderColor='#118AB2';">
-                                        <img src="./images/pakistani-flag.png" alt="Pakistan Flag - Outwerk Solutions headquarters location"
+                                        <img src="./images/pakistani-flag.png"
+                                            alt="Pakistan Flag - Outwerk Solutions headquarters location"
                                             class="w-full h-full object-contain"
                                             onerror="this.onerror=null; this.src='https://flagcdn.com/w160/pk.png';">
                                     </div>
@@ -2129,7 +2180,8 @@
                                         style="border-color: #06D6A0; background-color: #f8f8f8;"
                                         onmouseover="this.style.borderColor='white';"
                                         onmouseout="this.style.borderColor='#06D6A0';">
-                                        <img src="./images/american-flag.png" alt="USA Flag - Outwerk Solutions American office location"
+                                        <img src="./images/american-flag.png"
+                                            alt="USA Flag - Outwerk Solutions American office location"
                                             class="w-full h-full object-contain"
                                             onerror="this.onerror=null; this.src='https://flagcdn.com/w160/us.png';">
                                     </div>
@@ -2160,7 +2212,8 @@
                                         style="border-color: #118AB2; background-color: #f8f8f8;"
                                         onmouseover="this.style.borderColor='white';"
                                         onmouseout="this.style.borderColor='#118AB2';">
-                                        <img src="./images/canada-flag.png" alt="Canada Flag - Outwerk Solutions Canadian office location"
+                                        <img src="./images/canada-flag.png"
+                                            alt="Canada Flag - Outwerk Solutions Canadian office location"
                                             class="w-full h-full object-contain"
                                             onerror="this.onerror=null; this.src='https://flagcdn.com/w160/ca.png';">
                                     </div>
@@ -2196,7 +2249,8 @@
                         class="group inline-flex items-center gap-3 px-8 py-4 font-medium transition-all duration-300 border-2"
                         style="border: 2px solid #118AB2; background: linear-gradient(to right, #118AB2, #06D6A0); color: white;"
                         onmouseover="this.style.background='transparent'; this.style.color='#118AB2';"
-                        onmouseout="this.style.background='linear-gradient(to right, #118AB2, #06D6A0)'; this.style.color='white';" aria-label="Start your project with us">
+                        onmouseout="this.style.background='linear-gradient(to right, #118AB2, #06D6A0)'; this.style.color='white';"
+                        aria-label="Start your project with us">
                         <span>START PROJECT</span>
                         <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
@@ -2427,7 +2481,8 @@
                             class="service-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
                             <div class="service-image absolute inset-0 overflow-hidden">
                                 <img src="images/Web Dev.jpg"
-                                    alt="Web Development - Team working on code and developing modern web solutions" loading="lazy"
+                                    alt="Web Development - Team working on code and developing modern web solutions"
+                                    loading="lazy"
                                     class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
                                 <!-- Colored overlay -->
                                 <div class="absolute inset-0"
@@ -2496,7 +2551,8 @@
                                 </div>
 
                                 <a href="services.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link" aria-label="Learn more about Web Solutions">
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link"
+                                    aria-label="Learn more about Web Solutions">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2516,7 +2572,8 @@
                             class="service-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
                             <div class="service-image absolute inset-0 overflow-hidden">
                                 <img src="images/Sales.jpg"
-                                    alt="Lead Generation - Marketing analytics and customer acquisition dashboard" loading="lazy"
+                                    alt="Lead Generation - Marketing analytics and customer acquisition dashboard"
+                                    loading="lazy"
                                     class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
                                 <!-- Colored overlay -->
                                 <div class="absolute inset-0"
@@ -2585,7 +2642,8 @@
                                 </div>
 
                                 <a href="services.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link" aria-label="Learn more about Lead Generation">
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link"
+                                    aria-label="Learn more about Lead Generation">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2605,7 +2663,8 @@
                             class="service-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
                             <div class="service-image absolute inset-0 overflow-hidden">
                                 <img src="images/Auto-Cad.jpg"
-                                    alt="AutoCAD Design - Architectural blueprints and technical drafting tools" loading="lazy"
+                                    alt="AutoCAD Design - Architectural blueprints and technical drafting tools"
+                                    loading="lazy"
                                     class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
                                 <!-- Colored overlay -->
                                 <div class="absolute inset-0"
@@ -2675,7 +2734,8 @@
                                 </div>
 
                                 <a href="services.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link" aria-label="Learn more about AutoCAD Design">
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link"
+                                    aria-label="Learn more about AutoCAD Design">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2695,7 +2755,8 @@
                             class="service-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
                             <div class="service-image absolute inset-0 overflow-hidden">
                                 <img src="images/Customer-support.jpg"
-                                    alt="Customer Support - Support team helping clients with professional assistance" loading="lazy"
+                                    alt="Customer Support - Support team helping clients with professional assistance"
+                                    loading="lazy"
                                     class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
                                 <!-- Colored overlay -->
                                 <div class="absolute inset-0"
@@ -2765,7 +2826,8 @@
                                 </div>
 
                                 <a href="services.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link" aria-label="Learn more about Customer Support">
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link"
+                                    aria-label="Learn more about Customer Support">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2785,7 +2847,8 @@
                             class="service-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
                             <div class="service-image absolute inset-0 overflow-hidden">
                                 <img src="images/Lead-gen.jpg"
-                                    alt="BPO and Sales - Call center operations and business process outsourcing" loading="lazy"
+                                    alt="BPO and Sales - Call center operations and business process outsourcing"
+                                    loading="lazy"
                                     class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
                                 <!-- Colored overlay -->
                                 <div class="absolute inset-0"
@@ -2854,7 +2917,8 @@
                                 </div>
 
                                 <a href="services.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link" aria-label="Learn more about BPO and Sales">
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link"
+                                    aria-label="Learn more about BPO and Sales">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2874,7 +2938,8 @@
                             class="service-front absolute inset-0 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-[-20px]">
                             <div class="service-image absolute inset-0 overflow-hidden">
                                 <img src="images/digital-marketing.jpg"
-                                    alt="Digital Marketing - Marketing analytics dashboard and strategy planning" loading="lazy"
+                                    alt="Digital Marketing - Marketing analytics dashboard and strategy planning"
+                                    loading="lazy"
                                     class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
                                 <!-- Colored overlay -->
                                 <div class="absolute inset-0"
@@ -2944,7 +3009,8 @@
                                 </div>
 
                                 <a href="services.html"
-                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link" aria-label="Learn more about Digital Marketing">
+                                    class="mt-auto inline-flex items-center justify-between border border-white/30 px-4 py-3 text-white hover:bg-white hover:text-black transition-all duration-300 group/link"
+                                    aria-label="Learn more about Digital Marketing">
                                     <span class="text-sm tracking-widest">EXPLORE SERVICE</span>
                                     <i
                                         class="fas fa-arrow-right ml-4 transition-transform duration-300 group-hover/link:translate-x-2"></i>
@@ -2967,7 +3033,8 @@
                     </p>
                     <a href="#contact"
                         class="group inline-flex items-center gap-3 px-10 py-4 font-medium transition-all duration-300 border-2 hover:bg-transparent hover:text-[#118AB2]"
-                        style="border: 2px solid #118AB2; background: linear-gradient(to right, #118AB2, #06D6A0); color: white;" aria-label="Get in touch for custom solutions">
+                        style="border: 2px solid #118AB2; background: linear-gradient(to right, #118AB2, #06D6A0); color: white;"
+                        aria-label="Get in touch for custom solutions">
                         <span>GET IN TOUCH</span>
                         <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
@@ -3053,7 +3120,8 @@
 
                             <a href="#contact"
                                 class="group inline-flex items-center gap-3 px-6 py-3 transition-all duration-300 hover:bg-[#118AB2] hover:text-white"
-                                style="border: 2px solid #118AB2; color: #118AB2;" aria-label="Learn more about our impact">
+                                style="border: 2px solid #118AB2; color: #118AB2;"
+                                aria-label="Learn more about our impact">
                                 <span class="text-sm tracking-widest">LEARN MORE</span>
                                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -3437,7 +3505,8 @@
 
                         <div class="flex gap-2" id="testimonial-indicators">
                             <button class="w-3 h-3 border-2 rounded-full transition-all duration-300 indicator-dot"
-                                style="border-color: #118AB2; background-color: #118AB2;" data-index="0" aria-label="Go to testimonial 1"></button>
+                                style="border-color: #118AB2; background-color: #118AB2;" data-index="0"
+                                aria-label="Go to testimonial 1"></button>
                             <button class="w-3 h-3 border-2 rounded-full transition-all duration-300 indicator-dot"
                                 style="border-color: #06D6A0;" data-index="1" aria-label="Go to testimonial 2"></button>
                             <button class="w-3 h-3 border-2 rounded-full transition-all duration-300 indicator-dot"
@@ -4051,7 +4120,8 @@
                         <div data-aos="fade-up" data-aos-duration="400" data-aos-delay="100"
                             class="text-reveal-wrapper text-reveal-left">
                             <div class="text-reveal-mask"></div>
-                            <img class="h-32" src="images/logo-main.png" alt="Outwerk Solutions - IT & Web Development Company Logo">
+                            <img class="h-32" src="images/logo-main.png"
+                                alt="Outwerk Solutions - IT & Web Development Company Logo">
                         </div>
                         <div data-aos="fade-up" data-aos-duration="400" data-aos-delay="150"
                             class="text-sm tracking-wide font-bold" style="color: #5dc5e8;">
@@ -4074,7 +4144,8 @@
                             class="w-10 h-10 flex items-center justify-center transition-all duration-300 group card-reveal-wrapper card-reveal-left"
                             style="border: 2px solid #118AB2; color: #118AB2;"
                             onmouseover="this.style.backgroundColor='#118AB2'; this.style.color='white'; this.style.borderColor='#118AB2';"
-                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#118AB2'; this.style.borderColor='#118AB2';" aria-label="Visit our LinkedIn page">
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#118AB2'; this.style.borderColor='#118AB2';"
+                            aria-label="Visit our LinkedIn page">
                             <div class="card-reveal-mask"></div>
                             <i
                                 class="fab fa-linkedin-in text-sm group-hover:scale-110 transition-transform duration-300 card-reveal-content"></i>
@@ -4083,7 +4154,8 @@
                             class="w-10 h-10 flex items-center justify-center transition-all duration-300 group card-reveal-wrapper card-reveal-left"
                             style="border: 2px solid #06D6A0; color: #06D6A0;"
                             onmouseover="this.style.backgroundColor='#06D6A0'; this.style.color='white'; this.style.borderColor='#06D6A0';"
-                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#06D6A0'; this.style.borderColor='#06D6A0';" aria-label="Visit our Facebook page">
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#06D6A0'; this.style.borderColor='#06D6A0';"
+                            aria-label="Visit our Facebook page">
                             <div class="card-reveal-mask"></div>
                             <i
                                 class="fab fa-facebook-f text-sm group-hover:scale-110 transition-transform duration-300 card-reveal-content"></i>
@@ -4196,12 +4268,12 @@
                                     EMAIL</div>
                                 <a href="mailto:hr@outwerksolutions.com"
                                     class="text-sm transition-colors duration-300 text-white/80 hover:text-white font-bold"
-                                    onmouseover="this.style.color='#5dc5e8';"
-                                    onmouseout="this.style.color='white';" aria-label="Email hr@outwerksolutions.com">hr@outwerksolutions.com</a>
+                                    onmouseover="this.style.color='#5dc5e8';" onmouseout="this.style.color='white';"
+                                    aria-label="Email hr@outwerksolutions.com">hr@outwerksolutions.com</a>
                                 <a href="mailto:hr@outwerksolutions.com"
                                     class="text-sm transition-colors duration-300 text-white/80 hover:text-white font-bold"
-                                    onmouseover="this.style.color='#5dc5e8';"
-                                    onmouseout="this.style.color='white';" aria-label="Email info@outwerksolutions.com">info@outwerksolutions.com</a>
+                                    onmouseover="this.style.color='#5dc5e8';" onmouseout="this.style.color='white';"
+                                    aria-label="Email info@outwerksolutions.com">info@outwerksolutions.com</a>
                             </div>
                         </li>
                         <li data-aos="fade-up" data-aos-duration="400" data-aos-delay="500"
@@ -4216,8 +4288,8 @@
                                     PHONE</div>
                                 <a href="tel:021-34545003"
                                     class="text-sm transition-colors duration-300 text-white/80 hover:text-white font-bold"
-                                    onmouseover="this.style.color='#06D6A0';"
-                                    onmouseout="this.style.color='white';" aria-label="Call us at 021-34545003">021-34545003</a>
+                                    onmouseover="this.style.color='#06D6A0';" onmouseout="this.style.color='white';"
+                                    aria-label="Call us at 021-34545003">021-34545003</a>
                             </div>
                         </li>
                     </ul>
@@ -4244,15 +4316,15 @@
                     class="flex flex-wrap gap-6 justify-end">
                     <a href="privacy-policy.html"
                         class="text-xs transition-colors duration-300 tracking-widest text-white/80 hover:text-white font-bold"
-                        onmouseover="this.style.color='#5dc5e8';"
-                        onmouseout="this.style.color='rgba(255,255,255,0.8)';" aria-label="Privacy Policy">
+                        onmouseover="this.style.color='#5dc5e8';" onmouseout="this.style.color='rgba(255,255,255,0.8)';"
+                        aria-label="Privacy Policy">
                         PRIVACY POLICY
                     </a>
                     <div class="w-px h-4" style="background-color: #06D6A0;"></div>
                     <a href="career.html"
                         class="text-xs transition-colors duration-300 tracking-widest text-white/80 hover:text-white font-bold"
-                        onmouseover="this.style.color='#5dc5e8';"
-                        onmouseout="this.style.color='rgba(255,255,255,0.8)';" aria-label="Careers">
+                        onmouseover="this.style.color='#5dc5e8';" onmouseout="this.style.color='rgba(255,255,255,0.8)';"
+                        aria-label="Careers">
                         CAREERS
                     </a>
                 </div>
@@ -4262,7 +4334,8 @@
                 style="border-color: #5dc5e8;">
                 <button onclick="scrollToTop()"
                     class="group flex items-center gap-3 mx-auto transition-colors duration-300" style="color: #5dc5e8;"
-                    onmouseover="this.style.color='#0DA8E9';" onmouseout="this.style.color='#5dc5e8';" aria-label="Back to top">
+                    onmouseover="this.style.color='#0DA8E9';" onmouseout="this.style.color='#5dc5e8';"
+                    aria-label="Back to top">
                     <span class="text-xs tracking-widest uppercase text-white font-bold">BACK TO TOP</span>
                     <div class="w-8 h-8 border flex items-center justify-center transition-all duration-300"
                         style="border-color: #5dc5e8;"
