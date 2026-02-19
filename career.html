@@ -457,10 +457,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" media="print"
+        onload="this.media='all'">
 
-    <!-- AOS Animation -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     <!-- Custom Tailwind Configuration -->
     <script>
@@ -558,6 +559,31 @@
 
             to {
                 transform: rotate(360deg);
+            }
+        }
+
+        /* CRITICAL: Disable animations on mobile */
+        @media (max-width: 768px) {
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+                pointer-events: auto !important;
+            }
+
+            /* Replace video with static image on mobile */
+            #career-hero video {
+                display: none;
+            }
+
+            #career-hero {
+                background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            }
+
+            /* Optimize font loading */
+            * {
+                font-display: swap;
             }
         }
 
@@ -1114,6 +1140,16 @@
 
         .moving-point.instant-move {
             transition: none !important;
+        }
+
+        @media (max-width: 768px) {
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+                pointer-events: auto !important;
+            }
         }
     </style>
 </head>
@@ -3976,6 +4012,19 @@
                 });
             });
         }
+
+        // Defer non-critical CSS
+        const loadDeferredStyles = function () {
+            const addStylesNode = document.getElementById("deferred-styles");
+            const replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement);
+            addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        const raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        if (raf) raf(function () { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
 
         // Circuit animation script - FIXED
         function initCircuitAnimation() {
