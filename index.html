@@ -650,7 +650,7 @@
 
         .line-clamp-3 {
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            /* -webkit-line-clamp: 3; */
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -687,7 +687,7 @@
                 <div class="relative flex items-center gap-3">
                     <div class="relative">
                         <img src="images/logo-main.png" alt="Outwerk Solutions - IT & Web Development Company Logo"
-                            class="h-20 w-auto object-contain filter group-hover:scale-105 transition-transform duration-300"
+                            class="h-16 w-auto object-contain filter group-hover:scale-105 transition-transform duration-300"
                             onerror="this.onerror=null;">
                     </div>
                 </div>
@@ -1358,20 +1358,31 @@
         });
     </script>
 
-    <!-- HERO SECTION -->
+<!-- HERO SECTION -->
     <section id="home" class="relative min-h-screen flex items-center justify-center px-6 pt-28 pb-16 overflow-hidden"
         aria-labelledby="hero-heading">
 
-        <!-- Video Background -->
+        <!-- Video Background with Poster Image -->
         <div class="absolute inset-0 z-0">
-            <video autoplay muted loop playsinline poster="hero.jpg"
-                class="w-full h-full object-cover brightness-20 grayscale"
-                aria-label="Background video showing technology concepts">
+            <!-- Poster image that shows until video loads and on mobile -->
+            <img src="images/home-hero-image.PNG" 
+                 alt="Technology background" 
+                 class="absolute inset-0 w-full h-full object-cover brightness-20 grayscale"
+                 id="video-poster">
+            
+            <!-- Video element - will be hidden on mobile -->
+            <video autoplay muted loop playsinline
+                class="w-full h-full object-cover brightness-20 grayscale absolute inset-0 hidden md:block"
+                aria-label="Background video showing technology concepts"
+                id="hero-video"
+                poster="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
                 <source src="video/home-page-video.mp4" type="video/mp4">
+                <!-- Fallback image if video fails -->
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
                     alt="Technology background" class="w-full h-full object-cover">
             </video>
 
+            <!-- Overlay gradients -->
             <div class="absolute inset-0"
                 style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.85) 100%);">
             </div>
@@ -1543,6 +1554,69 @@
             }
 
             initTypingEffect();
+
+            // Video loading optimization - only runs on desktop
+            const isMobile = window.innerWidth <= 768;
+            const video = document.getElementById('hero-video');
+            const poster = document.getElementById('video-poster');
+            
+            if (video && poster) {
+                if (isMobile) {
+                    // On mobile, hide video completely and just show poster
+                    video.style.display = 'none';
+                    poster.style.opacity = '1';
+                } else {
+                    // On desktop, handle video loading with fade
+                    // Show poster initially
+                    poster.style.opacity = '1';
+                    video.style.opacity = '0';
+                    
+                    // When video can play, fade it in and fade poster out
+                    video.addEventListener('canplay', function() {
+                        video.style.transition = 'opacity 0.5s ease';
+                        poster.style.transition = 'opacity 0.5s ease';
+                        video.style.opacity = '1';
+                        poster.style.opacity = '0';
+                        
+                        // Remove poster after fade
+                        setTimeout(() => {
+                            poster.style.display = 'none';
+                        }, 500);
+                    });
+                    
+                    // Fallback if video fails to load
+                    video.addEventListener('error', function() {
+                        poster.style.opacity = '1';
+                        video.style.display = 'none';
+                    });
+                }
+            }
+
+            // Handle resize events to switch between mobile and desktop behavior
+            window.addEventListener('resize', function() {
+                const isMobileNow = window.innerWidth <= 768;
+                if (video && poster) {
+                    if (isMobileNow) {
+                        // Switch to mobile mode
+                        video.style.display = 'none';
+                        poster.style.display = 'block';
+                        poster.style.opacity = '1';
+                    } else {
+                        // Switch to desktop mode
+                        video.style.display = 'block';
+                        poster.style.display = 'block';
+                        poster.style.opacity = '1';
+                        video.style.opacity = '0';
+                        
+                        // Try to load and play video
+                        video.load();
+                        video.play().catch(() => {
+                            // Auto-play was prevented, keep poster visible
+                            poster.style.opacity = '1';
+                        });
+                    }
+                }
+            });
         })();
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -3542,7 +3616,7 @@
                 <div class="md:col-span-2 space-y-8">
                     <div class="space-y-6">
                         <div data-aos="fade-up" data-aos-duration="400" data-aos-delay="100">
-                            <img class="h-32" src="images/logo-main.png"
+                            <img class="h-24" src="images/logo-main.png"
                                 alt="Outwerk Solutions - IT & Web Development Company Logo">
                         </div>
                         <div data-aos="fade-up" data-aos-duration="400" data-aos-delay="150"
