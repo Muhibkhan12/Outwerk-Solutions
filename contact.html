@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- SEO Meta Tags -->
     <title>Contact Outwerk Solutions | IT & Web Development Company in Pakistan, USA & Canada</title>
-    <meta name="description"
-        content="Contact Outwerk Solutions - Premier IT & Web Development Company serving Pakistan, USA & Canada. Get in touch for web development, BPO services, IT solutions, and digital transformation. Free consultation available.">
-    <meta name="keywords"
-        content="contact IT company Pakistan, web development contact USA, software development inquiry Canada, BPO services contact, IT solutions consultation, digital marketing agency contact, SEO services inquiry, IT company Karachi contact, technology partner contact, business solutions inquiry">
+    <meta name="description" content="Contact Outwerk Solutions - Premier IT & Web Development Company serving Pakistan, USA & Canada. Get in touch for web development, BPO services, IT solutions, and digital transformation. Free consultation available.">
+    <meta name="keywords" content="contact IT company Pakistan, web development contact USA, software development inquiry Canada, BPO services contact, IT solutions consultation, digital marketing agency contact, SEO services inquiry, IT company Karachi contact, technology partner contact, business solutions inquiry">
     <meta name="author" content="Outwerk Solutions">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
-
-    <!-- Cache Control Meta Tags -->
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
-    <meta http-equiv="Expires" content="31536000">
-
+    
     <!-- Additional SEO Meta Tags -->
     <meta name="geo.region" content="PK" />
     <meta name="geo.placename" content="Karachi" />
@@ -31,11 +24,15 @@
     <meta name="target" content="all" />
     <meta name="format-detection" content="telephone=yes" />
 
-    <!-- Verification Meta Tags -->
+    <!-- Verification Meta Tags (Replace with actual codes) -->
     <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
     <meta name="msvalidate.01" content="YOUR_VERIFICATION_CODE" />
     <meta name="yandex-verification" content="YOUR_VERIFICATION_CODE" />
     <meta name="facebook-domain-verification" content="YOUR_VERIFICATION_CODE" />
+
+    <!-- Cache Control Meta Tags -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <meta http-equiv="Expires" content="31536000">
 
     <!-- Mobile Specific Meta -->
     <meta name="theme-color" content="#42c7f3" />
@@ -52,8 +49,7 @@
     <meta property="og:site_name" content="Outwerk Solutions" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Contact Outwerk Solutions | IT & Web Development Experts" />
-    <meta property="og:description"
-        content="Get in touch with Outwerk Solutions for innovative IT solutions, web development, BPO services, and digital transformation. Offices in Pakistan, USA & Canada." />
+    <meta property="og:description" content="Get in touch with Outwerk Solutions for innovative IT solutions, web development, BPO services, and digital transformation. Offices in Pakistan, USA & Canada." />
     <meta property="og:url" content="https://outwerksolutions.com/contact.html" />
     <meta property="og:image" content="https://outwerksolutions.com/images/og-contact.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -65,8 +61,7 @@
     <meta name="twitter:site" content="@outwerksolutions" />
     <meta name="twitter:creator" content="@outwerksolutions" />
     <meta name="twitter:title" content="Contact Outwerk Solutions | IT Services & Web Development" />
-    <meta name="twitter:description"
-        content="Connect with Outwerk Solutions for innovative IT solutions, web development, BPO services, and digital transformation. Free consultation available." />
+    <meta name="twitter:description" content="Connect with Outwerk Solutions for innovative IT solutions, web development, BPO services, and digital transformation. Free consultation available." />
     <meta name="twitter:image" content="https://outwerksolutions.com/images/twitter-contact.jpg" />
     <meta name="twitter:image:alt" content="Outwerk Solutions Contact Page" />
 
@@ -77,24 +72,15 @@
     <link rel="alternate" hreflang="en-pk" href="https://outwerksolutions.com/pk/contact.html" />
     <link rel="alternate" hreflang="x-default" href="https://outwerksolutions.com/contact.html" />
 
-    <!-- ============================================================
-         FIX 1: RESOURCE HINTS - Preconnect only to critical origins
-         Removed non-critical preconnects that were wasting connection slots
-         ============================================================ -->
+    <!-- Resource Hints - Reduced to essential origins only -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="https://unpkg.com" />
 
-    <!-- ============================================================
-         FIX 2: PRELOAD CRITICAL LCP ASSETS
-         Logo and hero image must be preloaded with fetchpriority=high
-         This directly reduces LCP by ensuring browser fetches these first
-         ============================================================ -->
-    <link rel="preload" as="image" href="images/logo-main.png" fetchpriority="high" />
-    <link rel="preload" as="image"
-        href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-        fetchpriority="high" />
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="images/logo-main.png" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -103,55 +89,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#42c7f3" />
-
-    <!-- ============================================================
-         FIX 3: LOAD GOOGLE FONTS SYNCHRONOUSLY (inline critical styles)
-         font-display=swap prevents FOIT. Loaded before render so no CLS.
-         ============================================================ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- ============================================================
-         FIX 4: LOAD FONT AWESOME NORMALLY (not media=print trick)
-         The print trick causes FA icons to flash in late, hurting FCP.
-         Using normal stylesheet but with a small performance tweak.
-         ============================================================ -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS CSS - load normally so it doesn't cause style flash -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
-    <!-- ============================================================
-         FIX 5: TAILWIND CONFIG - Must be BEFORE Tailwind loads
-         ============================================================ -->
-    <script>
-        // Tailwind config must be set before tailwind.js runs
-        window.tailwind = window.tailwind || {};
-    </script>
-
-    <!-- ============================================================
-         FIX 6: LOAD TAILWIND SYNCHRONOUSLY (no defer!)
-         defer was the #1 cause of the "content disappears" bug.
-         When Tailwind loads deferred, the page first renders with AOS's
-         opacity:0 transforms, then Tailwind applies, causing a flash.
-         Tailwind CDN must be synchronous to apply styles before first paint.
-         ============================================================ -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#42c7f3',
-                        secondary: '#06D6A0',
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
@@ -194,6 +131,7 @@
     }
     </script>
 
+    <!-- Local Business Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -228,6 +166,7 @@
     }
     </script>
 
+    <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -249,6 +188,7 @@
     }
     </script>
 
+    <!-- ContactPage Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -269,6 +209,7 @@
     }
     </script>
 
+    <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -310,6 +251,7 @@
     }
     </script>
 
+    <!-- Service Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -332,6 +274,43 @@
     }
     </script>
 
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#42c7f3',
+                        secondary: '#06D6A0',
+                    },
+                    opacity: {
+                        '5': '0.05',
+                        '10': '0.1',
+                        '20': '0.2',
+                        '30': '0.3',
+                        '40': '0.4',
+                        '50': '0.5',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Tailwind CSS - Load normally (not deferred) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts with display=swap for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome - Load normally -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS CSS - Load normally -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- OPTIMIZED CSS with all fixes applied -->
     <style>
         /*
          * ============================================================
@@ -382,7 +361,8 @@
          * ============================================================ */
         a, button, input, textarea, select,
         .nav-link, .dropdown-item, .card, .social-icon,
-        .faq-item, .contact-card {
+        .faq-item, .contact-card, .group, .hover-lift, .service-card,
+        .testimonial-card, .stat-card, .modern-card {
             transition: color 0.3s ease,
                         background-color 0.3s ease,
                         border-color 0.3s ease,
@@ -412,12 +392,17 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(-360deg); }
         }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
 
         .animate-float { animation: float 3s ease-in-out infinite; }
         .animate-pulse { animation: pulse 2s ease-in-out infinite; }
         .animate-rotate { animation: rotate 20s linear infinite; }
         .animate-spin-slow { animation: spin-slow 20s linear infinite; }
         .animate-spin-slow-reverse { animation: spin-slow-reverse 25s linear infinite; }
+        .typing-cursor { animation: blink 1s infinite; }
 
         /* Color utilities */
         .text-primary { color: #42c7f3 !important; }
@@ -440,7 +425,8 @@
             transform: translateY(0);
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                         background-color 0.5s ease,
-                        border-color 0.5s ease;
+                        border-color 0.5s ease,
+                        backdrop-filter 0.5s ease;
         }
         #navbar.navbar-hidden { transform: translateY(-100%); }
 
@@ -499,6 +485,7 @@
             transform: translateX(-100%);
             z-index: 2;
             pointer-events: none;
+            transition: transform 0.5s ease;
         }
         .text-reveal-content {
             position: relative;
@@ -518,6 +505,7 @@
             transform: translateX(-100%);
             z-index: 1;
             pointer-events: none;
+            transition: transform 0.5s ease;
         }
         .card-reveal-content {
             position: relative;
@@ -531,6 +519,8 @@
         }
 
         .rotate-180 { transform: rotate(180deg); }
+        .rotate-45 { transform: rotate(45deg); }
+        .-rotate-45 { transform: rotate(-45deg); }
 
         /* Opacity utilities */
         .text-white\/90 { color: rgba(255,255,255,0.9); }
@@ -566,12 +556,23 @@
             left: 0;
         }
 
+        /* Fallback for browsers that don't support video */
+        @supports not (object-fit: cover) {
+            #hero-video {
+                height: 100%;
+                width: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
         /* ============================================================
          * FIX 10: BACKDROP BLUR - scoped transitions
          * ============================================================ */
         .backdrop-blur-sm {
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
         }
         .backdrop-blur-sm:hover {
             backdrop-filter: blur(12px);
@@ -580,6 +581,54 @@
 
         .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .z-20 { z-index: 20; }
+
+        /* AOS custom styles */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        /* Progress bar animation */
+        .progress-bar {
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Modern card styles */
+        .modern-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modern-card:hover {
+            border-color: #42c7f3;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(17, 138, 178, 0.12);
+        }
+
+        /* Service card styles */
+        .service-card {
+            border-radius: 4px;
+        }
+        .service-front,
+        .service-back {
+            backface-visibility: hidden;
+            border-radius: 2px;
+        }
+
+        /* Testimonial dot styles */
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #E5E7EB;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .testimonial-dot.active {
+            background: linear-gradient(135deg, #42c7f3, #06D6A0);
+            width: 30px;
+            border-radius: 5px;
+        }
 
         /* ============================================================
          * FIX 11: MOBILE OPTIMIZATIONS
@@ -619,13 +668,28 @@
             }
 
             /* Faster transitions on mobile */
-            a, button, input, textarea, select {
+            a, button, input, textarea, select,
+            .nav-link, .dropdown-item, .card, .social-icon,
+            .faq-item, .contact-card {
                 transition-duration: 0.15s !important;
             }
 
             .backdrop-blur-sm {
                 backdrop-filter: blur(4px);
                 -webkit-backdrop-filter: blur(4px);
+            }
+
+            /* Ensure content is visible */
+            #contact-hero .z-20,
+            #home .z-20 {
+                opacity: 1 !important;
+            }
+        }
+
+        /* Tablet optimizations */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .service-card {
+                height: 420px;
             }
         }
 
@@ -635,7 +699,13 @@
             #contact-hero {
                 background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
             }
-            * { animation: none !important; transition: none !important; }
+            #home {
+                background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            }
+            * { 
+                animation: none !important; 
+                transition: none !important; 
+            }
         }
     </style>
 </head>
