@@ -1352,9 +1352,6 @@
 
     <!-- ============================================================
          Contact Hero Section
-         FIX 12: Removed broken <picture> + <video> double-loading.
-         Single <video> with fetchpriority="high" poster image.
-         The poster is the LCP element — it must load fast.
          ============================================================ -->
     <section id="contact-hero"
         class="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16 overflow-hidden"
@@ -1363,11 +1360,10 @@
         <!-- Video Background -->
         <div class="absolute inset-0 z-0">
             <!--
-                FIX 13: Single <video> element (removed the broken <picture> overlay).
+                FIX: Single <video> element with optimized poster
                 - poster= is the LCP image. Browser shows it instantly.
                 - fetchpriority="high" on poster ensures fast LCP.
                 - autoplay muted playsinline for silent background video.
-                - preload="none" on mobile saves bandwidth (JS handles it).
             -->
             <video id="hero-video"
                 autoplay muted loop playsinline
@@ -1869,7 +1865,10 @@
             <div data-aos="zoom-in" data-aos-duration="400" data-aos-delay="300" class="relative mb-12">
                 <div class="relative h-64 sm:h-80 md:h-96 bg-black overflow-hidden mx-auto max-w-4xl"
                     style="border: 1px solid rgba(17, 138, 178, 0.2);">
+                    <!-- FIX: Add srcset for responsive images -->
                     <img src="images/map.jpg"
+                        srcset="images/map-400.jpg 400w, images/map-800.jpg 800w, images/map.jpg 1200w"
+                        sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px"
                         alt="World Map showing Outwerk Solutions global locations in Pakistan, USA, and Canada"
                         width="800" height="400" loading="lazy"
                         class="w-full h-full object-cover object-center"
@@ -1956,6 +1955,8 @@
                         <div data-aos="fade-up" data-aos-duration="400" data-aos-delay="100">
                             <img class="h-32"
                                 src="images/logo-main.png"
+                                srcset="images/logo-main-200.png 200w, images/logo-main-400.png 400w"
+                                sizes="(max-width: 768px) 200px, 256px"
                                 alt="Outwerk Solutions - IT & Web Development Company Logo"
                                 width="256" height="128"
                                 loading="lazy">
@@ -2122,18 +2123,12 @@
         </div>
     </footer>
 
-    <!-- ============================================================
-         FIX 14: AOS loaded DEFER (not blocking render)
-         It's safe to defer AOS since it only adds animations — content
-         is already fully visible before AOS runs.
-         ============================================================ -->
+    <!-- AOS JS - Deferred -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script>
         // ============================================================
-        // FIX 15: AOS initializes only after everything is loaded
-        // This prevents AOS from setting opacity:0 on elements before
-        // its CSS has a chance to make them visible again.
+        // FIX: Optimized JavaScript - No forced reflows
         // ============================================================
         window.addEventListener('load', function () {
             if (window.innerWidth > 768) {
@@ -2143,8 +2138,6 @@
                         once: true,
                         offset: 80,
                         easing: 'ease-out-cubic',
-                        // FIX: disable AOS on elements already in viewport at load
-                        startEvent: 'DOMContentLoaded',
                     });
                 }
             }
@@ -2152,7 +2145,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             // ============================================================
-            // Navbar scroll effect
+            // Navbar scroll effect - Using cached values, no reflows
             // ============================================================
             const navbar = document.getElementById('navbar');
             let lastScrollTop = 0;
@@ -2160,7 +2153,7 @@
             let isMobileMenuOpen = false;
 
             function updateNavbarState() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollTop = window.scrollY; // Use scrollY instead of pageYOffset
 
                 if (scrollTop > 20) {
                     navbar.classList.add('navbar-blur');
@@ -2179,11 +2172,22 @@
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             }
 
-            window.addEventListener('scroll', updateNavbarState, { passive: true });
+            // Use requestAnimationFrame to throttle scroll events and prevent forced reflows
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updateNavbarState();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+            
             updateNavbarState();
 
             // ============================================================
-            // Mobile menu
+            // Mobile menu - No forced reflows
             // ============================================================
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -2207,7 +2211,9 @@
                 mobileServicesBtn.addEventListener('click', () => {
                     mobileServicesMenu.classList.toggle('hidden');
                     const icon = mobileServicesBtn.querySelector('.fa-chevron-down');
-                    if (icon) icon.style.transform = mobileServicesMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    if (icon) {
+                        icon.style.transform = mobileServicesMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
                 });
             }
 
@@ -2215,7 +2221,9 @@
                 mobileCareersBtn.addEventListener('click', () => {
                     mobileCareersMenu.classList.toggle('hidden');
                     const icon = mobileCareersBtn.querySelector('.fa-chevron-down');
-                    if (icon) icon.style.transform = mobileCareersMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    if (icon) {
+                        icon.style.transform = mobileCareersMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
                 });
             }
 
@@ -2240,12 +2248,15 @@
             }
 
             // ============================================================
-            // FAQ Accordion
+            // FAQ Accordion - Store heights once to prevent reflows
             // ============================================================
             document.querySelectorAll('.faq-item').forEach(item => {
                 const question = item.querySelector('.faq-question');
                 const answer = item.querySelector('.faq-answer');
                 const icon = item.querySelector('.faq-icon');
+                
+                // Store the height once to avoid recalculating
+                let answerHeight = 0;
 
                 if (question && answer && icon) {
                     question.addEventListener('click', () => {
@@ -2254,13 +2265,21 @@
                             if (other !== item) {
                                 const otherAnswer = other.querySelector('.faq-answer');
                                 const otherIcon = other.querySelector('.faq-icon');
-                                if (otherAnswer) otherAnswer.style.maxHeight = '0px';
-                                if (otherIcon) otherIcon.style.transform = 'rotate(45deg)';
+                                if (otherAnswer) {
+                                    otherAnswer.style.maxHeight = '0px';
+                                }
+                                if (otherIcon) {
+                                    otherIcon.style.transform = 'rotate(45deg)';
+                                }
                             }
                         });
 
+                        // Toggle current - use stored height if available
                         if (!answer.style.maxHeight || answer.style.maxHeight === '0px') {
-                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            if (answerHeight === 0) {
+                                answerHeight = answer.scrollHeight;
+                            }
+                            answer.style.maxHeight = answerHeight + 'px';
                             icon.style.transform = 'rotate(90deg)';
                             question.setAttribute('aria-expanded', 'true');
                         } else {
@@ -2295,7 +2314,7 @@
             });
 
             // ============================================================
-            // FIX 16: Pause video on mobile to save bandwidth
+            // Pause video on mobile to save bandwidth
             // ============================================================
             const heroVideo = document.getElementById('hero-video');
             if (heroVideo && window.innerWidth <= 768) {
