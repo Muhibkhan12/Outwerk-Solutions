@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -80,11 +81,11 @@
 
     <!-- PRELOAD CRITICAL RESOURCES -->
     <link rel="preload" as="image" href="images/logo-main.png">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" fetchpriority="high">
     <link rel="preload" as="script" href="https://cdn.tailwindcss.com">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
 
-    <!-- ADD THESE TWO LINES FOR FONT AWESOME PRELOAD -->
+    <!-- PRELOAD FONT AWESOME FONTS -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
@@ -96,7 +97,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#42c7f3" />
 
-    <!-- Structured Data / Schema Markup (keep all your existing JSON-LD) -->
+    <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -302,9 +303,74 @@
         }
     </script>
 
-    <!-- CRITICAL CSS - Loads immediately for first paint -->
+    <!-- Tailwind CSS - Load normally -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts with display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome - Defer loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- AOS CSS - Defer loading -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
+
+    <!-- FONT AWESOME OPTIMIZATION - font-display:swap -->
     <style>
-        /* CRITICAL PATH CSS - Only what's needed for above-the-fold */
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 900;
+            font-display: swap;
+            src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2) format('woff2');
+        }
+        
+        @font-face {
+            font-family: 'Font Awesome 6 Brands';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2) format('woff2');
+        }
+        
+        .fa-chevron-down::before,
+        .fa-arrow-right::before,
+        .fa-envelope::before,
+        .fa-phone::before,
+        .fa-map-marker-alt::before,
+        .fa-check::before,
+        .fa-paper-plane::before,
+        .fa-bars::before,
+        .fa-times::before,
+        .fa-home::before,
+        .fa-cogs::before,
+        .fa-users::before,
+        .fa-briefcase::before,
+        .fa-gift::before,
+        .fa-graduation-cap::before,
+        .fa-code::before,
+        .fa-headset::before,
+        .fa-server::before,
+        .fa-search::before,
+        .fa-chart-line::before,
+        .fa-paint-brush::before,
+        .fa-rocket::before,
+        .fa-calendar-check::before,
+        .fa-quote-right::before,
+        .fa-star::before,
+        .fa-chevron-up::before {
+            display: inline-block;
+            min-width: 1.25em;
+            text-align: center;
+        }
+    </style>
+
+    <!-- CRITICAL CSS -->
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -375,95 +441,13 @@
         .h-3 { height: 0.75rem; }
     </style>
 
-    <!-- OPTIMIZED EXTERNAL RESOURCES -->
-    
-    <!-- Tailwind CSS - Load normally (critical for styling) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts with display=swap and media="print" trick -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-
-    <!-- Font Awesome - Defer loading -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
-    <!-- AOS CSS - Defer loading -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
-
-    <!-- ADD THIS CSS BLOCK FOR FONT AWESOME FONT-DISPLAY OPTIMIZATION -->
+    <!-- FULL CSS -->
     <style>
-        /* ============================================================
-         * FONT AWESOME OPTIMIZATION - Add this block
-         * Prevents layout shifts and ensures text visibility
-         * ============================================================ */
-        @font-face {
-            font-family: 'Font Awesome 6 Free';
-            font-style: normal;
-            font-weight: 900;
-            font-display: swap;
-            src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2) format('woff2');
-        }
-        
-        @font-face {
-            font-family: 'Font Awesome 6 Brands';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2) format('woff2');
-        }
-        
-        /* Set consistent icon widths to prevent layout shift */
-        .fa-chevron-down::before,
-        .fa-arrow-right::before,
-        .fa-envelope::before,
-        .fa-phone::before,
-        .fa-map-marker-alt::before,
-        .fa-check::before,
-        .fa-paper-plane::before,
-        .fa-bars::before,
-        .fa-times::before,
-        .fa-home::before,
-        .fa-cogs::before,
-        .fa-users::before,
-        .fa-briefcase::before,
-        .fa-gift::before,
-        .fa-graduation-cap::before,
-        .fa-code::before,
-        .fa-headset::before,
-        .fa-server::before,
-        .fa-search::before,
-        .fa-chart-line::before,
-        .fa-paint-brush::before,
-        .fa-rocket::before,
-        .fa-calendar-check::before,
-        .fa-quote-right::before,
-        .fa-star::before,
-        .fa-chevron-up::before {
-            display: inline-block;
-            min-width: 1.25em;
-            text-align: center;
-        }
-    </style>
-
-    <!-- FULL CSS with all fixes applied (loads after critical CSS) -->
-    <style>
-        /*
-         * ============================================================
-         * FIX 7: REMOVE "transition: all" FROM * SELECTOR
-         * ============================================================
-         */
-        /* Already handled in critical CSS - no transition on * */
-
         ::selection {
             background: #42c7f3;
             color: #FFFFFF;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -477,9 +461,6 @@
             background: #06D6A0;
         }
 
-        /* ============================================================
-         * FIX 8: TARGETED TRANSITIONS
-         * ============================================================ */
         a, button, input, textarea, select,
         .nav-link, .dropdown-item, .card, .social-icon,
         .faq-item, .contact-card, .group, .hover-lift, .service-card,
@@ -492,7 +473,6 @@
                         box-shadow 0.3s ease;
         }
 
-        /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -525,7 +505,6 @@
         .animate-spin-slow-reverse { animation: spin-slow-reverse 25s linear infinite; }
         .typing-cursor { animation: blink 1s infinite; }
 
-        /* Color utilities */
         .text-primary { color: #42c7f3 !important; }
         .bg-primary { background: #42c7f3 !important; }
         .border-primary { border-color: #42c7f3 !important; }
@@ -546,13 +525,11 @@
             box-shadow: 0 10px 25px rgba(17, 138, 178, 0.2);
         }
 
-        /* Focus styles */
         button:focus, a:focus {
             outline: 2px solid #42c7f3;
             outline-offset: 4px;
         }
 
-        /* Mobile menu scrollbar */
         #mobileMenu {
             scrollbar-width: thin;
             scrollbar-color: #42c7f3 transparent;
@@ -564,7 +541,6 @@
             border-radius: 2px;
         }
 
-        /* Text Reveal Effect */
         .text-reveal-wrapper {
             position: relative;
             display: inline-block;
@@ -587,7 +563,6 @@
             z-index: 1;
         }
 
-        /* Card Reveal Effect */
         .card-reveal-wrapper {
             position: relative;
             overflow: hidden;
@@ -607,7 +582,6 @@
             z-index: 2;
         }
 
-        /* Active nav */
         .active-nav-link {
             color: #42c7f3 !important;
             background: rgba(17, 138, 178, 0.1) !important;
@@ -617,7 +591,6 @@
         .rotate-45 { transform: rotate(45deg); }
         .-rotate-45 { transform: rotate(-45deg); }
 
-        /* Opacity utilities */
         .text-white\/90 { color: rgba(255,255,255,0.9); }
         .text-white\/80 { color: rgba(255,255,255,0.8); }
         .text-white\/70 { color: rgba(255,255,255,0.7); }
@@ -630,15 +603,11 @@
         .bg-primary\/20 { background: rgba(17,138,178,0.2); }
         .bg-secondary\/10 { background: rgba(6,214,160,0.1); }
 
-        /* Fix form select text color */
         select option {
             background-color: #0B0C16;
             color: white;
         }
 
-        /* ============================================================
-         * FIX 9: HERO VIDEO
-         * ============================================================ */
         #hero-video {
             object-fit: cover;
             width: 100%;
@@ -648,7 +617,6 @@
             left: 0;
         }
 
-        /* Fallback for browsers that don't support video */
         @supports not (object-fit: cover) {
             #hero-video {
                 height: 100%;
@@ -658,9 +626,6 @@
             }
         }
 
-        /* ============================================================
-         * FIX 10: BACKDROP BLUR
-         * ============================================================ */
         .backdrop-blur-sm {
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -673,7 +638,6 @@
 
         .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 
-        /* AOS custom styles */
         [data-aos] {
             pointer-events: none;
         }
@@ -681,12 +645,10 @@
             pointer-events: auto;
         }
 
-        /* Progress bar animation */
         .progress-bar {
             transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Modern card styles */
         .modern-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -696,7 +658,6 @@
             box-shadow: 0 12px 40px rgba(17, 138, 178, 0.12);
         }
 
-        /* Service card styles */
         .service-card {
             border-radius: 4px;
         }
@@ -706,7 +667,6 @@
             border-radius: 2px;
         }
 
-        /* Testimonial dot styles */
         .testimonial-dot {
             width: 10px;
             height: 10px;
@@ -721,11 +681,7 @@
             border-radius: 5px;
         }
 
-        /* ============================================================
-         * FIX 11: MOBILE OPTIMIZATIONS
-         * ============================================================ */
         @media (max-width: 768px) {
-            /* Disable AOS on mobile - content must be visible immediately */
             [data-aos] {
                 opacity: 1 !important;
                 transform: none !important;
@@ -733,7 +689,6 @@
                 pointer-events: auto !important;
             }
 
-            /* Disable heavy CSS animations */
             .animate-rotate,
             .animate-spin-slow,
             .animate-spin-slow-reverse,
@@ -745,18 +700,15 @@
                 transform: none !important;
             }
 
-            /* Hide decorative animation masks */
             .text-reveal-mask,
             .card-reveal-mask {
                 display: none !important;
             }
 
-            /* Video: position to interesting part on small screens */
             #hero-video {
                 object-position: 30% center;
             }
 
-            /* Faster transitions on mobile */
             a, button, input, textarea, select,
             .nav-link, .dropdown-item, .card, .social-icon,
             .faq-item, .contact-card {
@@ -768,21 +720,18 @@
                 -webkit-backdrop-filter: blur(4px);
             }
 
-            /* Ensure content is visible */
             #contact-hero .z-20,
             #home .z-20 {
                 opacity: 1 !important;
             }
         }
 
-        /* Tablet optimizations */
         @media (min-width: 769px) and (max-width: 1024px) {
             .service-card {
                 height: 420px;
             }
         }
 
-        /* Reduce motion preference */
         @media (prefers-reduced-motion: reduce) {
             #hero-video { display: none; }
             #contact-hero {
