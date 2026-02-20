@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,15 +70,18 @@
     <link rel="alternate" hreflang="en-pk" href="https://outwerksolutions.com/pk/contact.html" />
     <link rel="alternate" hreflang="x-default" href="https://outwerksolutions.com/contact.html" />
 
-    <!-- Resource Hints - Reduced to essential origins only -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <!-- OPTIMIZED RESOURCE HINTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
 
-    <!-- Preload critical resources -->
-    <link rel="preload" as="image" href="images/logo-main.png" />
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" />
+    <!-- PRELOAD CRITICAL RESOURCES -->
+    <link rel="preload" as="image" href="images/logo-main.png">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+    <link rel="preload" as="script" href="https://cdn.tailwindcss.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -90,7 +91,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#42c7f3" />
 
-    <!-- Structured Data / Schema Markup -->
+    <!-- Structured Data / Schema Markup (keep all your existing JSON-LD) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -296,45 +297,106 @@
         }
     </script>
 
-    <!-- Tailwind CSS - Load normally (not deferred) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts with display=swap for better performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome - Load normally -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS CSS - Load normally -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- OPTIMIZED CSS with all fixes applied -->
+    <!-- CRITICAL CSS - Loads immediately for first paint -->
     <style>
-        /*
-         * ============================================================
-         * FIX 7: REMOVE "transition: all" FROM * SELECTOR
-         * "transition: all 0.3s" on every element is a major performance
-         * killer — it transitions layout properties (width, height, padding)
-         * causing unnecessary repaints and fighting with AOS animations.
-         * Only transition specific safe properties (color, background, opacity,
-         * transform, border-color, box-shadow).
-         * ============================================================
-         */
+        /* CRITICAL PATH CSS - Only what's needed for above-the-fold */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* REMOVED: transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
             background: #0B0C16 !important;
             color: #FFFFFF;
             overflow-x: hidden;
         }
+        #navbar {
+            transform: translateY(0);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        background-color 0.5s ease,
+                        border-color 0.5s ease,
+                        backdrop-filter 0.5s ease;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: transparent;
+        }
+        #navbar.navbar-hidden { transform: translateY(-100%); }
+        #navbar.navbar-blur {
+            background-color: rgba(14, 17, 23, 0.95);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(17, 138, 178, 0.2);
+        }
+        #contact-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 1.5rem 4rem;
+            overflow: hidden;
+        }
+        #contact-hero video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .z-20 { z-index: 20; }
+        .text-center { text-align: center; }
+        .max-w-6xl { max-width: 72rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .gap-2 { gap: 0.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .text-xs { font-size: 0.75rem; }
+        .font-medium { font-weight: 500; }
+        .tracking-widest { letter-spacing: 0.1em; }
+        .uppercase { text-transform: uppercase; }
+        .rotate-45 { transform: rotate(45deg); }
+        .w-3 { width: 0.75rem; }
+        .h-3 { height: 0.75rem; }
+    </style>
+
+    <!-- OPTIMIZED EXTERNAL RESOURCES -->
+    
+    <!-- Tailwind CSS - Load normally (critical for styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts with display=swap and media="print" trick -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font Awesome - Defer loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- AOS CSS - Defer loading -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
+
+    <!-- FULL CSS with all fixes applied (loads after critical CSS) -->
+    <style>
+        /*
+         * ============================================================
+         * FIX 7: REMOVE "transition: all" FROM * SELECTOR
+         * ============================================================
+         */
+        /* Already handled in critical CSS - no transition on * */
 
         ::selection {
             background: #42c7f3;
@@ -356,8 +418,7 @@
         }
 
         /* ============================================================
-         * FIX 8: TARGETED TRANSITIONS — only on elements that need them.
-         * Using specific property transitions instead of "all"
+         * FIX 8: TARGETED TRANSITIONS
          * ============================================================ */
         a, button, input, textarea, select,
         .nav-link, .dropdown-item, .card, .social-icon,
@@ -419,32 +480,6 @@
 
         .glow { box-shadow: 0 0 20px rgba(17, 138, 178, 0.3) !important; }
         .glow-lg { box-shadow: 0 0 40px rgba(17, 138, 178, 0.3) !important; }
-
-        /* Navbar */
-        #navbar {
-            transform: translateY(0);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                        background-color 0.5s ease,
-                        border-color 0.5s ease,
-                        backdrop-filter 0.5s ease;
-        }
-        #navbar.navbar-hidden { transform: translateY(-100%); }
-
-        #navbar.navbar-blur {
-            background-color: rgba(14, 17, 23, 0.95);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(17, 138, 178, 0.2);
-        }
-        #navbar.navbar-blur::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #42c7f3 50%, transparent 100%);
-        }
 
         .hover-lift:hover {
             transform: translateY(-4px);
@@ -542,10 +577,7 @@
         }
 
         /* ============================================================
-         * FIX 9: HERO VIDEO - proper sizing, no double-loading
-         * Removed the broken <picture> + <video> overlap.
-         * The video has a proper poster (the LCP image) so poster renders
-         * immediately while video loads in background.
+         * FIX 9: HERO VIDEO
          * ============================================================ */
         #hero-video {
             object-fit: cover;
@@ -567,7 +599,7 @@
         }
 
         /* ============================================================
-         * FIX 10: BACKDROP BLUR - scoped transitions
+         * FIX 10: BACKDROP BLUR
          * ============================================================ */
         .backdrop-blur-sm {
             backdrop-filter: blur(8px);
@@ -580,7 +612,6 @@
         }
 
         .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .z-20 { z-index: 20; }
 
         /* AOS custom styles */
         [data-aos] {
@@ -632,8 +663,6 @@
 
         /* ============================================================
          * FIX 11: MOBILE OPTIMIZATIONS
-         * Disable AOS and heavy animations on mobile for better FCP/LCP.
-         * Content is ALWAYS visible (no opacity:0 left dangling).
          * ============================================================ */
         @media (max-width: 768px) {
             /* Disable AOS on mobile - content must be visible immediately */
