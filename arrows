@@ -1,0 +1,5 @@
+ <i class="fas fa-arrow-right ml-2 transition-all duration-300 group-hover:translate-x-2"
+                        style="color: white;"></i>
+
+                        <i class="fas fa-calendar-check transition-colors duration-300" style="color: #06D6A0;"
+                        onmouseover="this.style.color='white';" onmouseout="this.style.color='#06D6A0';"></i>
