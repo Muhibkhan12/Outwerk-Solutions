@@ -1,0 +1,60 @@
+ .service-card-wrapper:hover .service-front {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .service-card-wrapper:hover .service-back {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-card-wrapper:hover .service-image img {
+            transform: scale(1.1);
+        }
+        #testimonial-slider {
+            transition: transform 0.5s ease-out;
+        }
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+        .navbar-blur {
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .progress-bar {
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        @keyframes spin-cw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spin-ccw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        .animate-blink {
+            animation: blink 1s infinite;
+        }
+        .animate-spin-cw {
+            animation: spin-cw 20s linear infinite;
+        }
+        .animate-spin-ccw {
+            animation: spin-ccw 25s linear infinite;
+        }
+        @media (max-width: 767px) {
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
