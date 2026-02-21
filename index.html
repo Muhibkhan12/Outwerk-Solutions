@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Outwerk Solutions | IT & Web Development Services in Pakistan, USA & Canada</title>
+    
+    <!-- ALL YOUR EXISTING META TAGS - KEEP THEM EXACTLY AS IS -->
     <meta name="description" content="Outwerk Solutions: Premier IT & Web Development Company serving Pakistan, USA & Canada since 2021. Expert web development, BPO services, IT solutions, SEO, digital marketing, and AutoCAD design.">
     <meta name="keywords" content="IT solutions Pakistan, web development company USA, software development Canada, BPO services, digital marketing agency, SEO services, AutoCAD design services">
     <meta name="author" content="Outwerk Solutions">
@@ -47,7 +49,7 @@
     <!-- Preload LCP resource (logo) -->
     <link rel="preload" as="image" href="images/logo-main.png" fetchpriority="high">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- KEEP TAILWIND AS IS - DO NOT ADD DEFER -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Tailwind Config -->
@@ -110,7 +112,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Outwerk Solutions","telephone":"+92-300-1234567","email":"hr@outwerksolutions.com","address":{"@type":"PostalAddress","streetAddress":"Suite No 111, 1st Floor, Park Avenue, Block 6, PECHS","addressLocality":"Karachi","addressRegion":"Sindh","postalCode":"75500","addressCountry":"Pakistan"},"geo":{"@type":"GeoCoordinates","latitude":"24.8607","longitude":"67.0011"}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What services does Outwerk Solutions provide?","acceptedAnswer":{"@type":"Answer","text":"Web development, BPO services, IT solutions, SEO, digital marketing, lead generation, customer support, and AutoCAD design."}},{"@type":"Question","name":"Where is Outwerk Solutions located?","acceptedAnswer":{"@type":"Answer","text":"Pakistan (Karachi), United States, and Canada."}}]}</script>
 
-    <!-- Custom CSS for complex animations and specific styles -->
+    <!-- KEEP YOUR ORIGINAL CUSTOM CSS EXACTLY AS IS -->
     <style>
         /* Custom styles that can't be easily done with Tailwind */
         .service-card-wrapper:hover .service-front {
@@ -125,7 +127,7 @@
             transform: scale(1.1);
         }
         #testimonial-slider {
-            transition: left 0.5s ease-out;
+            transition: transform 0.5s ease-out;
         }
         .navbar-hidden {
             transform: translateY(-100%);
@@ -1679,252 +1681,6 @@
     </div>
 </section>
 
-<style>
-/* Testimonial Carousel Styles */
-#testimonial-slider {
-    transition: transform 0.5s ease-out;
-}
-
-.carousel-slide {
-    flex-shrink: 0;
-}
-
-/* Progress bar animation */
-.progress-bar {
-    transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Indicator dots */
-.indicator-dot {
-    transition: all 0.3s ease;
-}
-
-.indicator-dot:hover {
-    opacity: 0.8;
-}
-
-/* Hover effects for stat cards */
-.stat-card {
-    transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: scale(1.05);
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .carousel-slide {
-        width: 100% !important;
-    }
-}
-</style>
-
-<script>
-// Stats counters
-(function() {
-    const counters = [
-        { id: 'satisfactionStat', end: 98, suffix: '%' },
-        { id: 'industriesStat', end: 45, suffix: '+' },
-        { id: 'projectsStat2', end: 150, suffix: '+' }
-    ];
-    
-    let animated = false;
-    
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0
-        );
-    }
-    
-    function animateCounter(element, target, suffix) {
-        let current = 0;
-        const increment = Math.ceil(target / 60);
-        const duration = 2000;
-        const stepTime = duration / (target / increment);
-        
-        function update() {
-            current += increment;
-            if (current >= target) {
-                element.textContent = target + suffix;
-                return;
-            }
-            element.textContent = current + suffix;
-            setTimeout(update, stepTime);
-        }
-        update();
-    }
-    
-    function checkCounters() {
-        if (animated) return;
-        
-        const firstCounter = document.getElementById(counters[0].id);
-        if (firstCounter && isElementInViewport(firstCounter)) {
-            animated = true;
-            
-            counters.forEach(counter => {
-                const element = document.getElementById(counter.id);
-                if (element) {
-                    animateCounter(element, counter.end, counter.suffix);
-                }
-            });
-            
-            // Animate progress bars
-            document.querySelectorAll('.progress-bar').forEach(bar => {
-                if (bar.dataset.width) {
-                    bar.style.width = bar.dataset.width + '%';
-                }
-            });
-        }
-    }
-    
-    window.addEventListener('scroll', checkCounters);
-    window.addEventListener('load', checkCounters);
-    checkCounters();
-})();
-
-// Testimonial carousel
-(function() {
-    const slider = document.getElementById('testimonial-slider');
-    const prevBtn = document.getElementById('prev-testimonial');
-    const nextBtn = document.getElementById('next-testimonial');
-    const indicators = document.querySelectorAll('.indicator-dot');
-    const slides = document.querySelectorAll('.carousel-slide');
-
-    if (!slider || !prevBtn || !nextBtn || !indicators.length || !slides.length) return;
-
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let autoAdvanceTimer = null;
-
-    // Function to get slide width
-    function getSlideWidth() {
-        if (window.innerWidth >= 768) {
-            return 600; // md:min-w-[600px]
-        }
-        return slider.parentElement.offsetWidth; // Full width on mobile
-    }
-
-    function updateCarousel(index) {
-        // Ensure index is within bounds
-        currentIndex = (index + totalSlides) % totalSlides;
-        
-        // Calculate translate percentage based on viewport
-        let translatePercentage;
-        if (window.innerWidth >= 768) {
-            // On desktop, each slide is 600px with 2rem gap
-            const slideWidth = 600;
-            const gap = 32; // 2rem = 32px
-            const containerWidth = slider.parentElement.offsetWidth;
-            const visibleSlides = Math.floor(containerWidth / (slideWidth + gap));
-            const offset = currentIndex * (slideWidth + gap);
-            slider.style.transform = `translateX(-${offset}px)`;
-        } else {
-            // On mobile, each slide is full width
-            translatePercentage = currentIndex * 100;
-            slider.style.transform = `translateX(-${translatePercentage}%)`;
-        }
-        
-        // Update indicators
-        indicators.forEach((dot, i) => {
-            if (i === currentIndex) {
-                dot.style.backgroundColor = i % 2 === 0 ? '#118AB2' : '#06D6A0';
-            } else {
-                dot.style.backgroundColor = 'transparent';
-            }
-        });
-    }
-
-    function startAutoAdvance() {
-        if (autoAdvanceTimer) clearInterval(autoAdvanceTimer);
-        autoAdvanceTimer = setInterval(() => {
-            updateCarousel(currentIndex + 1);
-        }, 5000);
-    }
-
-    function pauseAutoAdvance() {
-        if (autoAdvanceTimer) {
-            clearInterval(autoAdvanceTimer);
-            autoAdvanceTimer = null;
-        }
-    }
-
-    function resetAutoAdvance() {
-        pauseAutoAdvance();
-        startAutoAdvance();
-    }
-
-    // Event listeners
-    prevBtn.addEventListener('click', () => {
-        updateCarousel(currentIndex - 1);
-        resetAutoAdvance();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        updateCarousel(currentIndex + 1);
-        resetAutoAdvance();
-    });
-
-    indicators.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            updateCarousel(index);
-            resetAutoAdvance();
-        });
-    });
-
-    // Pause on hover
-    slider.addEventListener('mouseenter', pauseAutoAdvance);
-    slider.addEventListener('mouseleave', startAutoAdvance);
-
-    // Handle window resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            updateCarousel(currentIndex);
-        }, 250);
-    });
-
-    // Touch/swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        pauseAutoAdvance();
-    }, { passive: true });
-    
-    slider.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > 50) { // Swipe threshold
-            if (diff > 0) {
-                // Swipe left - go to next
-                updateCarousel(currentIndex + 1);
-            } else {
-                // Swipe right - go to previous
-                updateCarousel(currentIndex - 1);
-            }
-            resetAutoAdvance();
-        } else {
-            startAutoAdvance();
-        }
-    }, { passive: true });
-
-    // Initialize
-    updateCarousel(0);
-    startAutoAdvance();
-
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', () => {
-        if (autoAdvanceTimer) clearInterval(autoAdvanceTimer);
-    });
-})();
-</script>
-
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="relative py-32 px-6 bg-white overflow-hidden" aria-labelledby="contact-heading">
     <!-- Edge decorations -->
@@ -2468,7 +2224,7 @@ function scrollToSection(id) {
     check();
 })();
 
-// Testimonial carousel
+// OPTIMIZED TESTIMONIAL CAROUSEL - Uses transform for better performance
 (function() {
     const slider = document.getElementById('testimonial-slider');
     const prevBtn = document.getElementById('prev-testimonial');
@@ -2484,7 +2240,8 @@ function scrollToSection(id) {
 
     function updateCarousel(index) {
         currentIndex = (index + totalSlides) % totalSlides;
-        slider.style.left = `-${currentIndex * 100}%`;
+        // Using transform instead of left for better performance
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
         indicators.forEach((dot, i) => {
             dot.style.backgroundColor = i === currentIndex ? (i % 2 === 0 ? '#118AB2' : '#06D6A0') : 'transparent';
@@ -2527,6 +2284,24 @@ function scrollToSection(id) {
 
     slider.addEventListener('mouseenter', pauseAutoAdvance);
     slider.addEventListener('mouseleave', startAutoAdvance);
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    
+    slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        pauseAutoAdvance();
+    }, { passive: true });
+    
+    slider.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+            updateCarousel(currentIndex + (diff > 0 ? 1 : -1));
+            resetAutoAdvance();
+        } else {
+            startAutoAdvance();
+        }
+    }, { passive: true });
 
     updateCarousel(0);
     startAutoAdvance();
