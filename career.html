@@ -979,6 +979,12 @@
             -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            /* Ensure hidden by default - will be toggled by JS */
+            display: none;
+        }
+
+        #mobileMenu:not(.hidden) {
+            display: block;
         }
 
         #mobileMenu.hidden {
@@ -1559,7 +1565,7 @@
             <!-- Mobile Menu Button -->
             <button id="mobileMenuBtn"
                 class="md:hidden flex flex-col items-end justify-center w-10 h-10 gap-1.5 relative z-[10000]"
-                aria-label="Toggle mobile menu">
+                aria-label="Toggle mobile menu" aria-expanded="false">
                 <span class="w-6 h-0.5 transition-all duration-300" style="background-color: white;"></span>
                 <span class="w-5 h-0.5 transition-all duration-300" style="background-color: white;"></span>
                 <span class="w-4 h-0.5 transition-all duration-300" style="background-color: white;"></span>
@@ -1568,8 +1574,9 @@
 
         <!-- Mobile Menu -->
         <div id="mobileMenu"
-            class="md:hidden fixed left-0 right-0 top-[70px] bg-white shadow-xl z-[9998] transform -translate-y-full transition-transform duration-300 ease-in-out overflow-y-auto"
-            style="background-color: #118AB2; backdrop-filter: blur(10px); border-top: 1px solid rgba(17, 138, 178, 0.1); border-bottom: 1px solid rgba(17, 138, 178, 0.1); max-height: calc(100vh - 70px); ">
+            class="md:hidden fixed left-0 right-0 top-[70px] bg-white shadow-xl z-[9998] transform -translate-y-full transition-transform duration-300 ease-in-out overflow-y-auto hidden"
+            style="background-color: #118AB2; backdrop-filter: blur(10px); border-top: 1px solid rgba(17, 138, 178, 0.1); border-bottom: 1px solid rgba(17, 138, 178, 0.1); max-height: calc(100vh - 70px); "
+            aria-hidden="true">
             <div class="px-6 py-8 space-y-1">
                 <!-- Mobile Menu Header -->
                 <div class="flex items-center justify-between mb-8">
@@ -1830,7 +1837,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        Mobile menu styles #mobileMenu {
+        /* Mobile menu styles */
+        #mobileMenu {
             top: 4rem;
             transition: transform 0.3s ease-in-out;
         }
@@ -3917,6 +3925,11 @@
             const scrollThreshold = 100;
             let isMobileMenuOpen = false;
 
+            // Ensure mobile menu is hidden on page load
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+
             function updateNavbarState() {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -3953,6 +3966,10 @@
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
                     isMobileMenuOpen = !mobileMenu.classList.contains('hidden');
+
+                    // Update ARIA attributes
+                    mobileMenuBtn.setAttribute('aria-expanded', isMobileMenuOpen);
+                    mobileMenu.setAttribute('aria-hidden', !isMobileMenuOpen);
 
                     // Toggle button animation
                     mobileMenuBtn.classList.toggle('active');
@@ -3999,6 +4016,9 @@
                 if (!isClickInsideNavbar && isMobileMenuVisible) {
                     mobileMenu.classList.add('hidden');
                     mobileMenuBtn.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    
                     if (mobileServicesMenu) {
                         mobileServicesMenu.classList.add('hidden');
                     }
@@ -4017,6 +4037,9 @@
                     link.addEventListener('click', () => {
                         mobileMenu.classList.add('hidden');
                         mobileMenuBtn.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenu.setAttribute('aria-hidden', 'true');
+                        
                         if (mobileServicesMenu) {
                             mobileServicesMenu.classList.add('hidden');
                         }
