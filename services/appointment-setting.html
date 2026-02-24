@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Setting — simple + edgy portfolio</title>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      padding: 2rem;
+    }
+
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* --- BACK BUTTON (minimal, keeps edge) --- */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      border: 2px solid #118AB2;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      color: #118AB2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 4px 4px 0 rgba(17,138,178,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .back-button:hover {
+      background: #118AB2;
+      color: white;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 rgba(17,138,178,0.3);
+    }
+    .back-button i { transition: transform 0.2s ease; }
+    .back-button:hover i { transform: translateX(-3px); }
+
+    /* --- MODULAR, CLEAN, BUT EDGY: sharp corners, overlapping blocks, minimal embellishments --- */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #0F2A34;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: #06D6A0;
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    }
+
+    /* --- cards / containers with border and subtle shadow --- */
+    .card-edgy {
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      padding: 2.5rem;
+      box-shadow: 8px 8px 0 rgba(17,138,178,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-edgy:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 12px 12px 0 rgba(17,138,178,0.2);
+    }
+
+    /* --- hero minimal, strong typography, asymmetric split --- */
+    .hero-simple {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-left {
+      background: white;
+      border: 3px solid #118AB2;
+      padding: 3rem;
+      box-shadow: 12px 12px 0 rgba(17,138,178,0.15);
+      position: relative;
+    }
+    /* edgy corner accent */
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 40px;
+      height: 40px;
+      border-top: 4px solid #06D6A0;
+      border-left: 4px solid #06D6A0;
+    }
+
+    .badge-simple {
+      display: inline-block;
+      background: #118AB2;
+      color: white;
+      padding: 0.4rem 1.8rem 0.4rem 1.2rem;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+      margin-bottom: 1.5rem;
+      border: none;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #0F2A34;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin-bottom: 1rem;
+    }
+    h1 span {
+      color: #118AB2;
+      background: #E6F7FF;
+      padding: 0 0.4rem;
+      display: inline-block;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: #2E4A5A;
+      border-left: 4px solid #06D6A0;
+      padding-left: 1.2rem;
+      margin: 1.8rem 0;
+      font-weight: 500;
+    }
+
+    .btn-primary-minimal {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: #118AB2;
+      border: 2px solid #118AB2;
+      padding: 1rem 2.5rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      box-shadow: 6px 6px 0 rgba(17,138,178,0.3);
+      transition: 0.2s;
+    }
+    .btn-primary-minimal:hover {
+      background: #06D6A0;
+      border-color: #06D6A0;
+      color: #0F2A34;
+      transform: translate(2px, 2px);
+      box-shadow: 3px 3px 0 #118AB2;
+    }
+
+    .hero-right {
+      background: #06D6A0;
+      border: 3px solid #118AB2;
+      padding: 2rem;
+      box-shadow: -12px 12px 0 rgba(17,138,178,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      min-height: 400px;
+    }
+    .hero-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      mix-blend-mode: multiply;
+    }
+    .hero-right-content {
+      position: relative;
+      z-index: 2;
+      color: #0F2A34;
+      border-left: 4px solid white;
+      padding-left: 1.2rem;
+    }
+    .hero-right-content h3 {
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+    .hero-right-content p {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* stat row — minimal, numeric */
+    .stat-row {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .stat-item {
+      border-left: 3px solid #118AB2;
+      padding-left: 0.8rem;
+    }
+    .stat-item .number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #06D6A0;
+      line-height: 1;
+    }
+    .stat-item .label {
+      font-size: 0.7rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #1F3F4D;
+    }
+
+    /* --- grid 2 col (simple, edgy border) --- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* compact list with icons */
+    .compact-list {
+      list-style: none;
+    }
+    .compact-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0.5rem;
+      border-bottom: 2px solid rgba(17,138,178,0.2);
+      font-weight: 600;
+      color: #1F3A45;
+    }
+    .compact-list li:last-child {
+      border-bottom: none;
+    }
+    .compact-list i {
+      color: #06D6A0;
+      font-size: 1.2rem;
+      width: 24px;
+    }
+
+    /* benefit cards — very simple, just border and offset */
+    .benefits-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .benefit-mini {
+      background: white;
+      border: 3px solid #118AB2;
+      padding: 1.8rem 1.2rem;
+      box-shadow: 6px 6px 0 rgba(17,138,178,0.15);
+      transition: 0.15s;
+    }
+    .benefit-mini:nth-child(even) {
+      border-color: #06D6A0;
+      box-shadow: 6px 6px 0 rgba(6,214,160,0.2);
+    }
+    .benefit-mini:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 10px 10px 0 #118AB2;
+    }
+    .benefit-mini .icon {
+      font-size: 2rem;
+      color: #118AB2;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-mini h4 {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+    }
+    .benefit-mini p {
+      font-size: 0.85rem;
+      color: #3F5C6B;
+    }
+
+    /* feature strip — solid, confident */
+    .feature-strip-minimal {
+      background: #118AB2;
+      border: 3px solid #06D6A0;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 12px 12px 0 rgba(6,214,160,0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .feature-strip-minimal h2 {
+      color: white;
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+    .feature-strip-minimal p {
+      color: rgba(255,255,255,0.9);
+      max-width: 500px;
+      font-weight: 500;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 3px solid white;
+      padding: 1rem 3rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: white;
+      color: #118AB2;
+    }
+
+    /* final cta — big & simple */
+    .final-cta {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+    .btn-final {
+      background: #06D6A0;
+      border: 4px solid #118AB2;
+      padding: 1.5rem 5rem;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: #0F2A34;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      box-shadow: 16px 16px 0 #118AB2;
+      transition: 0.2s;
+    }
+    .btn-final:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 8px 8px 0 #118AB2;
+      background: #118AB2;
+      color: white;
+      border-color: #06D6A0;
+    }
+
+    /* tiny helper */
+    .text-green { color: #06D6A0; }
+    .border-green { border-color: #06D6A0; }
+
+    /* responsive */
+    @media (max-width: 1000px) {
+      .hero-simple { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .benefits-row { grid-template-columns: 1fr; }
+      .feature-strip-minimal { flex-direction: column; align-items: start; }
+      h1 { font-size: 3rem; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .card-edgy { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <!-- back button unchanged (fits) -->
+    <div>
+      <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>BACK TO HOME</span>
+      </a>
+    </div>
+
+    <!-- HERO — simple, modern, edgy details -->
+    <div class="hero-simple">
+      <div class="hero-left">
+        <span class="badge-simple">⏤ APPOINTMENT EXPERTS ⏤</span>
+        <h1>meetings<br><span>that stick</span></h1>
+        <div class="hero-description">
+          Pre‑qualified, confirmed, and ready. We fill your calendar with high‑intent prospects so your team sells, not chases.
+        </div>
+        <!-- stat row mini -->
+        <div class="stat-row">
+          <div class="stat-item"><span class="number">95%</span> <span class="label">show rate</span></div>
+          <div class="stat-item"><span class="number">48h</span> <span class="label">turnaround</span></div>
+          <div class="stat-item"><span class="number">3x</span> <span class="label">more meetings</span></div>
+        </div>
+        <a href="#" class="btn-primary-minimal">
+          <span>ACTIVATE NOW</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-right">
+        <img src="https://images.pexels.com/photos/8867482/pexels-photo-8867482.jpeg?auto=compress&cs=tinysrgb&w=800" alt="appointment setting">
+        <div class="hero-right-content">
+          <h3>NO FLUFF.</h3>
+          <p>Only decision‑makers, only confirmed meetings.</p>
+          <div style="margin-top: 1rem; font-size: 1.5rem;">
+            <i class="fas fa-calendar-check" style="color: white; margin-right: 0.5rem;"></i>
+            <i class="fas fa-check-circle" style="color: #118AB2;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUR APPROACH — simple card with title and edge -->
+    <div class="card-edgy" style="margin-bottom: 2rem;">
+      <h2 class="section-title">Our approach</h2>
+      <p style="font-size: 1.2rem; color: #1C3F50; max-width: 80%; font-weight: 500;">
+        We don’t just dial — we engage, qualify, and confirm. Every booked meeting passes through a rigorous filter: budget, authority, need, timeline. Then we sync directly with your calendar and send automated reminders.
+      </p>
+      <div style="width: 120px; height: 4px; background: #06D6A0; margin-top: 2rem;"></div>
+    </div>
+
+    <!-- TWO COLUMN — what we handle / key benefits (simple + edgy list) -->
+    <div class="grid-2">
+      <!-- left: what we handle -->
+      <div class="card-edgy" style="margin:0;">
+        <h2 class="section-title">scope</h2>
+        <ul class="compact-list">
+          <li><i class="fas fa-phone-alt"></i> Multi‑touch outreach (call, email, SMS)</li>
+          <li><i class="fas fa-filter"></i> BANT qualification & ICP fit</li>
+          <li><i class="fas fa-calendar-alt"></i> Direct calendar booking (Google, Outlook)</li>
+          <li><i class="fas fa-check-circle"></i> Confirmation calls & reminders</li>
+          <li><i class="fas fa-redo-alt"></i> Rescheduling & follow‑up coordination</li>
+          <li><i class="fas fa-database"></i> CRM update & activity logging</li>
+        </ul>
+      </div>
+
+      <!-- right: key benefits -->
+      <div class="card-edgy" style="margin:0;">
+        <h2 class="section-title">payoff</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+          <div style="border-left: 4px solid #06D6A0; padding-left: 1rem;">
+            <strong style="color:#118AB2;">pre‑qualified meetings</strong> – only serious prospects
+          </div>
+          <div style="border-left: 4px solid #118AB2; padding-left: 1rem;">
+            <strong style="color:#06D6A0;">seamless scheduling</strong> – no back‑and‑forth
+          </div>
+          <div style="border-left: 4px solid #06D6A0; padding-left: 1rem;">
+            <strong style="color:#118AB2;">95% show rate</strong> – thanks to confirmations
+          </div>
+          <div style="border-left: 4px solid #118AB2; padding-left: 1rem;">
+            <strong style="color:#06D6A0;">higher efficiency</strong> – more selling, less dialing
+          </div>
+          <div style="border-left: 4px solid #06D6A0; padding-left: 1rem;">
+            <strong style="color:#118AB2;">pipeline momentum</strong> – steady stream of meetings
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFITS ROW — simple cards, edgy alternating -->
+    <div class="benefits-row">
+      <div class="benefit-mini"><div class="icon"><i class="fas fa-check-double"></i></div><h4>qualified</h4><p>ICP‑fit leads only</p></div>
+      <div class="benefit-mini"><div class="icon"><i class="fas fa-calendar-check"></i></div><h4>frictionless</h4><p>auto calendar sync</p></div>
+      <div class="benefit-mini"><div class="icon"><i class="fas fa-bell"></i></div><h4>reminders</h4><p>48h/24h confirmations</p></div>
+      <div class="benefit-mini"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>3x meetings</h4><p>more opptys</p></div>
+      <div class="benefit-mini"><div class="icon"><i class="fas fa-water"></i></div><h4>steady flow</h4><p>no pipeline gaps</p></div>
+      <div class="benefit-mini"><div class="icon"><i class="fas fa-clock"></i></div><h4>time back</h4><p>+15h/week for reps</p></div>
+    </div>
+
+    <!-- FEATURE STRIP — minimal, confident -->
+    <div class="feature-strip-minimal">
+      <div>
+        <h2>why us?</h2>
+        <p>We treat every prospect like a future client. Polished scripts, persistent follow‑up, and a human touch. Your brand, our execution.</p>
+      </div>
+      <a href="#" class="btn-outline">
+        <span>LET'S CHAT</span> <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- FINAL CTA — huge, simple, edgy -->
+    <div class="final-cta">
+      <a href="#" class="btn-final">
+        <i class="fas fa-calendar-plus" style="margin-right: 1rem;"></i> FILL YOUR CALENDAR
+      </a>
+      <p style="margin-top: 1.5rem; font-weight: 600; color: #118AB2; letter-spacing: 1px;">⏤ same colours, cleaner edge ⏤</p>
+    </div>
+  </main>
+</body>
+</html>

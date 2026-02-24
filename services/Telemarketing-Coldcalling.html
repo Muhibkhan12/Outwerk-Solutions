@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telemarketing & Cold Calling Services</title>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    /* Main Container */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Back Button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      border: 2px solid #118AB2;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      color: #118AB2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 4px 4px 0 rgba(17,138,178,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .back-button:hover {
+      background: #118AB2;
+      color: white;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 rgba(17,138,178,0.3);
+    }
+    
+    .back-button:hover i {
+      transform: translateX(-3px);
+    }
+    
+    .back-button i {
+      transition: transform 0.2s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 4rem 3rem;
+      background: #FFFFFF;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-right {
+      position: relative;
+      min-height: 600px;
+      clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+      margin-left: -5%;
+      z-index: 1;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(110%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(17,138,178,0.3) 0%, rgba(6,214,160,0.6) 100%);
+      mix-blend-mode: multiply;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #118AB2;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      margin-bottom: 2rem;
+      border: 2px solid #118AB2;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.3);
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+      border-left: 4px solid #06D6A0;
+      padding-left: 1.5rem;
+    }
+
+    /* Button Styles */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: #118AB2;
+      border: 3px solid #118AB2;
+      padding: 1rem 2.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.3);
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: #118AB2;
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 rgba(17,138,178,0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: transparent;
+      border: 3px solid white;
+      padding: 1rem 2.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #118AB2;
+      transform: scale(1.02);
+    }
+
+    /* Section Styles */
+    .section-block {
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 8px 8px 0 rgba(17,138,178,0.2);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      display: inline-block;
+      border-bottom: 4px solid #06D6A0;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-text {
+      color: rgba(0,0,0,0.7);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* List Styles */
+    .list-items {
+      list-style: none;
+    }
+
+    .list-items li {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: rgba(0,0,0,0.7);
+      font-weight: 500;
+      padding: 0.5rem;
+      background: #f8faff;
+      border-left: 4px solid #06D6A0;
+    }
+
+    .list-items li i {
+      color: #06D6A0;
+      font-size: 1.2rem;
+      width: 24px;
+    }
+
+    /* Benefits Cards */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.2);
+    }
+
+    .benefit-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 rgba(17,138,178,0.3);
+    }
+
+    .benefit-card h3 {
+      color: #06D6A0;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .benefit-card p {
+      color: rgba(0,0,0,0.7);
+      font-size: 0.95rem;
+    }
+
+    .benefit-icon {
+      font-size: 2rem;
+      color: #06D6A0;
+      margin-bottom: 1rem;
+    }
+
+    /* Feature Box */
+    .feature-box {
+      background: #118AB2;
+      border: 3px solid #06D6A0;
+      padding: 3rem;
+      color: white;
+      box-shadow: 8px 8px 0 rgba(6,214,160,0.3);
+    }
+
+    .feature-box .section-title {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    .feature-box p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.1rem;
+    }
+
+    /* Stats Strip */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      background: linear-gradient(135deg, #06D6A0 0%, #118AB2 100%);
+      border: 3px solid #118AB2;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.3);
+    }
+
+    .stat-item {
+      text-align: center;
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+
+    /* Dots Pattern Background */
+    .dots-pattern {
+      background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.05;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    /* Position relative for sections that need pattern */
+    .relative {
+      position: relative;
+    }
+
+    /* Corner Accents */
+    .corner-tl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-top: 2px solid rgba(17,138,178,0.3);
+      border-left: 2px solid rgba(17,138,178,0.3);
+    }
+
+    .corner-tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-top: 2px solid rgba(6,214,160,0.3);
+      border-right: 2px solid rgba(6,214,160,0.3);
+    }
+
+    .corner-bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-bottom: 2px solid rgba(6,214,160,0.3);
+      border-left: 2px solid rgba(6,214,160,0.3);
+    }
+
+    .corner-br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-bottom: 2px solid rgba(17,138,178,0.3);
+      border-right: 2px solid rgba(17,138,178,0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-right {
+        clip-path: none;
+        margin-left: 0;
+        min-height: 400px;
+      }
+      
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-strip {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .section-block {
+        padding: 2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Accent Elements */
+    .accent-border {
+      width: 100px;
+      height: 4px;
+      background: #06D6A0;
+      margin: 2rem 0;
+    }
+
+    .quote-mark {
+      font-size: 4rem;
+      color: #06D6A0;
+      line-height: 1;
+      opacity: 0.3;
+      font-family: serif;
+    }
+
+    /* Color utilities */
+    .text-blue {
+      color: #118AB2;
+    }
+
+    .text-green {
+      color: #06D6A0;
+    }
+
+    .border-blue {
+      border-color: #118AB2;
+    }
+
+    .border-green {
+      border-color: #06D6A0;
+    }
+
+    .bg-blue-10 {
+      background: rgba(17,138,178,0.1);
+    }
+
+    .bg-green-10 {
+      background: rgba(6,214,160,0.1);
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <!-- Back Button -->
+    <div>
+      <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>BACK TO HOME</span>
+      </a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero relative">
+      <!-- Corner accents -->
+      <div class="corner-tl"></div>
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+      <div class="corner-br"></div>
+      <!-- Dots pattern -->
+      <div class="dots-pattern"></div>
+      
+      <div class="hero-left">
+        <span class="badge">✦ SALES BOOST ✦</span>
+        <h1>Telemarketing &<br>Cold Calling</h1>
+        <p class="hero-description">
+          Drive consistent revenue growth with our results-driven telemarketing and cold calling services. We build and execute targeted outreach campaigns that connect your brand with the right prospects at the right time, turning conversations into measurable business opportunities.
+        </p>
+        <a href="#" class="btn-primary">
+          <span>GET STARTED</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <!-- Stats mini -->
+        <div style="display: flex; gap: 2rem; margin-top: 3rem;">
+          <div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #06D6A0;">3X</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">CONVERSION</div>
+          </div>
+          <div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #06D6A0;">10K+</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">CALLS/MONTH</div>
+          </div>
+          <div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #06D6A0;">85%</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">CONNECT RATE</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="https://images.pexels.com/photos/8867482/pexels-photo-8867482.jpeg?auto=compress&cs=tinysrgb&w=800" 
+             alt="telemarketing sales representative">
+        <div class="hero-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-number">3X</div>
+        <div class="stat-label">Conversion Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">85%</div>
+        <div class="stat-label">Connect Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10K+</div>
+        <div class="stat-label">Calls/Month</div>
+      </div>
+    </div>
+
+    <!-- Service Description -->
+    <div class="section-block relative">
+      <div class="dots-pattern"></div>
+      <div class="corner-tl"></div>
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+      <div class="corner-br"></div>
+      <div class="quote-mark">"</div>
+      <h2 class="section-title">Our Approach</h2>
+      <p class="section-text" style="font-size: 1.2rem;">
+        Our experienced agents are trained to represent your brand professionally, communicate your value proposition clearly, and navigate objections with confidence. We go beyond simply making calls — we focus on building genuine interest, identifying decision-makers, and moving prospects through your sales funnel effectively.
+      </p>
+      <div class="accent-border"></div>
+      <p class="section-text">
+        We understand that cold calling requires more than a script. It demands preparation, persistence, and the ability to adapt in real time. That's why our agents are equipped with in-depth product knowledge, proven outreach strategies, and the communication skills needed to make every call count.
+      </p>
+    </div>
+
+    <!-- Two Column Section -->
+    <div class="grid-2">
+      <!-- What We Handle -->
+      <div class="section-block relative" style="margin-bottom: 0;">
+        <div class="dots-pattern"></div>
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+        <h2 class="section-title">What We Handle</h2>
+        <ul class="list-items">
+          <li><i class="fas fa-search"></i> Outbound prospecting and lead identification</li>
+          <li><i class="fas fa-phone-alt"></i> Cold and warm calling campaigns</li>
+          <li><i class="fas fa-chart-pie"></i> Product and service presentations</li>
+          <li><i class="fas fa-comments"></i> Objection handling and follow-up calls</li>
+          <li><i class="fas fa-filter"></i> Lead qualification and pipeline building</li>
+          <li><i class="fas fa-database"></i> CRM updates and call reporting</li>
+        </ul>
+      </div>
+
+      <!-- Key Benefits -->
+      <div class="section-block relative" style="margin-bottom: 0;">
+        <div class="dots-pattern"></div>
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+        <h2 class="section-title">Key Benefits</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="background: rgba(6,214,160,0.1); padding: 1rem; border-left: 4px solid #06D6A0;">
+            <strong style="color: #06D6A0;">Targeted Outreach:</strong> <span style="color: rgba(0,0,0,0.7);">Refined prospect lists and strategic call planning</span>
+          </div>
+          <div style="background: rgba(17,138,178,0.1); padding: 1rem; border-left: 4px solid #118AB2;">
+            <strong style="color: #118AB2;">Trained Sales Agents:</strong> <span style="color: rgba(0,0,0,0.7);">Skilled in persuasion and active listening</span>
+          </div>
+          <div style="background: rgba(6,214,160,0.1); padding: 1rem; border-left: 4px solid #06D6A0;">
+            <strong style="color: #06D6A0;">Higher Conversion Rates:</strong> <span style="color: rgba(0,0,0,0.7);">Structured scripts and proven techniques</span>
+          </div>
+          <div style="background: rgba(17,138,178,0.1); padding: 1rem; border-left: 4px solid #118AB2;">
+            <strong style="color: #118AB2;">Consistent Follow-Through:</strong> <span style="color: rgba(0,0,0,0.7);">Systematic follow-up processes</span>
+          </div>
+          <div style="background: rgba(6,214,160,0.1); padding: 1rem; border-left: 4px solid #06D6A0;">
+            <strong style="color: #06D6A0;">Transparent Reporting:</strong> <span style="color: rgba(0,0,0,0.7);">Detailed call logs and performance reports</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Targeted Outreach</h3>
+        <p>Reach the right audience using refined prospect lists and strategic call planning.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Trained Agents</h3>
+        <p>Our callers are skilled in persuasion, active listening, and professional communication.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Higher Conversion</h3>
+        <p>Structured scripts and proven techniques designed to turn interest into action.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-redo-alt"></i></div>
+        <h3>Consistent Follow-Up</h3>
+        <p>Systematic processes to ensure no opportunity is left behind.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>Transparent Reporting</h3>
+        <p>Detailed call logs and performance reports to track campaign progress and ROI.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-tasks"></i></div>
+        <h3>CRM Integration</h3>
+        <p>Seamless updates and pipeline management for complete visibility.</p>
+      </div>
+    </div>
+
+    <!-- Why Choose Us - Feature Box -->
+    <div class="feature-box relative">
+      <div class="dots-pattern" style="opacity: 0.1;"></div>
+      <div class="corner-tl" style="border-color: white;"></div>
+      <div class="corner-tr" style="border-color: white;"></div>
+      <div class="corner-bl" style="border-color: white;"></div>
+      <div class="corner-br" style="border-color: white;"></div>
+      <h2 class="section-title">Why Choose Our Telemarketing Services</h2>
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
+        <div>
+          <p style="margin-bottom: 1.5rem;">
+            We function as a direct extension of your sales team, fully aligned with your goals, brand voice, and target market. Our focus is on quality conversations over call volume — ensuring that every interaction adds value to your pipeline.
+          </p>
+          <p>
+            Whether you're launching a new product, entering a new market, or looking to accelerate lead generation, our telemarketing and cold calling services give you the dedicated outreach capacity to grow your business without the overhead of an in-house team.
+          </p>
+        </div>
+        <div style="text-align: right;">
+          <a href="#" class="btn-secondary">
+            <span>CONTACT US</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div style="text-align: center; margin-top: 3rem; position: relative;">
+      <div class="dots-pattern" style="position: absolute; inset: 0;"></div>
+      <a href="#" class="btn-primary" style="font-size: 1.2rem; padding: 1.5rem 4rem;">
+        <span>START YOUR CAMPAIGN</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
