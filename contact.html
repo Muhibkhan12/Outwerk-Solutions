@@ -1588,46 +1588,5 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-
-    <!--
-    ===================================================================
-    FIX #5: Cache TTL — REQUIRES SERVER-SIDE ACTION
-    GitHub Pages hard-codes Cache-Control: max-age=600 (10 minutes).
-    This CANNOT be changed via HTML alone. You need one of:
-
-    OPTION A — Cloudflare (Free, recommended):
-    1. Add your site to Cloudflare (free plan works)
-    2. Go to Rules > Cache Rules
-    3. Create rule: "Cache TTL = 1 year" for *.webp, *.webp, *.mp4
-    Result: assets cached for 1 year = zero download on repeat visits
-
-    OPTION B — Move to Netlify (Free):
-    Create a file called _headers in your repo root:
-
-        /images/*
-          Cache-Control: public, max-age=31536000, immutable
-        /video/*
-          Cache-Control: public, max-age=31536000, immutable
-        /*.html
-          Cache-Control: public, max-age=3600
-
-    OPTION C — Move to Vercel (Free):
-    Create vercel.json in your repo root:
-    {
-      "headers": [
-        {
-          "source": "/images/(.*)",
-          "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-        },
-        {
-          "source": "/video/(.*)",
-          "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-        }
-      ]
-    }
-
-    Expected LCP improvement from cache fix: ~1-2s on repeat visits.
-    ===================================================================
-    -->
 </body>
 </html>
