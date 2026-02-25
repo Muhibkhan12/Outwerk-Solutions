@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outwerk · SEO & SEM</title>
+  <!-- Fonts: Montserrat (edgy, consistent) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Back Button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      border: 2px solid #118AB2;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      color: #118AB2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 4px 4px 0 rgba(17,138,178,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .back-button:hover {
+      background: #118AB2;
+      color: white;
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 rgba(17,138,178,0.3);
+    }
+    
+    .back-button:hover i {
+      transform: translateX(-3px);
+    }
+    
+    .back-button i {
+      transition: transform 0.2s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 4rem 3rem;
+      background: #FFFFFF;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-right {
+      position: relative;
+      min-height: 600px;
+      clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+      margin-left: -5%;
+      z-index: 1;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(110%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(17,138,178,0.3) 0%, rgba(6,214,160,0.6) 100%);
+      mix-blend-mode: multiply;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #118AB2;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      margin-bottom: 2rem;
+      border: 2px solid #118AB2;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.3);
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 2rem;
+      border-left: 4px solid #06D6A0;
+      padding-left: 1.5rem;
+    }
+
+    /* Button Styles */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: #118AB2;
+      border: 3px solid #118AB2;
+      padding: 1rem 2.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.3);
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: #118AB2;
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 rgba(17,138,178,0.3);
+    }
+
+    /* Section Styles */
+    .section-block {
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 8px 8px 0 rgba(17,138,178,0.2);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      display: inline-block;
+      border-bottom: 4px solid #06D6A0;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-text {
+      color: rgba(0,0,0,0.7);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: #FFFFFF;
+      border: 3px solid #118AB2;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 rgba(17,138,178,0.3);
+    }
+
+    .service-card .corner-tl {
+      width: 16px;
+      height: 16px;
+      border-width: 1px;
+    }
+    .service-card .corner-tr {
+      width: 16px;
+      height: 16px;
+      border-width: 1px;
+    }
+    .service-card .corner-bl {
+      width: 16px;
+      height: 16px;
+      border-width: 1px;
+    }
+    .service-card .corner-br {
+      width: 16px;
+      height: 16px;
+      border-width: 1px;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: #118AB2;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .service-desc {
+      color: rgba(0,0,0,0.7);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed #cbe6f2;
+      font-weight: 500;
+      color: #1d4d5e;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list i {
+      color: #06D6A0;
+      font-size: 1rem;
+      width: 20px;
+    }
+
+    .benefit-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 2rem;
+    }
+
+    .pill {
+      background: #ecf7fd;
+      border: 1px solid #118AB2;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #0b4b5e;
+      text-transform: uppercase;
+    }
+
+    .btn-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      border: 2px solid #118AB2;
+      padding: 0.7rem 1.8rem;
+      font-weight: 600;
+      color: #118AB2;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 3px 3px 0 rgba(17,138,178,0.2);
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .btn-card:hover {
+      background: #118AB2;
+      color: white;
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #06D6A0;
+    }
+
+    /* Stats Strip */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      background: linear-gradient(135deg, #118AB2 0%, #06D6A0 100%);
+      border: 3px solid #118AB2;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 5px 5px 0 rgba(17,138,178,0.3);
+    }
+
+    .stat-item {
+      text-align: center;
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+
+    /* Feature Box */
+    .feature-box {
+      background: #06D6A0;
+      border: 3px solid #118AB2;
+      padding: 3rem;
+      color: white;
+      box-shadow: 8px 8px 0 rgba(17,138,178,0.3);
+    }
+
+    .feature-box .section-title {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    .feature-box p {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Dots Pattern */
+    .dots-pattern {
+      background-image: radial-gradient(circle at 1px 1px, #118AB2 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.05;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    /* Corner Accents */
+    .corner-tl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-top: 2px solid rgba(17,138,178,0.3);
+      border-left: 2px solid rgba(17,138,178,0.3);
+    }
+
+    .corner-tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-top: 2px solid rgba(6,214,160,0.3);
+      border-right: 2px solid rgba(6,214,160,0.3);
+    }
+
+    .corner-bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-bottom: 2px solid rgba(6,214,160,0.3);
+      border-left: 2px solid rgba(6,214,160,0.3);
+    }
+
+    .corner-br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-bottom: 2px solid rgba(17,138,178,0.3);
+      border-right: 2px solid rgba(17,138,178,0.3);
+    }
+
+    .accent-border {
+      width: 100px;
+      height: 4px;
+      background: #06D6A0;
+      margin: 2rem 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-right {
+        clip-path: none;
+        margin-left: 0;
+        min-height: 400px;
+      }
+      
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-strip {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .section-block {
+        padding: 2rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <!-- Back Button -->
+    <div>
+      <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>BACK TO HOME</span>
+      </a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero relative">
+      <div class="corner-tl"></div>
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+      <div class="corner-br"></div>
+      <div class="dots-pattern"></div>
+      
+      <div class="hero-left">
+        <span class="badge">✦ SEARCH ENGINE EXCELLENCE ✦</span>
+        <h1>SEO & SEM</h1>
+        <p class="hero-description">
+          Dominate search results and drive targeted traffic with our integrated SEO and SEM strategies. We combine organic optimization with paid precision to maximize your online visibility.
+        </p>
+        <a href="#" class="btn-primary">
+          <span>BOOST YOUR VISIBILITY</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <!-- Stats mini -->
+        <div style="display: flex; gap: 2rem; margin-top: 3rem;">
+          <div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">300%</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">AVG TRAFFIC GROWTH</div>
+          </div>
+          <div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">4.5x</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">ROI</div>
+          </div>
+          <div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">#1</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">RANKINGS</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=800" 
+             alt="SEO and SEM strategy on laptop">
+        <div class="hero-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Campaigns Managed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$5M+</div>
+        <div class="stat-label">Ad Spend Managed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.5x</div>
+        <div class="stat-label">Avg ROI</div>
+      </div>
+    </div>
+
+    <!-- Service Description -->
+    <div class="section-block relative">
+      <div class="dots-pattern"></div>
+      <div class="corner-tl"></div>
+      <div class="corner-tr"></div>
+      <div class="corner-bl"></div>
+      <div class="corner-br"></div>
+      <h2 class="section-title">Our Approach</h2>
+      <p class="section-text" style="font-size: 1.2rem;">
+        We treat SEO and SEM as two sides of the same coin. While SEO builds sustainable, long‑term organic growth, SEM delivers immediate, targeted traffic. Together, they create a powerful engine for lead generation and revenue.
+      </p>
+      <div class="accent-border"></div>
+      <p class="section-text">
+        Our strategies are data‑driven, continuously optimized, and aligned with your business goals — whether you need to dominate local search, capture high‑intent traffic, or build brand authority.
+      </p>
+    </div>
+
+    <!-- Two Column: SEO & SEM -->
+    <div class="grid-2">
+      
+      <!-- SEO -->
+      <div class="service-card relative">
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h2>Search Engine Optimization (SEO)</h2>
+        <p class="service-desc">Build sustainable organic visibility and attract qualified traffic.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Keyword research & strategy</li>
+          <li><i class="fas fa-check"></i> On‑page optimization (content, meta, structure)</li>
+          <li><i class="fas fa-check"></i> Technical SEO & site audits</li>
+          <li><i class="fas fa-check"></i> Link building & authority development</li>
+          <li><i class="fas fa-check"></i> Local SEO & Google My Business</li>
+          <li><i class="fas fa-check"></i> Performance tracking & monthly reporting</li>
+        </ul>
+        <div class="benefit-pills">
+          <span class="pill">sustainable</span>
+          <span class="pill">long‑term</span>
+          <span class="pill">cost‑effective</span>
+        </div>
+        <a href="#" class="btn-card">OPTIMIZE YOUR SITE <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- SEM -->
+      <div class="service-card relative">
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+        <div class="card-icon"><i class="fas fa-ad"></i></div>
+        <h2>Search Engine Marketing (SEM)</h2>
+        <p class="service-desc">Get immediate visibility with targeted paid campaigns.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Google Ads & Bing Ads management</li>
+          <li><i class="fas fa-check"></i> Keyword & audience targeting</li>
+          <li><i class="fas fa-check"></i> Ad copy creation & A/B testing</li>
+          <li><i class="fas fa-check"></i> Bid management & budget optimization</li>
+          <li><i class="fas fa-check"></i> Remarketing & display campaigns</li>
+          <li><i class="fas fa-check"></i> Conversion tracking & ROI analysis</li>
+        </ul>
+        <div class="benefit-pills">
+          <span class="pill">immediate</span>
+          <span class="pill">targeted</span>
+          <span class="pill">scalable</span>
+        </div>
+        <a href="#" class="btn-card">LAUNCH CAMPAIGNS <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Why Choose Us - Feature Box -->
+    <div class="feature-box relative">
+      <div class="dots-pattern" style="opacity: 0.1;"></div>
+      <div class="corner-tl" style="border-color: white;"></div>
+      <div class="corner-tr" style="border-color: white;"></div>
+      <div class="corner-bl" style="border-color: white;"></div>
+      <div class="corner-br" style="border-color: white;"></div>
+      <h2 class="section-title">Why Choose Our SEO & SEM Services</h2>
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
+        <div>
+          <p style="margin-bottom: 1.5rem;">
+            We don't just chase rankings — we drive results. Our team combines technical SEO expertise with advanced paid media strategies to deliver measurable growth. Whether you're a local business or a global enterprise, we tailor our approach to your unique goals.
+          </p>
+          <p>
+            From in‑depth keyword research to conversion‑focused ad campaigns, we provide full‑funnel visibility that turns clicks into customers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div style="text-align: center; margin-top: 3rem; position: relative;">
+      <div class="dots-pattern" style="position: absolute; inset: 0;"></div>
+      <a href="#" class="btn-primary" style="font-size: 1.2rem; padding: 1.5rem 4rem;">
+        <span>GET FOUND ONLINE</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
