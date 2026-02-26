@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technical Helpdesk Services</title>
+  <title>Software & Application Support · Bug fixing & optimization</title>
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -25,40 +25,6 @@
     .main-content {
       max-width: 1400px;
       margin: 0 auto;
-    }
-
-    /* Back Button */
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: white;
-      border: 2px solid #118AB2;
-      padding: 0.75rem 1.5rem;
-      font-weight: 700;
-      color: #118AB2;
-      text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.2s ease;
-      box-shadow: 4px 4px 0 rgba(17,138,178,0.3);
-      margin-bottom: 2rem;
-    }
-
-    .back-button:hover {
-      background: #118AB2;
-      color: white;
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 rgba(17,138,178,0.3);
-    }
-    
-    .back-button:hover i {
-      transform: translateX(-3px);
-    }
-    
-    .back-button i {
-      transition: transform 0.2s ease;
     }
 
     /* Hero Section */
@@ -278,9 +244,9 @@
       margin-bottom: 1rem;
     }
 
-    /* Feature Box */
+    /* Feature Box - Using Green */
     .feature-box {
-      background: #118AB2;
+      background: #06D6A0;
       border: 3px solid #118AB2;
       padding: 3rem;
       color: white;
@@ -297,7 +263,7 @@
       font-size: 1.1rem;
     }
 
-    /* Stats Strip */
+    /* Stats Strip - Using Blue to Green gradient */
     .stats-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -442,7 +408,7 @@
       font-family: serif;
     }
 
-    /* Color utilities */
+    /* Blue/Green alternating */
     .text-blue {
       color: #118AB2;
     }
@@ -459,206 +425,211 @@
       border-color: #06D6A0;
     }
 
-    .bg-blue-10 {
-      background: rgba(17,138,178,0.1);
+    .bg-blue-20 {
+      background: rgba(17,138,178,0.2);
     }
 
-    .bg-green-10 {
-      background: rgba(6,214,160,0.1);
+    .bg-green-20 {
+      background: rgba(6,214,160,0.2);
     }
   </style>
 </head>
 <body>
   <main class="main-content">
-    <!-- Back Button -->
-    <div>
-      <a href="../services.html" class="back-button">
+    <!-- Back button (consistent style) -->
+    <div style="margin-bottom: 2rem;">
+      <a href="../services.html" class="back-button" style="display: inline-flex; align-items: center; gap: 0.75rem; background: white; border: 2px solid #118AB2; padding: 0.75rem 1.5rem; font-weight: 700; color: #118AB2; text-decoration: none; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.2s ease; box-shadow: 4px 4px 0 rgba(17,138,178,0.3);">
         <i class="fas fa-arrow-left"></i>
         <span>BACK TO SERVICES</span>
       </a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section – SOFTWARE / APPLICATION SUPPORT -->
     <div class="hero relative">
-      <!-- Corner accents -->
       <div class="corner-tl"></div>
       <div class="corner-tr"></div>
       <div class="corner-bl"></div>
       <div class="corner-br"></div>
-      <!-- Dots pattern -->
       <div class="dots-pattern"></div>
       
       <div class="hero-left">
-        <span class="badge">✦ TECH SUPPORT ✦</span>
-        <h1>Technical<br>Helpdesk Services</h1>
+        <span class="badge">✦ EXPERT SOFTWARE CARE ✦</span>
+        <h1>Software & Application<br>Support</h1>
         <p class="hero-description">
-          Provide your customers and employees with dependable technical support through our professional helpdesk services. We deliver structured troubleshooting, fast issue resolution, and reliable escalation management to ensure minimal downtime and a smooth technology experience.
+          Rapid bug fixing, performance optimization, and seamless user guidance. 
+          Keep your applications running smoothly with our dedicated support team.
         </p>
         <a href="../contact.html" class="btn-primary">
-          <span>GET STARTED</span>
+          <span>GET SUPPORT</span>
           <i class="fas fa-arrow-right"></i>
         </a>
         <!-- Stats mini -->
         <div style="display: flex; gap: 2rem; margin-top: 3rem;">
           <div>
-            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">&lt;15min</div>
-            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">FIRST RESPONSE</div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">2.5K+</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">BUGS FIXED</div>
           </div>
           <div>
-            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">24/7</div>
-            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">AVAILABILITY</div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">< 4h</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">RESPONSE TIME</div>
           </div>
           <div>
-            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">92%</div>
-            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">FIX RATE</div>
+            <div style="font-size: 1.8rem; font-weight: 900; color: #118AB2;">99%</div>
+            <div style="font-size: 0.8rem; letter-spacing: 1px; color: rgba(0,0,0,0.7);">RESOLUTION RATE</div>
           </div>
         </div>
       </div>
       <div class="hero-right">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1973&auto=format&fit=crop" 
-             alt="technical helpdesk support representative">
+        <!-- Developer / application support imagery -->
+        <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800" 
+             alt="software developers collaborating">
         <div class="hero-overlay"></div>
       </div>
     </div>
 
-    <!-- Stats Strip -->
+    <!-- Stats Strip with gradient -->
     <div class="stats-strip">
       <div class="stat-item">
-        <div class="stat-number">15min</div>
-        <div class="stat-label">Avg. Response</div>
+        <div class="stat-number">8+</div>
+        <div class="stat-label">years app expertise</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">92%</div>
-        <div class="stat-label">First-Call Fix</div>
+        <div class="stat-number">600+</div>
+        <div class="stat-label">applications supported</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">24/7</div>
-        <div class="stat-label">Tech Support</div>
+        <div class="stat-label">coverage available</div>
       </div>
     </div>
 
-    <!-- Service Description -->
+    <!-- Service Description: approach -->
     <div class="section-block relative">
       <div class="dots-pattern"></div>
       <div class="corner-tl"></div>
       <div class="corner-tr"></div>
       <div class="corner-bl"></div>
       <div class="corner-br"></div>
-      <div class="quote-mark">"</div>
-      <h2 class="section-title">Our Approach</h2>
+      <div class="quote-mark">“</div>
+      <h2 class="section-title">Your apps, always in top shape</h2>
       <p class="section-text" style="font-size: 1.2rem;">
-        Our technical helpdesk team assists with diagnosing and resolving software, hardware, network, and system-related issues. Using proven support workflows and knowledge-based solutions, we quickly identify problems, guide users step-by-step, and restore normal operations efficiently.
+        We provide end‑to‑end application support: from triaging critical bugs to fine‑tuning 
+        performance and assisting your users. Our team works as an extension of yours, ensuring 
+        stability and continuous improvement.
       </p>
       <div class="accent-border"></div>
       <p class="section-text">
-        We understand that technical problems can disrupt productivity and customer satisfaction. That's why our helpdesk focuses on fast response times, clear communication, and accurate solutions—ensuring users feel supported and confident in your systems.
+        Whether it’s a legacy system or a modern cloud‑native app, we diagnose root causes, 
+        deploy hotfixes, and suggest enhancements. We also keep your documentation and users 
+        updated, so everyone stays productive.
       </p>
     </div>
 
-    <!-- Two Column Section -->
+    <!-- Two Column Section: what we handle + key capabilities -->
     <div class="grid-2">
-      <!-- What We Handle -->
+      <!-- What we handle (bug fixing, troubleshooting, user guidance) -->
       <div class="section-block relative" style="margin-bottom: 0;">
         <div class="dots-pattern"></div>
         <div class="corner-tl"></div>
         <div class="corner-tr"></div>
         <div class="corner-bl"></div>
         <div class="corner-br"></div>
-        <h2 class="section-title">What We Handle</h2>
+        <h2 class="section-title">What we handle</h2>
         <ul class="list-items">
-          <li><i class="fas fa-download"></i> Software installation and troubleshooting</li>
-          <li><i class="fas fa-exclamation-triangle"></i> Application errors and user support</li>
-          <li><i class="fas fa-laptop"></i> Hardware and device assistance</li>
-          <li><i class="fas fa-wifi"></i> Network connectivity issues</li>
-          <li><i class="fas fa-key"></i> Password resets and access management</li>
-          <li><i class="fas fa-ticket-alt"></i> Ticket logging, tracking, and escalation</li>
+          <li><i class="fas fa-bug"></i> Bug fixing & troubleshooting (all severity levels)</li>
+          <li><i class="fas fa-tachometer-alt"></i> Performance optimization (speed, memory, UX)</li>
+          <li><i class="fas fa-users"></i> User guidance & training materials</li>
+          <li><i class="fas fa-sync-alt"></i> Application updates & patch management</li>
+          <li><i class="fas fa-database"></i> Database query optimisation</li>
+          <li><i class="fas fa-code-branch"></i> Code reviews & hotfix deployments</li>
         </ul>
       </div>
 
-      <!-- Key Benefits -->
+      <!-- Key benefits / capabilities -->
       <div class="section-block relative" style="margin-bottom: 0;">
         <div class="dots-pattern"></div>
         <div class="corner-tl"></div>
         <div class="corner-tr"></div>
         <div class="corner-bl"></div>
         <div class="corner-br"></div>
-        <h2 class="section-title">Key Benefits</h2>
+        <h2 class="section-title">Key capabilities</h2>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div style="background: rgba(17,138,178,0.1); padding: 1rem; border-left: 4px solid #118AB2;">
-            <strong style="color: #118AB2;">Rapid Issue Resolution:</strong> <span style="color: rgba(0,0,0,0.7);">Structured troubleshooting processes</span>
+            <strong style="color: #118AB2;">Multi‑tech stack:</strong> <span style="color: rgba(0,0,0,0.7);">Java, .NET, Python, Node.js, PHP, mobile</span>
           </div>
           <div style="background: rgba(6,214,160,0.1); padding: 1rem; border-left: 4px solid #06D6A0;">
-            <strong style="color: #06D6A0;">Reduced Downtime:</strong> <span style="color: rgba(0,0,0,0.7);">Immediate support keeps systems productive</span>
+            <strong style="color: #06D6A0;">Root cause analysis:</strong> <span style="color: rgba(0,0,0,0.7);">logs, traces, profiling</span>
           </div>
           <div style="background: rgba(17,138,178,0.1); padding: 1rem; border-left: 4px solid #118AB2;">
-            <strong style="color: #118AB2;">Skilled Technical Agents:</strong> <span style="color: rgba(0,0,0,0.7);">Experienced in diagnosing IT issues</span>
+            <strong style="color: #118AB2;">Performance tuning:</strong> <span style="color: rgba(0,0,0,0.7);">response time, throughput, scalability</span>
           </div>
           <div style="background: rgba(6,214,160,0.1); padding: 1rem; border-left: 4px solid #06D6A0;">
-            <strong style="color: #06D6A0;">Multi-Channel Support:</strong> <span style="color: rgba(0,0,0,0.7);">Phone, email, chat, remote access</span>
+            <strong style="color: #06D6A0;">End‑user comms:</strong> <span style="color: rgba(0,0,0,0.7);">release notes, FAQs, in-app guides</span>
           </div>
           <div style="background: rgba(17,138,178,0.1); padding: 1rem; border-left: 4px solid #118AB2;">
-            <strong style="color: #118AB2;">Scalable Support Coverage:</strong> <span style="color: rgba(0,0,0,0.7);">Flexible solutions for any team size</span>
+            <strong style="color: #118AB2;">Security patches:</strong> <span style="color: rgba(0,0,0,0.7);">dependency updates, vulnerability fixes</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Benefits Grid -->
+    <!-- Benefits Grid (detailed cards) -->
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
-        <h3>Rapid Resolution</h3>
-        <p>Structured troubleshooting processes to solve problems quickly.</p>
+        <div class="benefit-icon"><i class="fas fa-bug"></i></div>
+        <h3>Bug fixing & troubleshooting</h3>
+        <p>Systematic isolation, prioritization, and resolution of software defects – from minor glitches to critical outages.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-hourglass-half"></i></div>
-        <h3>Reduced Downtime</h3>
-        <p>Immediate support helps keep systems and users productive.</p>
+        <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Performance optimization</h3>
+        <p>Reduce load times, optimize database queries, and fine‑tune code for a seamless user experience.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-user-cog"></i></div>
-        <h3>Skilled Agents</h3>
-        <p>Experienced professionals trained in diagnosing IT issues.</p>
+        <div class="benefit-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <h3>User guidance & updates</h3>
+        <p>Keep your users informed with clear documentation, training, and proactive communication about changes.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-headset"></i></div>
-        <h3>Multi-Channel</h3>
-        <p>Assistance via phone, email, chat, or remote access sessions.</p>
+        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+        <h3>24/7 emergency support</h3>
+        <p>Round‑the‑clock availability for critical incidents – we’re here when you need us most.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon"><i class="fas fa-expand-arrows-alt"></i></div>
-        <h3>Scalable Coverage</h3>
-        <p>Flexible helpdesk solutions for small teams or large organizations.</p>
+        <div class="benefit-icon"><i class="fas fa-sync-alt"></i></div>
+        <h3>Seamless updates</h3>
+        <p>Plan and execute application updates, including rollbacks if needed, with zero downtime strategies.</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Quality Monitoring</h3>
-        <p>Continuous improvement for consistent service delivery.</p>
+        <h3>Continuous monitoring</h3>
+        <p>Proactive observation of app health, errors, and usage patterns to prevent issues before they escalate.</p>
       </div>
     </div>
 
-    <!-- Why Choose Us - Feature Box -->
+    <!-- Why Choose Us - Feature Box with Green (application support advantages) -->
     <div class="feature-box relative">
       <div class="dots-pattern" style="opacity: 0.1;"></div>
       <div class="corner-tl" style="border-color: white;"></div>
       <div class="corner-tr" style="border-color: white;"></div>
       <div class="corner-bl" style="border-color: white;"></div>
       <div class="corner-br" style="border-color: white;"></div>
-      <h2 class="section-title">Why Choose Our Technical Helpdesk</h2>
+      <h2 class="section-title">Why our application support works</h2>
       <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
         <div>
           <p style="margin-bottom: 1.5rem;">
-            We function as an extension of your IT operations, providing dependable first-line and second-line support tailored to your infrastructure and software environment. Our focus on documentation, quality monitoring, and continuous improvement ensures consistent service delivery and long-term reliability.
+            We combine deep development expertise with a service mindset. Every engineer understands 
+            the full lifecycle: coding, debugging, deploying, and communicating with stakeholders. 
+            We don’t just fix symptoms – we eliminate root causes and help you evolve your software.
           </p>
           <p>
-            Whether you need customer-facing product support or internal IT assistance, our technical helpdesk services help you maintain operational efficiency, improve user satisfaction, and reduce the burden on your in-house team.
+            From legacy monoliths to microservices, we adapt to your stack. Our support includes 
+            knowledge transfer to your internal teams, so you become more self‑sufficient over time.
           </p>
         </div>
-        <div style="text-align: right;">
-          <a href="../contact.html" class="btn-secondary">
-            <span>CONTACT US</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <!-- subtle icon for visual balance -->
+        <div style="color: white;">
+          <i class="fas fa-laptop-code" style="font-size: 3rem; opacity: 0.8;"></i>
         </div>
       </div>
     </div>
@@ -667,7 +638,7 @@
     <div style="text-align: center; margin-top: 3rem; position: relative;">
       <div class="dots-pattern" style="position: absolute; inset: 0;"></div>
       <a href="../contact.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.5rem 4rem;">
-        <span>GET TECH SUPPORT NOW</span>
+        <span>OPTIMIZE YOUR SOFTWARE</span>
         <i class="fas fa-arrow-right"></i>
       </a>
     </div>
