@@ -1304,12 +1304,12 @@
                             style="background-color: #42c7f3;"></div>
                     </a>
                 </li>
-
-                <!-- Services Dropdown -->
+                
+                <!-- Services Dropdown (Blue Theme) -->
                 <li class="relative group">
                     <button
                         class="group relative px-4 py-3 transition-all duration-300 flex items-center gap-3 nav-link"
-                        style="color: rgba(255, 255, 255, 0.9);" aria-label="Our Services Menu">
+                        style="color: rgba(255, 255, 255, 0.9);">
                         <div class="relative w-5 h-5">
                             <div class="absolute inset-0">
                                 <div class="w-2 h-2 transition-all duration-300 group-hover:w-3 group-hover:h-3"
@@ -1322,129 +1322,138 @@
                             <span
                                 class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">SERVICES</span>
                         </a>
-
                         <i class="fas fa-chevron-down text-xs mt-0.5 transition-all duration-300"
-                            style="color: rgba(255, 255, 255, 0.9); opacity: 0.7;"></i>
+                            style="color: white; opacity: 0.7;"></i>
                         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-10"
-                            style="background-color: #06D6A0;"></div>
+                            style="background-color: #118AB2;"></div>
                     </button>
 
-                    <!-- Dropdown Menu -->
+                    <!-- Dropdown Menu - Blue Background -->
                     <div
                         class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
                         <div class="relative">
-                            <div class="absolute -top-2 left-6 w-4 h-4 rotate-45"
-                                style="background-color: rgba(17, 138, 178, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                            <!-- Arrow indicator -->
+                            <div
+                                class="absolute -top-2 left-6 w-4 h-4 rotate-45 bg-[#118AB2] border-l border-white/20 border-t border-white/20">
                             </div>
 
-                            <div class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]"
-                                style="background-color: rgba(17, 138, 178, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <!-- Dropdown content -->
+                            <div
+                                class="pt-6 pb-2 px-4 space-y-1 min-w-[320px] bg-[#118AB2] backdrop-blur-sm border border-white/20 shadow-xl">
+
+                                <!-- Header -->
                                 <div class="flex items-center gap-2 mb-4 px-2">
-                                    <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
-                                    <div class="text-xs tracking-widest uppercase"
-                                        style="color: rgba(255, 255, 255, 0.9);">OUR SERVICES</div>
+                                    <div class="w-3 h-3 rotate-45 bg-white"></div>
+                                    <div class="text-xs tracking-widest uppercase text-white/90">OUR SERVICES</div>
                                 </div>
 
-                                <!-- BPO Services - MOVED TO FIRST POSITION -->
-                                <a href="services.html#bpo-services"
-                                    class="group/item block px-3 py-4 transition-all duration-300 hover:border-l-white"
-                                    style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                    aria-label="BPO Services">
+                                <!-- BPO Services -->
+                                <a href="#bpo-services"
+                                    class="group/item block px-3 py-4 transition-all duration-300 border-l-2 border-transparent hover:border-white text-white/90 hover:text-white">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white/20"
-                                                style="background-color: rgba(255, 255, 255, 0.1);">
-                                                <i class="fas fa-headset text-sm" style="color: white;"></i>
+                                            <div
+                                                class="w-8 h-8 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white/20 bg-white/10">
+                                                <i class="fas fa-headset text-sm text-white"></i>
                                             </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45"
-                                                style="background-color: white;"></div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 bg-white"></div>
                                         </div>
                                         <div class="flex-1">
-                                            <div class="text-sm font-medium" style="color: white;">BPO Services</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">
-                                                Business process outsourcing</div>
+                                            <div class="text-sm font-medium text-white">BPO Services</div>
+                                            <div class="text-xs mt-1 text-white/70">Business process outsourcing</div>
                                         </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                                            style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                        <i
+                                            class="fas fa-arrow-right text-xs text-white opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all"></i>
                                     </div>
                                 </a>
 
                                 <!-- Web Development -->
-                                <a href="services.html#web-services"
-                                    class="group/item block px-3 py-4 transition-all duration-300"
-                                    style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                    aria-label="Web Development Services">
+                                <a href="#web-services"
+                                    class="group/item block px-3 py-4 transition-all duration-300 border-l-2 border-transparent hover:border-white text-white/90 hover:text-white">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
-                                                style="background-color: rgba(255, 255, 255, 0.1);">
-                                                <i class="fas fa-code text-sm"
-                                                    style="color: rgba(255, 255, 255, 0.9);"></i>
+                                            <div
+                                                class="w-8 h-8 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white/20 bg-white/10">
+                                                <i class="fas fa-code text-sm text-white"></i>
                                             </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45"
-                                                style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 bg-white"></div>
                                         </div>
                                         <div class="flex-1">
-                                            <div class="text-sm font-medium">Web Development</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Modern
-                                                web solutions</div>
+                                            <div class="text-sm font-medium text-white">Web Development</div>
+                                            <div class="text-xs mt-1 text-white/70">Modern web solutions</div>
                                         </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                                            style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                        <i
+                                            class="fas fa-arrow-right text-xs text-white opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all"></i>
                                     </div>
                                 </a>
-
-
 
                                 <!-- Sales & Marketing -->
-                                <a href="services.html#sales-lead-generation"
-                                    class="group/item block px-3 py-4 transition-all duration-300"
-                                    style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                    aria-label="Sales & Marketing Services">
+                                <a href="#sales-lead-generation"
+                                    class="group/item block px-3 py-4 transition-all duration-300 border-l-2 border-transparent hover:border-white text-white/90 hover:text-white">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
-                                                style="background-color: rgba(255, 255, 255, 0.1);">
-                                                <i class="fa-solid fa-arrow-trend-up text-sm"
-                                                    style="color: rgba(255, 255, 255, 0.9);"></i>
+                                            <div
+                                                class="w-8 h-8 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white/20 bg-white/10">
+                                                <i class="fa-solid fa-arrow-trend-up text-sm text-white"></i>
                                             </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45"
-                                                style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 bg-white"></div>
                                         </div>
                                         <div class="flex-1">
-                                            <div class="text-sm font-medium">Sales & Marketing</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">
-                                                Lead generation and marketing</div>
+                                            <div class="text-sm font-medium text-white">Sales & Lead Generation</div>
+                                            <div class="text-xs mt-1 text-white/70">Outbound sales, lead gen,
+                                                appointment setting</div>
                                         </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                                            style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                        <i
+                                            class="fas fa-arrow-right text-xs text-white opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all"></i>
                                     </div>
                                 </a>
 
-                                <!-- View All -->
-                                <div class="pt-4 mt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                                    <a href="services.html"
-                                        class="group/item block px-3 py-3 transition-all duration-300 rounded"
-                                        style="color: white;" aria-label="View All Services">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-sm font-medium tracking-wide">VIEW ALL SERVICES</span>
-                                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300"
-                                                style="border: 1px solid rgba(255, 255, 255, 0.7);">
-                                                <i class="fas fa-arrow-right text-xs" style="color: white;"></i>
+                                <!-- Marketing -->
+                                <a href="services.html#digital-marketing"
+                                    class="group/item block px-3 py-4 transition-all duration-300 border-l-2 border-transparent hover:border-white text-white/80 hover:text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative flex-shrink-0">
+                                            <div
+                                                class="w-8 h-8 flex items-center justify-center bg-white/10 group-hover/item:bg-white/20 transition-all">
+                                                <i class="fas fa-bullhorn text-sm text-white"></i>
                                             </div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 bg-white"></div>
                                         </div>
-                                    </a>
-                                </div>
+                                        <div class="flex-1">
+                                            <div class="text-sm font-medium text-white">Digital Marketing</div>
+                                            <div class="text-xs text-white/60 mt-1">Data-Driven Growth Strategies</div>
+                                        </div>
+                                        <i
+                                            class="fas fa-arrow-right text-xs text-white opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all"></i>
+                                    </div>
+                                </a>
+
+                                <!-- Divider -->
+                                <div class="pt-4 mt-2 border-t border-white/20"></div>
+
+                                <!-- View All Services -->
+                                <a href="services.html"
+                                    class="group/item block px-3 py-3 transition-all duration-300 hover:bg-white/20 text-white">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm font-medium tracking-wide">VIEW ALL SERVICES</span>
+                                        <div
+                                            class="w-6 h-6 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white group-hover/item:text-[#118AB2] border border-white">
+                                            <i
+                                                class="fas fa-arrow-right text-xs text-white group-hover/item:text-[#118AB2]"></i>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </li>
 
-                <!-- Careers Dropdown -->
+                <!-- Careers Dropdown (Green Theme) -->
                 <li class="relative group">
+                    <!-- Careers Button -->
                     <button
                         class="group relative px-4 py-3 transition-all duration-300 flex items-center gap-3 nav-link"
-                        style="color: rgba(255, 255, 255, 0.9);" aria-label="Careers Menu">
+                        style="color: rgba(255, 255, 255, 0.9);">
                         <div class="relative w-5 h-5">
                             <div class="absolute inset-0">
                                 <div class="w-2 h-2 transition-all duration-300 group-hover:w-3 group-hover:h-3"
@@ -1453,96 +1462,91 @@
                                     style="background-color: rgba(255, 255, 255, 0.9);"></div>
                             </div>
                         </div>
-                        <a href="career.html">
+                        <a href="career.html#applicationForm">
                             <span
                                 class="text-sm tracking-wider font-medium group-hover:translate-x-1 transition-transform duration-300">CAREERS</span>
                         </a>
                         <i class="fas fa-chevron-down text-xs mt-0.5 transition-all duration-300"
-                            style="color: rgba(255, 255, 255, 0.9); opacity: 0.7;"></i>
+                            style="color: white; opacity: 0.7;"></i>
                         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-10"
-                            style="background-color: #42c7f3;"></div>
+                            style="background-color: #06D6A0;"></div>
                     </button>
 
-                    <!-- Dropdown Menu -->
+                    <!-- Careers Dropdown Menu - Green Background -->
                     <div
                         class="absolute left-0 top-full pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-4 group-hover:translate-y-0">
                         <div class="relative">
-                            <div class="absolute -top-2 left-6 w-4 h-4 rotate-45"
-                                style="background-color: rgba(6, 214, 160, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                            <!-- Arrow indicator (green) -->
+                            <div
+                                class="absolute -top-2 left-6 w-4 h-4 rotate-45 bg-[#06D6A0] border-l border-white/20 border-t border-white/20">
                             </div>
 
-                            <div class="pt-6 pb-2 px-4 space-y-1 min-w-[320px]"
-                                style="background-color: rgba(6, 214, 160, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <!-- Dropdown content (green) -->
+                            <div
+                                class="pt-6 pb-2 px-4 space-y-1 min-w-[320px] bg-[#06D6A0] backdrop-blur-sm border border-white/20 shadow-xl">
+
+                                <!-- Header -->
                                 <div class="flex items-center gap-2 mb-4 px-2">
-                                    <div class="w-3 h-3 rotate-45" style="background-color: white;"></div>
-                                    <div class="text-xs tracking-widest uppercase"
-                                        style="color: rgba(255, 255, 255, 0.9);">JOIN OUR TEAM</div>
+                                    <div class="w-3 h-3 rotate-45 bg-white"></div>
+                                    <div class="text-xs tracking-widest uppercase text-white/90">JOIN OUR TEAM</div>
                                 </div>
 
-                                <!-- Open Positions -->
-                                <a href="#Talent-section" class="group/item block px-3 py-4 transition-all duration-300"
-                                    style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                    aria-label="Open Positions">
+                                <!-- Talent We Value -->
+                                <a href="career.html#Talent-section"
+                                    class="group/item block px-3 py-4 transition-all duration-300 border-l-2 border-transparent hover:border-white text-white/90 hover:text-white">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
-                                                style="background-color: rgba(255, 255, 255, 0.1);">
-                                                <i class="fas fa-briefcase text-sm"
-                                                    style="color: rgba(255, 255, 255, 0.9);"></i>
+                                            <div
+                                                class="w-8 h-8 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white/20 bg-white/10">
+                                                <i class="fas fa-briefcase text-sm text-white"></i>
                                             </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45"
-                                                style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 bg-white"></div>
                                         </div>
                                         <div class="flex-1">
-                                            <div class="text-sm font-medium">Talent We Value</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Current
-                                                vacancies</div>
+                                            <div class="text-sm font-medium text-white">Talent We Value</div>
+                                            <div class="text-xs mt-1 text-white/70">Skills and qualities we seek in our
+                                                team members</div>
                                         </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                                            style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                        <i
+                                            class="fas fa-arrow-right text-xs text-white opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all"></i>
                                     </div>
                                 </a>
 
-                                <!-- Culture -->
-                                <a href="#workplace-excellence"
-                                    class="group/item block px-3 py-4 transition-all duration-300"
-                                    style="color: rgba(255, 255, 255, 0.9); border-left: 2px solid transparent;"
-                                    aria-label="Benefits and Culture">
+                                <!-- Our Culture -->
+                                <a href="career.html#workplace-excellence"
+                                    class="group/item block px-3 py-4 transition-all duration-300 border-l-2 border-transparent hover:border-white text-white/90 hover:text-white">
                                     <div class="flex items-center gap-4">
                                         <div class="relative flex-shrink-0">
-                                            <div class="w-8 h-8 flex items-center justify-center transition-all duration-300"
-                                                style="background-color: rgba(255, 255, 255, 0.1);">
-                                                <i class="fas fa-gift text-sm"
-                                                    style="color: rgba(255, 255, 255, 0.9);"></i>
+                                            <div
+                                                class="w-8 h-8 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white/20 bg-white/10">
+                                                <i class="fas fa-gift text-sm text-white"></i>
                                             </div>
-                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45"
-                                                style="background-color: rgba(255, 255, 255, 0.7);"></div>
+                                            <div class="absolute -top-1 -right-1 w-2 h-2 rotate-45 bg-white"></div>
                                         </div>
                                         <div class="flex-1">
-                                            <div class="text-sm font-medium">Our Culture</div>
-                                            <div class="text-xs mt-1" style="color: rgba(255, 255, 255, 0.7);">Work
-                                                environment</div>
+                                            <div class="text-sm font-medium text-white">Our Culture</div>
+                                            <div class="text-xs mt-1 text-white/70">Work environment and values</div>
                                         </div>
-                                        <i class="fas fa-arrow-right text-xs transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-                                            style="color: white; opacity: 0; transform: translateX(-0.5rem);"></i>
+                                        <i
+                                            class="fas fa-arrow-right text-xs text-white opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all"></i>
                                     </div>
                                 </a>
 
-                                <!-- Apply Now -->
-                                <div class="pt-4 mt-2" style="border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                                    <a href="career.html"
-                                        class="group/item block px-3 py-3 transition-all duration-300 rounded"
-                                        style="background-color: rgba(255, 255, 255, 0.1); color: white;"
-                                        aria-label="Apply Now">
-                                        <div class="flex items-center justify-center gap-3">
-                                            <span class="text-sm font-medium tracking-wide">APPLY NOW</span>
-                                            <div class="w-6 h-6 flex items-center justify-center transition-all duration-300"
-                                                style="border: 1px solid white;">
-                                                <i class="fas fa-paper-plane text-xs" style="color: white;"></i>
-                                            </div>
+                                <!-- Divider -->
+                                <div class="pt-4 mt-2 border-t border-white/20"></div>
+
+                                <!-- Apply Now Button -->
+                                <a href="career.html#applicationForm"
+                                    class="group/item block px-3 py-3 transition-all duration-300 hover:bg-white/20 text-white">
+                                    <div class="flex items-center justify-center gap-3">
+                                        <span class="text-sm font-medium tracking-wide">APPLY NOW</span>
+                                        <div
+                                            class="w-6 h-6 flex items-center justify-center transition-all duration-300 group-hover/item:bg-white group-hover/item:text-[#06D6A0] border border-white">
+                                            <i
+                                                class="fas fa-paper-plane text-xs text-white group-hover/item:text-[#06D6A0]"></i>
                                         </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1657,19 +1661,24 @@
                                 <i class="fas fa-code text-xs" style="color: white;"></i>
                             </div>
                             <span class="text-sm flex-1">Web Development</span>
-                            <span class="text-xs px-2 py-0.5 rounded-full border"
-                                style="border-color: white; color: white;">6</span>
                         </a>
                         <a href="services.html#sales-lead-generation"
-                            class="group/item flex items-center gap-3 py-2 px-2 rounded-sm transition-all duration-300 border"
+                            class="group/item flex items-center gap-3 py-2 px-2 rounded-sm transition-all duration-300 "
                             style="color: rgba(255, 255, 255, 0.9); background-color: rgba(255, 255, 255, 0.05); border-color: #ffffff; border-left: 3px solid lab(100% 0.01 -0.01);">
                             <div class="w-6 h-6 flex items-center justify-center rounded-sm border"
-                                style="background-color: #42c7f3; border-color: rgba(255, 107, 107, 0.3);">
+                                style="background-color:  rgba(6, 214, 160, 0.15); border-color: rgba(255, 107, 107, 0.3);">
                                 <i class="fa-solid fa-arrow-trend-up text-xs" style="color: white;"></i>
                             </div>
-                            <span class="text-sm flex-1">Sales & Marketing</span>
-                            <span class="text-xs px-2 py-0.5 rounded-full border"
-                                style="border-color: rgb(255, 255, 255); color: #ffffff;">3</span>
+                            <span class="text-sm flex-1">Sales & Lead Generation</span>
+                        </a>
+                        <a href="services.html#digital-marketing"
+                            class="group/item flex items-center gap-3 py-2 px-2 rounded-sm transition-all duration-300 "
+                            style="color: rgba(255, 255, 255, 0.9); background-color: rgba(255, 255, 255, 0.05); border-color: #ffffff; border-left: 3px solid lab(100% 0.01 -0.01);">
+                            <div class="w-6 h-6 flex items-center justify-center rounded-sm "
+                                style="background-color:  rgba(6, 214, 160, 0.15); ;">
+                                <i class="fa-solid fa-bullhorn text-xs" style="color: white;"></i>
+                            </div>
+                            <span class="text-sm flex-1">Digital Marketing</span>
                         </a>
 
                         <!-- View All Services - Styled as CTA -->
@@ -1722,8 +1731,6 @@
                                 <i class="fas fa-briefcase text-xs" style="color: white;"></i>
                             </div>
                             <span class="text-sm flex-1">Talent We Value</span>
-                            <span class="text-xs px-2 py-0.5 rounded-full border"
-                                style="border-color: rgba(6, 214, 160, 0.3); color: #06D6A0;">3</span>
                         </a>
 
 
@@ -1735,12 +1742,11 @@
                                 <i class="fas fa-gift text-xs" style="color: white;"></i>
                             </div>
                             <span class="text-sm flex-1">Our Culture</span>
-                            <i class="fas fa-heart text-xs" style="color: #06D6A0;"></i>
                         </a>
 
                         <!-- Apply Now - Prominent CTA -->
                         <div class="pt-3 mt-4">
-                            <a href="career.html"
+                            <a href="career.html#applicationForm"
                                 class="group/item flex items-center justify-between py-3 px-3 rounded-sm transition-all duration-300 border-2"
                                 style="background: linear-gradient(135deg, #06D6A0, #118AB2); border-color: rgba(255, 255, 255, 0.3);">
                                 <div class="flex items-center gap-3">
@@ -1751,8 +1757,6 @@
                                     <span class="text-sm font-medium" style="color: white;">Apply Now</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <span class="text-xs px-2 py-0.5 rounded-full"
-                                        style="background-color: rgba(255, 255, 255, 0.2); color: white;">5 open</span>
                                     <i class="fas fa-arrow-right text-xs border rounded-full p-1"
                                         style="color: white; border-color: rgba(255, 255, 255, 0.3);"></i>
                                 </div>
@@ -1800,22 +1804,6 @@
                             style="background-color: rgba(255, 255, 255, 0.3); border-color: rgba(255, 255, 255, 0.2);">
                         </div>
                     </div>
-
-                    <!-- Quick Access Icons -->
-                    <!-- <div class="flex justify-center gap-4 mt-3">
-                        <div class="w-8 h-8 flex items-center justify-center rounded-full border"
-                            style="border-color: rgba(255, 255, 255, 0.2);">
-                            <i class="fas fa-phone text-xs" style="color: rgba(255, 255, 255, 0.6);"></i>
-                        </div>
-                        <div class="w-8 h-8 flex items-center justify-center rounded-full border"
-                            style="border-color: rgba(255, 255, 255, 0.2);">
-                            <i class="fas fa-envelope text-xs" style="color: rgba(255, 255, 255, 0.6);"></i>
-                        </div>
-                        <div class="w-8 h-8 flex items-center justify-center rounded-full border"
-                            style="border-color: rgba(255, 255, 255, 0.2);">
-                            <i class="fas fa-map-marker-alt text-xs" style="color: rgba(255, 255, 255, 0.6);"></i>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
