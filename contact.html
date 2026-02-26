@@ -24,6 +24,7 @@
     <meta name="target" content="all" />
     <meta name="format-detection" content="telephone=yes" />
 
+
     <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
     <meta name="msvalidate.01" content="YOUR_VERIFICATION_CODE" />
     <meta name="yandex-verification" content="YOUR_VERIFICATION_CODE" />
@@ -1090,7 +1091,6 @@
                         </div>
                     </div>
 
-                    <!-- Location card -->
                     <div class="contact-card hover-lift" style="padding:1.5rem;background:rgba(17,138,178,.05);border:1px solid rgba(17,138,178,.1);margin-bottom:1.5rem"
                          onmouseover="this.style.borderColor='#42c7f3';this.style.backgroundColor='rgba(17,138,178,.1)'"
                          onmouseout="this.style.borderColor='rgba(17,138,178,.1)';this.style.backgroundColor='rgba(17,138,178,.05)'">
@@ -1113,7 +1113,6 @@
                         </div>
                     </div>
 
-                    <!-- Social -->
                     <div style="padding-top:1rem">
                         <h3 style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:1rem">Connect with us</h3>
                         <div style="display:flex;gap:.75rem">
@@ -1140,12 +1139,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FAQ SECTION
-         FIX #3: Uses CSS class toggle instead of scrollHeight reads.
-         The .faq-answer CSS uses max-height:0 → max-height:500px.
-         No JS layout reads occur. Eliminates the 109ms forced reflow.
-         ============================================================ -->
     <section id="faq" style="padding:5rem 1.5rem;background:#000;position:relative;overflow:hidden" aria-labelledby="faq-heading">
         <div class="absolute inset-0" style="background:linear-gradient(45deg,transparent 25%,rgba(17,138,178,.02) 50%,transparent 75%);background-size:10px 10px"></div>
 
@@ -1225,22 +1218,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         GLOBAL PRESENCE
-         FIX #2: map.webp srcset — browser picks smallest image needed.
-
-         ACTION REQUIRED: generate these 2 files from images/map.webp:
-           images/map-800.webp  (800px wide, quality 75) ~80-100KB
-           images/map-400.webp  (400px wide, quality 75) ~30-40KB
-
-         Using ImageMagick:
-           convert images/map.webp -resize 800x -quality 75 images/map-800.webp
-           convert images/map.webp -resize 400x -quality 75 images/map-400.webp
-
-         Or use Squoosh (free web app): https://squoosh.app
-         The original 5708px image is 1.3MB. The 800px version is ~90KB.
-         That's a 93% reduction in download size.
-         ============================================================ -->
     <section id="global-presence" style="padding:5rem 1.5rem;background:#000;position:relative;overflow:hidden" aria-labelledby="global-heading">
         <div style="max-width:72rem;margin:0 auto;position:relative;z-index:10">
             <div style="text-align:center;margin-bottom:4rem">
@@ -1255,11 +1232,7 @@
 
             <div data-aos="zoom-in" data-aos-duration="400" data-aos-delay="300" style="margin-bottom:3rem">
                 <div class="map-container" style="max-width:56rem;margin:0 auto">
-                    <!--
-                        FIX #2: srcset lets browser download only the size it needs.
-                        A 778px-wide display needs an 800px image (~90KB), not 5708px (1.3MB).
-                        savings: ~1.2MB per page load.
-                    -->
+
                     <img src="images/map.webp"
                          srcset="images/map.webp 400w,
                                  images/map.webp 800w,
@@ -1273,19 +1246,16 @@
                          decoding="async"
                          style="width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.8) contrast(1.2) grayscale(1)">
 
-                    <!-- Pakistan Marker -->
                     <div style="position:absolute;top:58%;left:62%;transform:translate(-50%,-50%)">
                         <div style="width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#42c7f3;box-shadow:0 2px 8px rgba(0,0,0,.4)">
                             <div style="width:.5rem;height:.5rem;border-radius:50%;background:#fff"></div>
                         </div>
                     </div>
-                    <!-- USA Marker -->
                     <div style="position:absolute;top:42%;left:28%;transform:translate(-50%,-50%)">
                         <div style="width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#06D6A0;box-shadow:0 2px 8px rgba(0,0,0,.4)">
                             <div style="width:.5rem;height:.5rem;border-radius:50%;background:#fff"></div>
                         </div>
                     </div>
-                    <!-- Canada Marker -->
                     <div style="position:absolute;top:35%;left:25%;transform:translate(-50%,-50%)">
                         <div style="width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#42c7f3;box-shadow:0 2px 8px rgba(0,0,0,.4)">
                             <div style="width:.5rem;height:.5rem;border-radius:50%;background:#fff"></div>
@@ -1320,9 +1290,7 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
+
     <footer style="background:#000;color:#fff;padding:6rem 0;position:relative;overflow:hidden" role="contentinfo">
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2" style="border-color:rgba(17,138,178,.1)"></div>
@@ -1420,11 +1388,11 @@
         </div>
     </footer>
 
-    <!-- AOS — deferred, desktop only -->
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script>
-        // AOS — only init on desktop after full load
+
         window.addEventListener('load', function () {
             if (window.innerWidth > 768 && typeof AOS !== 'undefined') {
                 AOS.init({ duration: 600, once: true, offset: 80, easing: 'ease-out-cubic' });
@@ -1433,7 +1401,6 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
-            // ---- Responsive grid: switch to 2-col on desktop ----
             function applyGrids() {
                 var fg = document.getElementById('formGrid');
                 var cg = document.getElementById('cityGrid');
@@ -1453,7 +1420,7 @@
             applyGrids();
             window.addEventListener('resize', applyGrids, { passive: true });
 
-            // ---- Navbar scroll effect ----
+
             var navbar = document.getElementById('navbar');
             var lastScrollTop = 0;
             var isMobileMenuOpen = false;
@@ -1471,7 +1438,7 @@
             window.addEventListener('scroll', updateNavbar, { passive: true });
             updateNavbar();
 
-            // ---- Mobile menu ----
+
             var mobileMenuBtn  = document.getElementById('mobileMenuBtn');
             var mobileMenu     = document.getElementById('mobileMenu');
             var mobileServBtn  = document.getElementById('mobileServicesBtn');
@@ -1518,18 +1485,7 @@
                 });
             }
 
-            // ==========================================================
-            // FIX #3: FAQ Accordion — ZERO scrollHeight reads.
-            //
-            // Previous code (caused 109ms forced reflow):
-            //   answer.style.maxHeight = answer.scrollHeight + 'px';
-            //
-            // Reading .scrollHeight forces the browser to calculate layout
-            // before JS can read the value, causing a synchronous reflow.
-            //
-            // Fix: toggle a CSS class instead. The open state sets
-            // max-height:500px in CSS. Zero JS layout reads needed.
-            // ==========================================================
+
             document.querySelectorAll('.faq-item').forEach(function (item) {
                 var btn    = item.querySelector('.faq-question');
                 var answer = item.querySelector('.faq-answer');
@@ -1551,7 +1507,7 @@
                         }
                     });
 
-                    // Toggle current item — NO scrollHeight read
+
                     if (isOpen) {
                         answer.classList.remove('faq-open');
                         icon.style.transform = 'rotate(45deg)';
@@ -1564,11 +1520,11 @@
                 });
             });
 
-            // ---- Current year ----
+
             var ye = document.getElementById('currentYear');
             if (ye) ye.textContent = new Date().getFullYear();
 
-            // ---- Smooth scroll for anchor links ----
+
             document.querySelectorAll('a[href^="#"]').forEach(function (a) {
                 a.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1580,8 +1536,6 @@
                 });
             });
 
-            // ---- Mobile: disable video to save bandwidth ----
-            // Only the poster image (~80KB) loads on mobile. Video src is cleared.
             var heroVideo = document.getElementById('hero-video');
             if (heroVideo && window.innerWidth <= 768) {
                 heroVideo.removeAttribute('autoplay');
